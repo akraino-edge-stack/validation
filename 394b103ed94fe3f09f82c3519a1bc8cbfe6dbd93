@@ -22,6 +22,40 @@
       "revId": "394b103ed94fe3f09f82c3519a1bc8cbfe6dbd93",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "60fad0cd_d9b3a4f1",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-03T11:16:42Z",
+      "side": 1,
+      "message": "How about using subprocess module instead of os.system?",
+      "revId": "394b103ed94fe3f09f82c3519a1bc8cbfe6dbd93",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5e15be94_8bf13aee",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-03T11:16:42Z",
+      "side": 1,
+      "message": "pylint:\n\n************* Module bluval\nC:  1, 0: Missing module docstring (missing-docstring)\nC: 23, 0: Missing function docstring (missing-docstring)\nW: 29,11: Catching too general exception Exception (broad-except)\nW: 35,15: Redefining built-in \u0027file\u0027 (redefined-builtin)\nC: 35, 0: Missing function docstring (missing-docstring)\nC: 36,23: Variable name \"f\" doesn\u0027t conform to snake_case naming style (invalid-name)\nC: 37, 8: Variable name \"y\" doesn\u0027t conform to snake_case naming style (invalid-name)\nC: 38, 8: Variable name \"b\" doesn\u0027t conform to snake_case naming style (invalid-name)\nC: 39,12: Variable name \"s\" doesn\u0027t conform to snake_case naming style (invalid-name)\nC: 41,16: Variable name \"t\" doesn\u0027t conform to snake_case naming style (invalid-name)",
+      "revId": "394b103ed94fe3f09f82c3519a1bc8cbfe6dbd93",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
