@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "950fb240_7b214bc0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-03T07:50:24Z",
+      "side": 1,
+      "message": "I think the term bluval is confusing (as val is short for value) and doesn\u0027t say much to an out of the context reader. pbvalidation sounds like a better option to me.\n\nAlso, I would like to see a more detailed description of what the patch does.",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "394b103ed94fe3f09f82c3519a1bc8cbfe6dbd93",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
