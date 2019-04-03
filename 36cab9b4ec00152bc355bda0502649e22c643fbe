@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b8f9323c_e928b819",
+        "filename": "bios_version/bios_version.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-03T07:13:38Z",
+      "side": 1,
+      "message": "Is the idea to run this always on localhost or possibly on remote host too?",
+      "revId": "36cab9b4ec00152bc355bda0502649e22c643fbe",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b22f7df7_6b1a5760",
+        "filename": "bios_version/bios_version.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-03T07:13:38Z",
+      "side": 1,
+      "message": "This is not a generic test to verify HW details but specifically for PowerEdge R740xd only. Is the plan to have dedicated files for all HW types supported?",
+      "revId": "36cab9b4ec00152bc355bda0502649e22c643fbe",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b17ef51_9a7f146b",
+        "filename": "bios_version/bios_version.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-03T07:13:38Z",
+      "side": 1,
+      "message": "sudo not required here",
+      "range": {
+        "startLine": 47,
+        "startChar": 64,
+        "endLine": 47,
+        "endChar": 74
+      },
+      "revId": "36cab9b4ec00152bc355bda0502649e22c643fbe",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbc15eae_c300ac18",
+        "filename": "bios_version/bios_version.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-03T07:13:38Z",
+      "side": 1,
+      "message": "sudo not required here",
+      "range": {
+        "startLine": 53,
+        "startChar": 65,
+        "endLine": 53,
+        "endChar": 74
+      },
+      "revId": "36cab9b4ec00152bc355bda0502649e22c643fbe",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "46c9c332_8fbc4803",
+        "filename": "bios_version/bios_version.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-03T07:13:38Z",
+      "side": 1,
+      "message": "Tests should not be executed as root but as a sudo user if required.\n\nPreconditions for executing tests (like public key) should be documented somewhere (e.g README).",
+      "revId": "36cab9b4ec00152bc355bda0502649e22c643fbe",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
