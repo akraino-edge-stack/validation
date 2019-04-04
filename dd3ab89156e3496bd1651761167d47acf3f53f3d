@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f1099e3_e26ccbea",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-04T08:44:50Z",
+      "side": 1,
+      "message": "show_stopper \u003d testcase.get(\u0027show_stopper\u0027, False)",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 28
+      },
+      "revId": "dd3ab89156e3496bd1651761167d47acf3f53f3d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b579f73_ddce07f3",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-04T08:44:50Z",
+      "side": 1,
+      "message": "This print syntax is Python 2 only.",
+      "revId": "dd3ab89156e3496bd1651761167d47acf3f53f3d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e52d14a_a8bcba28",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-04T08:44:50Z",
+      "side": 1,
+      "message": "Redefining local name",
+      "range": {
+        "startLine": 53,
+        "startChar": 32,
+        "endLine": 53,
+        "endChar": 45
+      },
+      "revId": "dd3ab89156e3496bd1651761167d47acf3f53f3d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
