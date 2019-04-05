@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb5ebafa_db43bf07",
+        "filename": "bluval/bluval-base.yaml",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-05T08:20:21Z",
+      "side": 1,
+      "message": "Please see Paul\u0027s comment on patch set 5",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f8cf1374_43cfe1ee",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-05T08:20:21Z",
+      "side": 1,
+      "message": "this approach requires\nstatus \u003d subprocess.call(cmd, shell\u003dTrue)",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c14cd1d1_bd2c9d12",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-05T08:20:21Z",
+      "side": 1,
+      "message": "This is redefining the local argument \u0027testcase_file\u0027",
+      "range": {
+        "startLine": 49,
+        "startChar": 32,
+        "endLine": 49,
+        "endChar": 45
+      },
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "052ef5ac_15c08ba8",
+        "filename": "bluval/requirements.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-05T08:20:21Z",
+      "side": 1,
+      "message": "Is pyyaml needed?",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
