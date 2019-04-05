@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "3c52d779_410e4040",
+        "filename": "bluval/bluval-base.yaml",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-04-05T12:23:16Z",
+      "side": 1,
+      "message": "Same question as on PS5, why include a list of dictionary keys in the dictionary? This seems like an odd way to design a data structure.",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb5ebafa_db43bf07",
         "filename": "bluval/bluval-base.yaml",
         "patchSetId": 7
@@ -36,6 +53,24 @@
     },
     {
       "key": {
+        "uuid": "6fe503f6_dffc52fd",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-04-05T12:23:16Z",
+      "side": 1,
+      "message": "Some consideration should also be given to whether we want to allow arbitrary shell commands. This is ok for now, but we do need to give some thought to whether there\u0027s any possibility of unsanitized code getting injected into the CI. I\u0027m still fuzzy on the details of our CI pipelines, but in my experience with other projects (and with Zuul based CI) is that some tests are run on every change submitted to CI, even before human review. We don\u0027t want to allow a vector where someone could inject shell exploit code into a Gerrit commit.",
+      "parentUuid": "f8cf1374_43cfe1ee",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c14cd1d1_bd2c9d12",
         "filename": "bluval/bluval.py",
         "patchSetId": 7
@@ -59,6 +94,30 @@
     },
     {
       "key": {
+        "uuid": "d95f14eb_294b3ebe",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-04-05T12:23:16Z",
+      "side": 1,
+      "message": "I agree redefining the name is not a great style. Also, the with block is longer than it needs to be. Once you\u0027ve loaded the YAML you don\u0027t need the file anymore. I\u0027d write the entire with block as:\n\n  with open(testcase_file) as f:\n    testcase \u003d yaml.safe_load(f)\n\nand then continue with the rest of your code outdented one level (i.e. not inside of the with block). Also note that I changed testcase_yaml to testcase, because the return value of yaml.safe_load is NOT YAML. It\u0027s a Python dictionary.",
+      "parentUuid": "c14cd1d1_bd2c9d12",
+      "range": {
+        "startLine": 49,
+        "startChar": 32,
+        "endLine": 49,
+        "endChar": 45
+      },
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "052ef5ac_15c08ba8",
         "filename": "bluval/requirements.txt",
         "patchSetId": 7
@@ -70,6 +129,24 @@
       "writtenOn": "2019-04-05T08:20:21Z",
       "side": 1,
       "message": "Is pyyaml needed?",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a860ae22_e2982cf0",
+        "filename": "bluval/requirements.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-04-05T12:23:16Z",
+      "side": 1,
+      "message": "YAML in Python is a bit weird. The module is actually called PyYAML with exactly that capitalization, but the import statement is\n\n  import yaml\n\nI\u0027m not sure if requirements.txt is case sensitive, but if you run \"pip3 freeze\" (or \"pip freeze\") it definitely lists the YAML module with the capitalization as PyYAML. I don\u0027t believe there is any module called just \"yaml\" in Python.",
+      "parentUuid": "052ef5ac_15c08ba8",
       "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
