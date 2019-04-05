@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d3531e5a_42484f31",
+        "filename": "bluval/bluval-base.yaml",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-04-05T21:27:09Z",
+      "side": 1,
+      "message": "We need to maintain the order.",
+      "parentUuid": "3c52d779_410e4040",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb5ebafa_db43bf07",
         "filename": "bluval/bluval-base.yaml",
         "patchSetId": 7
@@ -83,6 +101,24 @@
       "side": 1,
       "message": "I agree with Paul here. Instead of doing ssh to the cluster, it\u0027s cleaner to have a separate container (that runs on the jumpserver, not in the cluster) that has kubectl in it and can connect to the cluster, but runs locally all the commands.\n\nThis way you can put all the necessary tools in the validation container, instead of alterating the cluster.",
       "parentUuid": "6fe503f6_dffc52fd",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e892529a_c90d5682",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-04-05T21:27:09Z",
+      "side": 1,
+      "message": "Agree with container concept but we will convert all these files into container as part of separate task.",
+      "parentUuid": "02f75609_f99d7064",
       "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
