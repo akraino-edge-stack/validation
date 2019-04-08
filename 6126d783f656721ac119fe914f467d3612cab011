@@ -45,6 +45,40 @@
       "revId": "6126d783f656721ac119fe914f467d3612cab011",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59916c39_fb42ede9",
+        "filename": "bluval/bluval-base.yaml",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-04-08T12:28:29Z",
+      "side": 1,
+      "message": "We should maybe discuss whether absolute paths are a good idea. Maybe it makes sense, but I\u0027m not sure. My first inclination is to say that there should be a base directory defined once and all paths should be relative to that.",
+      "revId": "6126d783f656721ac119fe914f467d3612cab011",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "73541b2a_83b56311",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-04-08T12:28:29Z",
+      "side": 1,
+      "message": "Please reply to comment on PS7. Why does all this need to be inside the with block?",
+      "revId": "6126d783f656721ac119fe914f467d3612cab011",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
