@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f73b3ab_699ee3e8",
+        "filename": "bluval/bluval-base.yaml",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 145
+      },
+      "writtenOn": "2019-04-08T11:31:51Z",
+      "side": 1,
+      "message": "or",
+      "range": {
+        "startLine": 33,
+        "startChar": 54,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "6126d783f656721ac119fe914f467d3612cab011",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3354867f_a8f92051",
+        "filename": "bluval/bluval-base.yaml",
+        "patchSetId": 9
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 145
+      },
+      "writtenOn": "2019-04-08T11:31:51Z",
+      "side": 1,
+      "message": "Comments says that this is a showstopper, but it is false?",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "6126d783f656721ac119fe914f467d3612cab011",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
