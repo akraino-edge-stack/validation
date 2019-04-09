@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "35f2ce95_ef7712df",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-09T12:50:04Z",
+      "side": 1,
+      "message": "- please add more descriptive commit message\n- remove extra Change-Ids",
+      "revId": "dde32c13be7e5d8b74810e45838f383681ec7997",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e64af88f_fbfc0a53",
+        "filename": "bios_version/bios_version_dell.robot",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-09T12:50:04Z",
+      "side": 1,
+      "message": "Why login as root?",
+      "revId": "dde32c13be7e5d8b74810e45838f383681ec7997",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08073392_61ab397b",
+        "filename": "conformance/conformance.robot",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-04-09T12:50:04Z",
+      "side": 1,
+      "message": "Why robot version has to be 3.1.1?",
+      "revId": "dde32c13be7e5d8b74810e45838f383681ec7997",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
