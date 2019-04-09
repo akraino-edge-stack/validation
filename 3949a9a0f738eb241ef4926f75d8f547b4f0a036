@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5ce5bfd7_b6bd0b99",
+        "filename": "bluval/bluval-base.yaml",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-04-09T05:22:52Z",
+      "side": 1,
+      "message": "Each layer is created as a map and it has an anchor. In this case we can extended this map.\n\nWe can assign anchors to sequence but those can\u0027t be merged. So I have to go with structure for now.",
+      "parentUuid": "d3531e5a_42484f31",
+      "revId": "3949a9a0f738eb241ef4926f75d8f547b4f0a036",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fb5ebafa_db43bf07",
         "filename": "bluval/bluval-base.yaml",
         "patchSetId": 7
