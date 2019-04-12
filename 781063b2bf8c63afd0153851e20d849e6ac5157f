@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "01fd1db4_2698c3fe",
+        "filename": "docker/k8s/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-12T07:45:00Z",
+      "side": 1,
+      "message": "I\u0027ll check it out",
+      "parentUuid": "dc29a2c3_812fe64c",
+      "revId": "781063b2bf8c63afd0153851e20d849e6ac5157f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f78cdfd7_21125181",
         "filename": "docker/k8s/Dockerfile",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "dabc964c_bfc73c62",
+        "filename": "docker/k8s/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-12T07:45:00Z",
+      "side": 1,
+      "message": "I use the Makefile to determine the arch at runtime and pass it to the Dockerfile as argument.",
+      "parentUuid": "f78cdfd7_21125181",
+      "range": {
+        "startLine": 3,
+        "startChar": 4,
+        "endLine": 3,
+        "endChar": 13
+      },
+      "revId": "781063b2bf8c63afd0153851e20d849e6ac5157f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28e33436_e349c143",
         "filename": "docker/k8s/Dockerfile",
         "patchSetId": 2
@@ -53,6 +95,30 @@
       "writtenOn": "2019-04-11T14:51:01Z",
       "side": 1,
       "message": "do we really need to execute these in subshells?",
+      "range": {
+        "startLine": 25,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 48
+      },
+      "revId": "781063b2bf8c63afd0153851e20d849e6ac5157f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59b1b176_aef8928f",
+        "filename": "docker/k8s/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-12T07:45:00Z",
+      "side": 1,
+      "message": "I guess not, it was more of a logical separation of the steps, since putting all the commands in one RUN command helps making the image smaller.",
+      "parentUuid": "28e33436_e349c143",
       "range": {
         "startLine": 25,
         "startChar": 5,
