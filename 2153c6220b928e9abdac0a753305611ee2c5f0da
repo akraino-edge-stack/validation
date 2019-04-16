@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "4be29aa2_effd8b1e",
+        "filename": "conformance/conformance.robot",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-04-16T15:43:54Z",
+      "side": 1,
+      "message": "I get this errors everytime \"sonobuoy run\" command is performed:\n\nroot@aknode109:# sonobuoy run --wait\nRunning plugins: e2e, systemd-logs\nERRO[0000] Preflight checks failed\nERRO[0000] no dns pod tests found",
+      "parentUuid": "f7d90f1e_047d05cb",
+      "range": {
+        "startLine": 50,
+        "startChar": 56,
+        "endLine": 50,
+        "endChar": 104
+      },
+      "revId": "2153c6220b928e9abdac0a753305611ee2c5f0da",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "796f9e4a_ad170d24",
         "filename": "ha/ha_services.robot",
         "patchSetId": 7
