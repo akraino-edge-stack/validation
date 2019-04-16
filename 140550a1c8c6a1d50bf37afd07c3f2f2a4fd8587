@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b4fca5a2_70e2097b",
+        "filename": "docker/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-16T13:24:07Z",
+      "side": 1,
+      "message": "Yes, I contacted LF to set the registry up, but it\u0027s still an ongoing discussion.",
+      "parentUuid": "d296c6fe_04dc927c",
+      "range": {
+        "startLine": 16,
+        "startChar": 18,
+        "endLine": 16,
+        "endChar": 47
+      },
+      "revId": "140550a1c8c6a1d50bf37afd07c3f2f2a4fd8587",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "134117cb_922b5a6d",
         "filename": "docker/build.mk",
         "patchSetId": 4
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "f3366478_9b2506ea",
+        "filename": "docker/build.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-16T13:24:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "134117cb_922b5a6d",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 17
+      },
+      "revId": "140550a1c8c6a1d50bf37afd07c3f2f2a4fd8587",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3d003645_d09748a2",
         "filename": "docker/k8s/Dockerfile",
         "patchSetId": 4
@@ -59,6 +107,30 @@
       "writtenOn": "2019-04-16T12:47:39Z",
       "side": 1,
       "message": "trailing ws",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "140550a1c8c6a1d50bf37afd07c3f2f2a4fd8587",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69624ee1_eed3fe80",
+        "filename": "docker/k8s/Dockerfile",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-16T13:24:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d003645_d09748a2",
       "range": {
         "startLine": 24,
         "startChar": 13,
