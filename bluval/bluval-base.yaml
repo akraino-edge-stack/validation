@@ -32,13 +32,18 @@ blueprint:
             name: bios_version
             # something that can be evaluated to true or false
             condition: true
-            what: /opt/akraino/validation/helloworld
+            # default is robot
+            how: robot
+            what: /opt/akraino/validation/bios_version
             # true or false, default is false
             show_stopper: false
+        -
+            name: baremetal_hw
+            what: /opt/akraino/validation/baremetal_hw
     os: &os_base
         -
-            name: os_version
-            what: /opt/akraino/validation/helloworld
+            name: latency_cyclic
+            what: /opt/akraino/validation/latency_cyclic
     networking: &networking
         -
             name: pxe_networking_test
@@ -49,10 +54,14 @@ blueprint:
     k8s: &k8s
         -
             name: conformance
-            what: /opt/akraino/validation/helloworld
+            what: /opt/akraino/validation/conformance
+        -
+            name: ha
+            what: /opt/akraino/validation/ha
         -
             name: e2e
-            what: /opt/akraino/validation/helloworld
+            how: bash
+            what: /opt/akraino/validation/e2e/e2e.sh
     k8s_networking: &k8s_networking
         -
             name: node_connectivity
