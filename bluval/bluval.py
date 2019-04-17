@@ -27,13 +27,15 @@ def run_testcase(testcase):
     """Runs a single testcase
     """
     show_stopper = testcase.get('show_stopper', False)
+    how = testcase.get('how', "robot")
+    what = testcase.get('what')
+    command = '{} {}'.format(how, what)
 
     print('Executing testcase {}'.format(testcase['name']))
     print('          show_stopper {}'.format(show_stopper))
-    cmd = 'robot {}'.format(testcase['what'])
-    print('Invoking {}'.format(cmd))
+    print('Invoking {}'.format(command))
     try:
-        status = subprocess.call(cmd, shell=True)
+        status = subprocess.call(command, shell=True)
         if status != 0 and testcase['show_stopper']:
             print('Show stopper testcase failed')
             return status
