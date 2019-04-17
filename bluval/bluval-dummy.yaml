@@ -16,15 +16,9 @@
 # limitations under the License.                                             #
 ##############################################################################
 blueprint:
-    name: base
+    name: dummy
     layers:
         - hw
-        - os
-        - networking
-        - k8s
-        - k8s_networking
-        - sds
-        - sdn
         - vim
     # Any hardware some basic tests
     hw: &hw_base
