@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa02bea4_459c34b6",
+        "filename": "tox.ini",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 133
+      },
+      "writtenOn": "2019-04-18T19:30:04Z",
+      "side": 1,
+      "message": "I believe you\u0027ll need to add \"nodeenv -p\" above this line in order to make it compatible with our CI system.",
+      "range": {
+        "startLine": 15,
+        "startChar": 3,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "60f7d50a052432a1fbd64c49443a7c73954b4cce",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
