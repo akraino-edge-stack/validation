@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f634d35_63773558",
+        "filename": ".coafile",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-04-19T17:30:24Z",
+      "side": 1,
+      "message": "Not sure about Akraino styling guide(s), but historically we used 120 columns for YAMLs in OPNFV, i.e. we could add here:\n  max_line_length \u003d 120",
+      "revId": "4d86b9c934779602596c8f76564237df15534e03",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "153fb51d_c4ca1ffb",
+        "filename": "tox.ini",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-04-19T17:30:24Z",
+      "side": 1,
+      "message": "identation differs from above block",
+      "revId": "4d86b9c934779602596c8f76564237df15534e03",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
