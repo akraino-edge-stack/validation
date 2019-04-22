@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d31dfafd_cd53942f",
+        "filename": ".coafile",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-22T07:39:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f634d35_63773558",
+      "revId": "4d86b9c934779602596c8f76564237df15534e03",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "153fb51d_c4ca1ffb",
         "filename": "tox.ini",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2019-04-19T17:30:24Z",
       "side": 1,
       "message": "identation differs from above block",
+      "revId": "4d86b9c934779602596c8f76564237df15534e03",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "579a6da5_51a7305c",
+        "filename": "tox.ini",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-04-22T07:39:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "153fb51d_c4ca1ffb",
       "revId": "4d86b9c934779602596c8f76564237df15534e03",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
