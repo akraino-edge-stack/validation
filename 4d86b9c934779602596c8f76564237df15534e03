@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ac12831e_040dbea4",
+        "filename": ".coafile",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-04-22T12:22:45Z",
+      "side": 1,
+      "message": "What sorts of things drive the need for that line length?\n\nLooking at a side by side diff with 120 character lines requires a minimum of 240 character wide screen. I\u0027d bet that quality and frequency of code review drops drastically if there is more than an occasional line that requires side to side scrolling.\n\nIf the long lines are mostly URLs or other opaque identifiers that we don\u0027t expect people to review then I guess it\u0027s ok, but not if we\u0027re talking about things that are typed as opposed to copy/pasted into the file.\n\nDoes Coala have anything along the lines of Bugbear\u0027s B950? https://github.com/PyCQA/flake8-bugbear",
+      "parentUuid": "9f634d35_63773558",
+      "revId": "4d86b9c934779602596c8f76564237df15534e03",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "153fb51d_c4ca1ffb",
         "filename": "tox.ini",
         "patchSetId": 3
