@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "4b054793_6bb3b495",
+        "filename": ".coafile",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-04-23T16:14:44Z",
+      "side": 1,
+      "message": "I don\u0027t have very strong feelings about line length, but YAMLs with lots of nested dicts tend to get trickier to fit into 80 cols, which is probably why most projects decided to use 120 cols.\nIn IEC, we also inherit some YAMLs from upstream, which constantly have \u003e80 cols, so for IEC we\u0027ll use 120 cols to avoid sprinkling \u0027disable-rule line-length\u0027 throughout the code.",
+      "parentUuid": "f4112ca8_e81d3ef6",
+      "revId": "4d86b9c934779602596c8f76564237df15534e03",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "153fb51d_c4ca1ffb",
         "filename": "tox.ini",
         "patchSetId": 3
