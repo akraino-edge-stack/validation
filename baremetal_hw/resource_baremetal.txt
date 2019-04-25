@@ -1,0 +1,9 @@
+*** Variables ***
+
+${USERNAME}    oob_user
+${PASSWORD}    oob_password
+${BASE_URI}    https://<oob_ip_address>/redfish/v1
+${LOG}         /opt/akraino/validation/baremetal/print_baremetal.txt
+${HOST_MR}     master_node_ip
+${HOST_WR1}    worker1_node_ip
+${HOST_WR2}    worker2_node_ip
