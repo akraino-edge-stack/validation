@@ -1,0 +1,6 @@
+*** Variables ***
+## Manual test: robot -v HOST:<host_ip> cyclic.robot
+
+${HOST}        localhost
+${USERNAME}    localadmin
+${LOG}         /opt/akraino/validation/cyclic/print_cyclic.txt
