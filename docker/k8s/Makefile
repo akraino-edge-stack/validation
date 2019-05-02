@@ -20,4 +20,7 @@ all: .push_image .push_manifest
 .PHONY: build
 build: .build
 
+.PHONY: push_image
+push_image: .push_image
+
 include ../build.mk
