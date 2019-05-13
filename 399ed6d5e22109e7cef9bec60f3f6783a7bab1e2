@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "293da529_9a3e508e",
+        "filename": "conformance/conformance.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-13T13:33:02Z",
+      "side": 1,
+      "message": "Why specifically returning rc even it\u0027s not used?",
+      "revId": "399ed6d5e22109e7cef9bec60f3f6783a7bab1e2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
