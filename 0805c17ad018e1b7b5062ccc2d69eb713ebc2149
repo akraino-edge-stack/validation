@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c8efe881_9c8d13ee",
+        "filename": "baremetal_hw/baremetal.resource",
+        "patchSetId": 9
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-14T12:04:53Z",
+      "side": 1,
+      "message": "I like the fact the you separated the variables, but we should put them in a file called variable.resource to make it easier for users to identify what needs to be adjusted by them - as these variables can vary from system to system.\nThese comments apply to all tests",
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80e99207_fd6b9cb7",
+        "filename": "baremetal_hw/baremetal.resource",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-14T12:04:53Z",
+      "side": 1,
+      "message": "Should this be set as a variable as well?",
+      "range": {
+        "startLine": 6,
+        "startChar": 24,
+        "endLine": 6,
+        "endChar": 32
+      },
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2c18aab_d3061daf",
+        "filename": "baremetal_hw/baremetal.resource",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-14T12:04:53Z",
+      "side": 1,
+      "message": "This should be a list of variables",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 56
+      },
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab998bdc_b429f5b4",
+        "filename": "baremetal_hw/baremetal.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-14T12:04:53Z",
+      "side": 1,
+      "message": "We should make a loop for this verification. Not all deployments have 3 nodes",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 68
+      },
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b2393bc8_c42d00f8",
+        "filename": "baremetal_hw/baremetal.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-14T12:04:53Z",
+      "side": 1,
+      "message": "General comment: shouldn\u0027t these tests have a documentation section to shortly describe them? I find those very useful even when the test is simple enough to read through it and gives us some consistency",
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
