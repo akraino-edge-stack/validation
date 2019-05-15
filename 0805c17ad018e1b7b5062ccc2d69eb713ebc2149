@@ -102,6 +102,23 @@
       "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c656237f_ab201ddb",
+        "filename": "ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 180
+      },
+      "writtenOn": "2019-05-15T13:22:23Z",
+      "side": 1,
+      "message": "I\u0027d suggest one more test case: run \"ceph status\" in any pod (it really doesn\u0027t matter) and make sure that you see \"health: HEALTH_OK\".\n\nIt\u0027d likely be a good idea to run this at both the beginning and end of the testsuite to ensure that ceph starts out healthy and, after you\u0027ve beat it up with these failures, ends up healthy (it may take some time to return to HEALTH_OK after you\u0027ve restored everything)",
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
