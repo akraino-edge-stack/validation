@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54d0fc60_db533ab8",
+        "filename": "ceph/ceph_service.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-16T09:14:14Z",
+      "side": 1,
+      "message": "I think we should have a brief documentation for each test. Name of the test may not be as self explanatory to someone reading it the first time as it is for us.",
+      "revId": "16dcc2b73e33e13fc27985fff3445d103268e0e1",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
