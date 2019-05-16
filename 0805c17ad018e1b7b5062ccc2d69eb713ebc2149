@@ -119,6 +119,24 @@
       "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a25b9d9b_131e8010",
+        "filename": "ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-16T20:02:01Z",
+      "side": 1,
+      "message": "Test cases to check health for ceph osd, mgr \u0026 osd have been added to the test suite",
+      "parentUuid": "c656237f_ab201ddb",
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
