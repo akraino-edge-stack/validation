@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ae94c0e_082fef5d",
+        "filename": "ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 180
+      },
+      "writtenOn": "2019-05-16T20:06:22Z",
+      "side": 1,
+      "message": "very minor comment: \"ceph status\" reflects the status of the whole cluster, not just the monitor.  probably ok to say just \"Check ceph health state\" here and similarly below.",
+      "revId": "578f8bb762be68959a609c4939131faa8f3bd7ca",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3b4546e_bf99e8d7",
+        "filename": "ceph_ha/variable.resource",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 180
+      },
+      "writtenOn": "2019-05-16T20:06:22Z",
+      "side": 1,
+      "message": "not a big deal, but a thought: rather than specifying a node here, maybe it would be better to just pick one of the nodes at random from the nodes running any given ceph component?  alternatively, maybe have that behavior if this value is unset.",
+      "revId": "578f8bb762be68959a609c4939131faa8f3bd7ca",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
