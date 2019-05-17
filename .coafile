@@ -39,3 +39,16 @@ ignore = tests/k8s/conformance/sonobuoy.yaml
 bears = PyLintBear
 files = **.py
 use_spaces = true
+
+[all.Java]
+bears = SpaceConsistencyBear,JavaPMDBear
+files = ui/**.java
+language = java
+use_spaces = true
+
+[all.JS]
+bears = JSStandardBear
+files = ui/**.js
+language = javascript
+javascript_strictness = False
+use_spaces = true
