@@ -40,3 +40,23 @@ To both build and push the container, use the command:
 Container should be started with the admin.conf file mounted:
 docker run -ti -v /home/jenkins/admin.conf:/root/.kube/config \
 <dockerhub_registry>/validation:k8s-latest /bin/sh
+
+The postgresql container
+=================
+
+To build just the postgresql container, use the command:
+   make postgresql-build [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
+To both build and push the container, use the command:
+   make postgresql [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
+Then, if you want to deploy the container, you can run the corresponding deploy.sh script.
+
+The ui container
+=================
+
+To build just the ui container, you must first compile the ui project.
+Then use the command:
+   make ui-build [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
+To both build and push the container, use the command:
+   make ui [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
+Then, if you want to deploy the container, you can run the corresponding deploy.sh script.
+Note, that you must also build and run the postgresql container for a functional UI.
