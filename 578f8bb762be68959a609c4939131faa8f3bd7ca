@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "39988a8b_8b93b5f9",
+        "filename": "ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-19T01:05:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ae94c0e_082fef5d",
+      "revId": "578f8bb762be68959a609c4939131faa8f3bd7ca",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b3b4546e_bf99e8d7",
         "filename": "ceph_ha/variable.resource",
         "patchSetId": 10
@@ -33,6 +51,24 @@
       "revId": "578f8bb762be68959a609c4939131faa8f3bd7ca",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aab020a_07e3ed4f",
+        "filename": "ceph_ha/variable.resource",
+        "patchSetId": 10
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-19T01:05:06Z",
+      "side": 1,
+      "message": "Added generic name",
+      "parentUuid": "b3b4546e_bf99e8d7",
+      "revId": "578f8bb762be68959a609c4939131faa8f3bd7ca",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
