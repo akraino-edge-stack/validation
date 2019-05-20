@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8682967_336898b0",
+        "filename": "os/ltp.robot",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-20T08:48:57Z",
+      "side": 1,
+      "message": "After better understanding how this test operates, we need to handle the installation and cleanup of LTP on the remote host too.",
+      "revId": "d3869fe4c682e3f70b3b290cde9d5750ea21a319",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
