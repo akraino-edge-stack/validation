@@ -16,6 +16,24 @@
       "revId": "d3869fe4c682e3f70b3b290cde9d5750ea21a319",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7690c9bf_4a0d931a",
+        "filename": "os/ltp.robot",
+        "patchSetId": 11
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-20T21:48:29Z",
+      "side": 1,
+      "message": "Agree, we are analyzing the way to handle this process. One option is that cicd could take care of this.",
+      "parentUuid": "f8682967_336898b0",
+      "revId": "d3869fe4c682e3f70b3b290cde9d5750ea21a319",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
