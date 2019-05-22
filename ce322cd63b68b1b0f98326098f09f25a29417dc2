@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3933316b_430b9967",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-05-22T15:44:29Z",
+      "side": 1,
+      "message": "please replace tabs with spaces in the commit message",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 1
+      },
+      "revId": "ce322cd63b68b1b0f98326098f09f25a29417dc2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a638b267_eb93b592",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-05-22T15:44:29Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 13,
+        "startChar": 36,
+        "endLine": 13,
+        "endChar": 59
+      },
+      "revId": "ce322cd63b68b1b0f98326098f09f25a29417dc2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a839ec3a_8bc65cba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-05-22T15:44:29Z",
+      "side": 1,
+      "message": "JIRA links should be at the end, before Change-Id/Signed-off-by",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 12
+      },
+      "revId": "ce322cd63b68b1b0f98326098f09f25a29417dc2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
