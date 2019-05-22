@@ -88,6 +88,30 @@
     },
     {
       "key": {
+        "uuid": "44667b4c_fe16e505",
+        "filename": "baremetal_hw/baremetal.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-22T18:17:29Z",
+      "side": 1,
+      "message": "Done in patch 13",
+      "parentUuid": "ab998bdc_b429f5b4",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 68
+      },
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2393bc8_c42d00f8",
         "filename": "baremetal_hw/baremetal.robot",
         "patchSetId": 9
@@ -99,6 +123,24 @@
       "writtenOn": "2019-05-14T12:04:53Z",
       "side": 1,
       "message": "General comment: shouldn\u0027t these tests have a documentation section to shortly describe them? I find those very useful even when the test is simple enough to read through it and gives us some consistency",
+      "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e023c0eb_6cc402a0",
+        "filename": "baremetal_hw/baremetal.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-22T18:17:29Z",
+      "side": 1,
+      "message": "Documentation added to test cases in patch 13",
+      "parentUuid": "b2393bc8_c42d00f8",
       "revId": "0805c17ad018e1b7b5062ccc2d69eb713ebc2149",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
