@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "472ecea5_bdf563be",
+        "filename": "conformance/conformance.robot",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-23T07:07:40Z",
+      "side": 1,
+      "message": "Since this is actually not a test case but a check/precondition for executing the actual sonobuoy tests, it would make sense to implement this as a suite setup.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "0316e02c7cdb0516a5c64aa8924adf367d773ec9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b4601cb_1f5a6b10",
+        "filename": "conformance/conformance.robot",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-23T07:07:40Z",
+      "side": 1,
+      "message": "Similarly, this could be in suite teardown.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 16
+      },
+      "revId": "0316e02c7cdb0516a5c64aa8924adf367d773ec9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
