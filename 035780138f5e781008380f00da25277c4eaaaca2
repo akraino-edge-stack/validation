@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "387b0e57_385e0776",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-23T08:10:25Z",
+      "side": 1,
+      "message": "The commit message is misleading; it is now referring to changes implemented in several files even all the files here are new and introduced along with this patch.",
+      "revId": "035780138f5e781008380f00da25277c4eaaaca2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d913c3c0_2c9822b2",
+        "filename": "baremetal_hw/baremetal.robot",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-23T08:10:25Z",
+      "side": 1,
+      "message": "Are these tests generic or specific to certain HW only?",
+      "revId": "035780138f5e781008380f00da25277c4eaaaca2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "57852b2a_bee46c82",
+        "filename": "ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-23T08:10:25Z",
+      "side": 1,
+      "message": "Basically there is only one ceph mon test case which logically executes phases implemented as a separate test cases. For instance, one can consider \"Failure of ceph monitor\" just as one step in test case execution.\n\nSame applies to other test cases too.",
+      "revId": "035780138f5e781008380f00da25277c4eaaaca2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "539da3dd_dffacd9c",
+        "filename": "ceph_ha/variables.resource",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-23T08:10:25Z",
+      "side": 1,
+      "message": "Is this something we anticipate user to change?",
+      "revId": "035780138f5e781008380f00da25277c4eaaaca2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4109a9c7_751d7fce",
+        "filename": "cyclictest/cyclictest.robot",
+        "patchSetId": 13
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-23T08:10:25Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "035780138f5e781008380f00da25277c4eaaaca2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73fead2a_8b178d0a",
+        "filename": "os/ltp.robot",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-23T08:10:25Z",
+      "side": 1,
+      "message": "A bit more detailed description about tests is needed.",
+      "revId": "035780138f5e781008380f00da25277c4eaaaca2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
