@@ -16,6 +16,24 @@
       "revId": "67cfffc2e00374f5649d2d99433316a723b569cf",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42bc4b13_78f6aeab",
+        "filename": "conformance/conformance.robot",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-23T14:24:21Z",
+      "side": 1,
+      "message": "Yes, the point was to have the repo code under validation, and have results in a separate folder. Did you want /opt/akraino/validation/results/ and /opt/akraino/validation/repo/ as a structure?",
+      "parentUuid": "375c7e0d_5a72af61",
+      "revId": "67cfffc2e00374f5649d2d99433316a723b569cf",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
