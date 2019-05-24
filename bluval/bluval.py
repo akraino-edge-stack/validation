@@ -23,37 +23,38 @@ import subprocess
 import click
 import yaml
 
-def run_testcase(testcase):
+def run_testcase(testcase, env):
     """Runs a single testcase
     """
     show_stopper = testcase.get('show_stopper', False)
     what = testcase.get('what')
     results = "results/"+what
-    command = '{} {} {} {}'.format("robot", "-d", results, what)
+    variables = "variables.py:"+env
+    args = ["robot", "-V", variables, "-d", results, what]
 
     print('Executing testcase {}'.format(testcase['name']))
     print('          show_stopper {}'.format(show_stopper))
-    print('Invoking {}'.format(command))
+    print('Invoking {}'.format(args))
     try:
-        status = subprocess.call(command, shell=True)
+        status = subprocess.call(args, shell=False)
         if status != 0 and show_stopper:
             print('Show stopper testcase failed')
             return status
     except OSError:
-        print('Error while executing {}'.format(command))
+        print('Error while executing {}'.format(args))
         return -1
     return status
 
 
-def validate_layer(blueprint, layer):
+def validate_layer(blueprint, layer, env):
     """validates a layer by validating all testcases under that layer
     """
     print('## Layer {}'.format(layer))
     for testcase in blueprint[layer]:
-        run_testcase(testcase)
+        run_testcase(testcase, env)
 
 
-def validate_blueprint(yaml_loc, layer):
+def validate_blueprint(yaml_loc, layer, env):
     """Parse yaml file and validates given layer. If no layer given all layers
     validated
     """
@@ -62,21 +63,23 @@ def validate_blueprint(yaml_loc, layer):
     blueprint = yamldoc['blueprint']
     if layer is None:
         for each_layer in blueprint['layers']:
-            validate_layer(blueprint, each_layer)
+            validate_layer(blueprint, each_layer, env)
     else:
-        validate_layer(blueprint, layer)
+        validate_layer(blueprint, layer, env)
 
 
 @click.command()
 @click.argument('blueprint')
 @click.option('--layer', '-l')
-def main(blueprint, layer):
+@click.option('--env', '-e', default="att")
+def main(blueprint, layer, env):
     """Takes blueprint name and optional layer. Validates inputs and derives
     yaml location from blueprint name. Invokes validate on blue print.
     """
     yaml_loc = 'bluval/bluval-{}.yaml'.format(blueprint)
     layer = layer.lower()
-    validate_blueprint(yaml_loc, layer)
+    env = env.lower()
+    validate_blueprint(yaml_loc, layer, env)
 
 
 if __name__ == "__main__":
