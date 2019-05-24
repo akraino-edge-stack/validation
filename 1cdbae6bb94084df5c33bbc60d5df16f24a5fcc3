@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "511ae8c7_804095fb",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-24T17:37:09Z",
+      "side": 1,
+      "message": "updated path to /opt/akraino/validation in latest patch",
+      "parentUuid": "f0589d1e_2e9abd2e",
+      "range": {
+        "startLine": 35,
+        "startChar": 54,
+        "endLine": 35,
+        "endChar": 71
+      },
+      "revId": "1cdbae6bb94084df5c33bbc60d5df16f24a5fcc3",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "50e0460c_a4ef2885",
         "filename": "docker/os/Dockerfile",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "writtenOn": "2019-05-24T09:18:13Z",
       "side": 1,
       "message": "Let\u0027s change this to /opt/akraino/validation/results/os for consistency",
+      "range": {
+        "startLine": 49,
+        "startChar": 16,
+        "endLine": 49,
+        "endChar": 39
+      },
+      "revId": "1cdbae6bb94084df5c33bbc60d5df16f24a5fcc3",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1b7128e_d562d913",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-24T17:37:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50e0460c_a4ef2885",
       "range": {
         "startLine": 49,
         "startChar": 16,
