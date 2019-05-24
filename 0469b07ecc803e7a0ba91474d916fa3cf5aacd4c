@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd3e5098_f626e88b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-05-24T16:40:14Z",
+      "side": 1,
+      "message": "trivial, but rebot -\u003e robot",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "0469b07ecc803e7a0ba91474d916fa3cf5aacd4c",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea011bd1_0a229a28",
+        "filename": "bluval/bluval-base.yaml",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-05-24T16:40:14Z",
+      "side": 1,
+      "message": "What is name used for? It seems like here it is always identical to \"what\". In what circumstances would it be different? Should name be for \"human presentation\" without the underscores?",
+      "revId": "0469b07ecc803e7a0ba91474d916fa3cf5aacd4c",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a58ef45d_112610db",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-05-24T16:40:14Z",
+      "side": 1,
+      "message": "Do you want to impose any sanity check or whitelisting on the content of \"what\" before using it as a filename? What happens if the YAML file contains characters like * or ? in the \"what\" field?",
+      "revId": "0469b07ecc803e7a0ba91474d916fa3cf5aacd4c",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
