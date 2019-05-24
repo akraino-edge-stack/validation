@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f0589d1e_2e9abd2e",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-05-24T17:11:24Z",
+      "side": 1,
+      "message": "/opt/akraino/validation please",
+      "parentUuid": "be4815ed_61c6a0e1",
+      "range": {
+        "startLine": 35,
+        "startChar": 54,
+        "endLine": 35,
+        "endChar": 71
+      },
+      "revId": "1cdbae6bb94084df5c33bbc60d5df16f24a5fcc3",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "50e0460c_a4ef2885",
         "filename": "docker/os/Dockerfile",
         "patchSetId": 3
