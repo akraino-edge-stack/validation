@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f7214dca_bca1bcb9",
+        "filename": "etcd/etcd_ha.resource",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-28T07:26:41Z",
+      "side": 1,
+      "message": "since this is based on a k8s deployment, should this test be under k8s folder?",
+      "range": {
+        "startLine": 27,
+        "startChar": 32,
+        "endLine": 27,
+        "endChar": 39
+      },
+      "revId": "9cd2b3fca4eaf07342315990eea3788ace9367ae",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
