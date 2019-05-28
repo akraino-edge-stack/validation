@@ -16,6 +16,52 @@
       "revId": "a27f79539769de54dc5ed805b68a8b77671107ac",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9706a290_281bc01e",
+        "filename": "docker/k8s_ha/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-28T07:20:27Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 37,
+        "startChar": 35,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "a27f79539769de54dc5ed805b68a8b77671107ac",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93ae8b1b_f994e5a3",
+        "filename": "docker/k8s_ha/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-28T07:20:27Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 55,
+        "startChar": 27,
+        "endLine": 55,
+        "endChar": 28
+      },
+      "revId": "a27f79539769de54dc5ed805b68a8b77671107ac",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
