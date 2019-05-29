@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04b1c884_3da248a5",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-05-29T15:32:14Z",
+      "side": 1,
+      "message": "Please add layer here also.",
+      "revId": "b2671592af9fece93a91cc5d53be37c42ef25953",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
