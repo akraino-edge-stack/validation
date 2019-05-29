@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80cf3648_cdf7268c",
+        "filename": "docker/README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-05-29T14:25:08Z",
+      "side": 1,
+      "message": "After each ``.. code-block`` there should be an empty line before the actual block content, otherwise certain RST parsers will ignore the markup.",
+      "revId": "639ac1ba67b6cdd1ca177f723a8007c14d8cb23e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e042e48_9b84186c",
+        "filename": "docker/README.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-05-29T14:25:08Z",
+      "side": 1,
+      "message": "Identation should be the same in all code-blocks (4 spaces).",
+      "revId": "639ac1ba67b6cdd1ca177f723a8007c14d8cb23e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
