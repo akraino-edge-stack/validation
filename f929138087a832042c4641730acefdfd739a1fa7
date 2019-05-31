@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0f1f773b_ca760ebb",
+        "filename": "tests/hardware/baremetal_hw/baremetal.robot",
+        "patchSetId": 16
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-31T20:18:10Z",
+      "side": 1,
+      "message": "Line removed",
+      "parentUuid": "85cc99ac_eb5fb210",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 16
+      },
+      "revId": "f929138087a832042c4641730acefdfd739a1fa7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ebd8350_d36a3b7b",
         "filename": "tests/hardware/baremetal_hw/variables.resource",
         "patchSetId": 16
@@ -39,6 +63,24 @@
       "revId": "f929138087a832042c4641730acefdfd739a1fa7",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b9c1c4d_ec4e290a",
+        "filename": "tests/hardware/baremetal_hw/variables.resource",
+        "patchSetId": 16
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-31T20:18:10Z",
+      "side": 1,
+      "message": "That\u0027s correct, only variables should be modified in this file. json tool has been placed back to robot file",
+      "parentUuid": "4ebd8350_d36a3b7b",
+      "revId": "f929138087a832042c4641730acefdfd739a1fa7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "6ea26506_b15bf585",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-31T20:18:10Z",
+      "side": 1,
+      "message": "I think is better to keep them separate as ceph containerized code will work in ceph running as systemd service",
+      "parentUuid": "b1fd6a2e_8b8d9a06",
+      "revId": "f929138087a832042c4641730acefdfd739a1fa7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed4d416e_2185f46d",
         "filename": "tests/openstack/ceph_ha/variables.resource",
         "patchSetId": 16
@@ -73,6 +133,24 @@
       "revId": "f929138087a832042c4641730acefdfd739a1fa7",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61f2f511_23efeb86",
+        "filename": "tests/openstack/ceph_ha/variables.resource",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-05-31T20:18:10Z",
+      "side": 1,
+      "message": "Yes, only variables should be set by user. The rest is moved back to keyword file",
+      "parentUuid": "ed4d416e_2185f46d",
+      "revId": "f929138087a832042c4641730acefdfd739a1fa7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
