@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "9403134b_d0d820b7",
+        "filename": "k8s/etcd_ha.resource",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-31T09:07:35Z",
+      "side": 1,
+      "message": "I think that any test which is not blueprint specific should be made generic enough to work on all deployments. I think the robot setup/tear-down approach can help us with customizing the tests to achieve this... Can you take a look at tests/k8s/ha/ha_etcd_api_ctl_sch.robot and see if your implementation can be merged with that one to create a more generic test?",
+      "parentUuid": "49d8f344_eab6bf2b",
+      "range": {
+        "startLine": 27,
+        "startChar": 57,
+        "endLine": 27,
+        "endChar": 78
+      },
+      "revId": "c2a5f535c9738765515faa7a7a04c9a27c36e287",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2b8d2a9_87ad8c34",
         "filename": "k8s/etcd_ha.resource",
         "patchSetId": 2
@@ -84,6 +108,30 @@
       "side": 1,
       "message": "Not sure what would be the generic way. In REC data retrieval doesn\u0027t seem to work via etcdctl:\n\n/ $ etcdctl member list\nError:  client: etcd cluster is unavailable or misconfigured; error #0: dial tcp 127.0.0.1:2379: connect: connection refused\n; error #1: dial tcp 127.0.0.1:4001: connect: connection refused\n\nerror #0: dial tcp 127.0.0.1:2379: connect: connection refused\nerror #1: dial tcp 127.0.0.1:4001: connect: connection refused\n\n/ $ etcdctl3 member list\n4b61658db3a563ac, started, etcd2, https://192.168.10.4:4112, https://192.168.10.4:4111\n5cdf015ca942c547, started, etcd1, https://192.168.10.1:4112, https://192.168.10.1:4111\nef1c08a4fb32d31a, started, etcd3, https://192.168.10.5:4112, https://192.168.10.5:4111",
       "parentUuid": "f2b8d2a9_87ad8c34",
+      "range": {
+        "startLine": 37,
+        "startChar": 32,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "c2a5f535c9738765515faa7a7a04c9a27c36e287",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2e3ada1_7fec7fbb",
+        "filename": "k8s/etcd_ha.resource",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-05-31T09:07:35Z",
+      "side": 1,
+      "message": "OK, how about we store the tool name in a variable?",
+      "parentUuid": "f9b83be5_a12395c0",
       "range": {
         "startLine": 37,
         "startChar": 32,
