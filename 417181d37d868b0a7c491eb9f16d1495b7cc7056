@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "214b0dae_562531f2",
+        "filename": "tests/hardware/baremetal_hw/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-05-31T21:05:51Z",
+      "side": 1,
+      "message": "All these variables should be coming from blue print owner, so please move them to variables.yaml file.",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e08cbb8_7a850b89",
+        "filename": "tests/openstack/ceph_ha/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-05-31T21:05:51Z",
+      "side": 1,
+      "message": "All these variables should be coming from blue print owner, so please move them to variables.yaml file.",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "037e9fcd_0594c204",
+        "filename": "tests/os/cyclictest/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-05-31T21:05:51Z",
+      "side": 1,
+      "message": "All these variables should be coming from blue print owner, so please move them to variables.yaml file.",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2070a61b_7a252466",
+        "filename": "tests/os/ltp/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-05-31T21:05:51Z",
+      "side": 1,
+      "message": "All these variables should be coming from blue print owner, so please move them to variables.yaml file.",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f64a2e24_bae6a001",
+        "filename": "tests/os/ltp/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-05-31T21:05:51Z",
+      "side": 1,
+      "message": "Can we manage with keys?",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
