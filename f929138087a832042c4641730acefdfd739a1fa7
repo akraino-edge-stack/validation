@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "85cc99ac_eb5fb210",
+        "filename": "tests/hardware/baremetal_hw/baremetal.robot",
+        "patchSetId": 16
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-31T10:17:19Z",
+      "side": 1,
+      "message": "This can be removed",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 16
+      },
+      "revId": "f929138087a832042c4641730acefdfd739a1fa7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ebd8350_d36a3b7b",
+        "filename": "tests/hardware/baremetal_hw/variables.resource",
+        "patchSetId": 16
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-31T10:17:19Z",
+      "side": 1,
+      "message": "Is the purpose of this file to present all variables or just those which user can or is expected to set? MTOOL_PY looks something that user must not modify.",
+      "revId": "f929138087a832042c4641730acefdfd739a1fa7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1fd6a2e_8b8d9a06",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-31T10:17:19Z",
+      "side": 1,
+      "message": "These tests are overlapping with existing ceph cases in tests/openstack/ceph_service. Should they be generalized and merged (see Cristina\u0027s comment in https://gerrit.akraino.org/r/c/validation/+/802)?",
+      "revId": "f929138087a832042c4641730acefdfd739a1fa7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed4d416e_2185f46d",
+        "filename": "tests/openstack/ceph_ha/variables.resource",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-31T10:17:19Z",
+      "side": 1,
+      "message": "Is the purpose of this file to present all variables or just those which user can or is expected to set?",
+      "revId": "f929138087a832042c4641730acefdfd739a1fa7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
