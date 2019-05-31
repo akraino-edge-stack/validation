@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "49d8f344_eab6bf2b",
+        "filename": "k8s/etcd_ha.resource",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-31T08:54:36Z",
+      "side": 1,
+      "message": "node-role.kubernetes.io/master works in case of REC too, so can be changed.\n\nThough probably that\u0027s not generic either, e.g. Airsip-in-a-bottle does not have it.\n\nAlready existing tests/k8s/ha/ha_etcd_api_ctl_sch.robot implements similar etcd test but that is for Airship and does not work in REC. The purpose of this patch is to provide same test for REC.\n\nIt would be ideal that a robot case would conform all applicable blueprints. I think we need to define a guideline how to deal with this. For example, excessive parameterizing and/or iffing just to get all in one may not be the best way.\n\nThe same concerns also some other cases in tests/k8s/ha/ha_etcd_api_ctl_sch.robot currently (works in Airship only).",
+      "parentUuid": "b9ed46bf_5a825c67",
+      "range": {
+        "startLine": 27,
+        "startChar": 57,
+        "endLine": 27,
+        "endChar": 78
+      },
+      "revId": "c2a5f535c9738765515faa7a7a04c9a27c36e287",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f2b8d2a9_87ad8c34",
         "filename": "k8s/etcd_ha.resource",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2019-05-28T11:29:48Z",
       "side": 1,
       "message": "Not all deployments have this tool. In my deployment I have a few etcdctl versions (etcdctl         etcdctl-2.2.1   etcdctl-2.3.7   etcdctl-3.0.17  etcdctl-3.1.12  etcdctl-3.2.24). We need a more generic way to find it.",
+      "range": {
+        "startLine": 37,
+        "startChar": 32,
+        "endLine": 37,
+        "endChar": 40
+      },
+      "revId": "c2a5f535c9738765515faa7a7a04c9a27c36e287",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9b83be5_a12395c0",
+        "filename": "k8s/etcd_ha.resource",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-05-31T08:54:36Z",
+      "side": 1,
+      "message": "Not sure what would be the generic way. In REC data retrieval doesn\u0027t seem to work via etcdctl:\n\n/ $ etcdctl member list\nError:  client: etcd cluster is unavailable or misconfigured; error #0: dial tcp 127.0.0.1:2379: connect: connection refused\n; error #1: dial tcp 127.0.0.1:4001: connect: connection refused\n\nerror #0: dial tcp 127.0.0.1:2379: connect: connection refused\nerror #1: dial tcp 127.0.0.1:4001: connect: connection refused\n\n/ $ etcdctl3 member list\n4b61658db3a563ac, started, etcd2, https://192.168.10.4:4112, https://192.168.10.4:4111\n5cdf015ca942c547, started, etcd1, https://192.168.10.1:4112, https://192.168.10.1:4111\nef1c08a4fb32d31a, started, etcd3, https://192.168.10.5:4112, https://192.168.10.5:4111",
+      "parentUuid": "f2b8d2a9_87ad8c34",
       "range": {
         "startLine": 37,
         "startChar": 32,
