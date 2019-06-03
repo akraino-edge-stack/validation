@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "0cfd8731_60ca2e8f",
+        "filename": "tests/hardware/baremetal_hw/baremetal.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-03T06:45:44Z",
+      "side": 1,
+      "message": "Is testing the connectivity to host addresses a part of baremetal testing?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "214b0dae_562531f2",
         "filename": "tests/hardware/baremetal_hw/variables.resource",
         "patchSetId": 17
@@ -13,6 +36,75 @@
       "writtenOn": "2019-05-31T21:05:51Z",
       "side": 1,
       "message": "All these variables should be coming from blue print owner, so please move them to variables.yaml file.",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebedc533_693ba5d2",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-03T06:45:44Z",
+      "side": 1,
+      "message": "I think this is checking the expected state of the system before executing the tests rather than being a test case itself.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4312f5b5_2fd4ef0e",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-03T06:45:44Z",
+      "side": 1,
+      "message": "This is checking the expected state of the system after test execution and is not an actual test case.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 40
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c8ec284_f76f86bc",
+        "filename": "tests/openstack/ceph_ha/ceph_keywords.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-03T06:45:44Z",
+      "side": 1,
+      "message": "I\u0027m not a big fan of minute level sleeps in test cases. This could be implemented via polling.\n\nSame applies to long sleeps in other test cases too.",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 33
+      },
       "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
