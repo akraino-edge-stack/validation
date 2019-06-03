@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ab5a31a9_d93aa077",
+        "filename": "docker/README.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-03T08:28:04Z",
+      "side": 1,
+      "message": "Can you add a README file with instructions for how to build the ui project as well?",
+      "range": {
+        "startLine": 56,
+        "startChar": 47,
+        "endLine": 56,
+        "endChar": 69
+      },
+      "revId": "8264403dcdb5fd634787d914f3582b8eb3e883b6",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
