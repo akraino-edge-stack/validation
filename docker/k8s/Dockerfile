@@ -21,7 +21,11 @@ FROM golang:alpine3.9 as build
 ARG K8S_TAG=v1.13.0
 
 # Install dependencies
+RUN wget -q -O bluval_requirements.txt \
+    'https://gerrit.akraino.org/r/gitweb?p=validation.git;a=blob_plain;f=bluval/requirements.txt'
 COPY pip-requirements.txt /wheels/requirements/pip-requirements.txt
+RUN cat bluval_requirements.txt >> /wheels/requirements/pip-requirements.txt
+
 RUN apk --no-cache add --update \
         openssl \
         python3 \
@@ -67,6 +71,4 @@ RUN pip3 install -r /wheels/requirements/pip-requirements.txt \
      rm -rf /root/.cache/pip/*
 
 # Set the default command for running the tests
-CMD /usr/local/bin/robot --loglevel DEBUG \
-    --outputdir /opt/akraino/validation/results/conformance \
-    /opt/akraino/validation/repo/conformance/conformance.robot
+CMD python3 /opt/akraino/validation/repo/bluval/bluval.py base -l k8s
