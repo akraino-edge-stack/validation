@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8ac168cc_4b9f04a6",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-06-05T21:02:56Z",
+      "side": 1,
+      "message": "Yes. if no layer passed it will test all the layers.",
+      "parentUuid": "408963d8_26d2fb9d",
+      "range": {
+        "startLine": 76,
+        "startChar": 20,
+        "endLine": 76,
+        "endChar": 25
+      },
+      "revId": "2527595e3ea965f2bfeb20395700792afe1309ac",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f001131_0f305d59",
         "filename": "bluval/bluval.py",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2019-06-05T20:17:00Z",
       "side": 1,
       "message": "missing required positional parameters",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 10
+      },
+      "revId": "2527595e3ea965f2bfeb20395700792afe1309ac",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7bf49e0_57af940c",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-06-05T21:02:56Z",
+      "side": 1,
+      "message": "that will be passed by click.",
+      "parentUuid": "6f001131_0f305d59",
       "range": {
         "startLine": 88,
         "startChar": 4,
