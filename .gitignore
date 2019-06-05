@@ -47,4 +47,3 @@ bin/
 !/.gitignore
 !/.coafile
 !/ui/src/main/webapp/.eslintrc
-
