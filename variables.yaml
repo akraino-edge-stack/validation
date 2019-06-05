@@ -23,7 +23,26 @@
 # smallcase and Robot variables notation is UPPERCASE so industry is follwoing
 # this.
 
+### Input variables for bios_version_dell.robot
 host: aknode109
 username: localadmin
 sysinfo: PowerEdge R740xd
 bios_revision: 1.3
+
+### Input variables for baremetal_hp.robot
+base_uri: https://192.168.XX.XX/redfish/v1/   # OOB Redfish link address
+ipmiuser: ipmi_user                           # ipmi user
+ipmipwrd: ipmi_pwd                            # ipmi password
+host_mr: master_host_ip                       # cluster's master host address
+host_wr1: worker_host_ip                      # cluster's worker1 host address
+host_wr2: worker_host_ip                      # cluster's worker2 host address
+host_wr3: worker_host_ip                      # cluster's worker3 host address
+host_wr4: worker_host_ip                      # cluster's worker4 host address
+health: OK                                    # host health status
+macaddr: mac_input                            # host mac address
+chassis: serial_number                        # host serial number
+idracip: idrac_ip                             # idrac ip address
+bootseq: boot_input                           # boot status
+biosver: bios_version                         # host bios version
+firmware: firmware_version                    # host firmware
+loghwhp: /opt/akraino/validation/results/baremetal/hp_baremetal.log     # output log
