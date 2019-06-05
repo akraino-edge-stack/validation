@@ -20,32 +20,50 @@ testcase
 """
 
 import subprocess
+import sys
+import traceback
 import click
 import yaml
+
+class BluvalError(Exception):
+    """Base class for exceptions in this module."""
+    pass
+
+
+
+class ShowStopperError(Exception):
+    """Showstopper test case failed"""
+    pass
+
+
 
 def run_testcase(testcase):
     """Runs a single testcase
     """
-    show_stopper = testcase.get('show_stopper', False)
+    name = testcase.get('name')
+    when = testcase.get('when', "True")
+    if when.lower() == "false":
+        # if not meeting when condition just skip it.
+        print('Skipping {}'.format(name))
+        return
+    show_stopper = testcase.get('show_stopper', "False")
     what = testcase.get('what')
     variables = "variables.yaml"
-    results = "results/"+testcase.get('layer')+"/"+what
-    test_path = "tests/"+testcase.get('layer')+"/"+what
+    layer = testcase.get('layer')
+    results = "results/"+layer+"/"+what
+    test_path = "tests/"+layer+"/"+what
     args = ["robot", "-V", variables, "-d", results, test_path]
 
-    print('Executing testcase {}'.format(testcase['name']))
-    print('          show_stopper {}'.format(show_stopper))
+    print('Executing testcase {}'.format(name))
+    print('show_stopper {}'.format(show_stopper))
     print('Invoking {}'.format(args))
     try:
         status = subprocess.call(args, shell=False)
-        if status != 0 and show_stopper:
-            print('Show stopper testcase failed')
-            return status
+        if status != 0 and show_stopper.lower() == "true":
+            raise ShowStopperError(name)
     except OSError:
-        print('Error while executing {}'.format(args))
-        return -1
-    return status
-
+        #print('Error while executing {}'.format(args))
+        raise BluvalError(OSError)
 
 def validate_layer(blueprint, layer):
     """validates a layer by validating all testcases under that layer
@@ -80,8 +98,19 @@ def main(blueprint, layer):
     yaml_loc = 'bluval/bluval-{}.yaml'.format(blueprint)
     if layer is not None:
         layer = layer.lower()
-    validate_blueprint(yaml_loc, layer)
-
+    try:
+        validate_blueprint(yaml_loc, layer)
+    except ShowStopperError as err:
+        print('ShowStopperError:', err)
+    except BluvalError as err:
+        print('Unexpected BluvalError', err)
+        raise
+    except:
+        print("Exception in user code:")
+        print("-"*60)
+        traceback.print_exc(file=sys.stdout)
+        print("-"*60)
+        raise
 
 if __name__ == "__main__":
     # pylint: disable=no-value-for-parameter
