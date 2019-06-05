@@ -21,13 +21,31 @@ testcase
 
 import subprocess
 from pathlib import Path
+import sys
+import traceback
 import click
 import yaml
+
+class BluvalError(Exception):
+    """Base class for exceptions in this module."""
+    pass
+
+
+class ShowStopperError(Exception):
+    """Showstopper test case failed"""
+    pass
+
 
 def run_testcase(testcase):
     """Runs a single testcase
     """
-    show_stopper = testcase.get('show_stopper', False)
+    name = testcase.get('name')
+    skip = testcase.get('skip', "False")
+    if skip.lower() == "true":
+        # skip is mentioned and true.
+        print('Skipping {}'.format(name))
+        return
+    show_stopper = testcase.get('show_stopper', "False")
     what = testcase.get('what')
     mypath = Path(__file__).absolute()
     results_path = mypath.parents[2].joinpath("results/"+testcase.get('layer')+"/"+what)
@@ -42,19 +60,16 @@ def run_testcase(testcase):
     # run the test
     args = ["robot", "-V", str(variables_file), "-d", str(results_path), str(test_path)]
 
-    print('Executing testcase {}'.format(testcase['name']))
-    print('          show_stopper {}'.format(show_stopper))
+    print('Executing testcase {}'.format(name))
+    print('show_stopper {}'.format(show_stopper))
     print('Invoking {}'.format(args))
     try:
         status = subprocess.call(args, shell=False)
-        if status != 0 and show_stopper:
-            print('Show stopper testcase failed')
-            return status
+        if status != 0 and show_stopper.lower() == "true":
+            raise ShowStopperError(name)
     except OSError:
-        print('Error while executing {}'.format(args))
-        return -1
-    return status
-
+        #print('Error while executing {}'.format(args))
+        raise BluvalError(OSError)
 
 def validate_layer(blueprint, layer):
     """validates a layer by validating all testcases under that layer
@@ -69,10 +84,10 @@ def validate_blueprint(yaml_loc, layer):
     """Parse yaml file and validates given layer. If no layer given all layers
     validated
     """
-    with open(yaml_loc) as yaml_file:
+    with open(str(yaml_loc)) as yaml_file:
         yamldoc = yaml.safe_load(yaml_file)
     blueprint = yamldoc['blueprint']
-    if layer is None:
+    if layer is None or layer == "all":
         for each_layer in blueprint['layers']:
             validate_layer(blueprint, each_layer)
     else:
@@ -90,8 +105,19 @@ def main(blueprint, layer):
     yaml_loc = mypath.parents[0].joinpath('bluval-{}.yaml'.format(blueprint))
     if layer is not None:
         layer = layer.lower()
-    validate_blueprint(yaml_loc, layer)
-
+    try:
+        validate_blueprint(yaml_loc, layer)
+    except ShowStopperError as err:
+        print('ShowStopperError:', err)
+    except BluvalError as err:
+        print('Unexpected BluvalError', err)
+        raise
+    except:
+        print("Exception in user code:")
+        print("-"*60)
+        traceback.print_exc(file=sys.stdout)
+        print("-"*60)
+        raise
 
 if __name__ == "__main__":
     # pylint: disable=no-value-for-parameter
