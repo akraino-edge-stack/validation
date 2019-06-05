@@ -26,6 +26,12 @@ import yaml
 def run_testcase(testcase):
     """Runs a single testcase
     """
+    name = testcase.get('name')
+    when = testcase.get('when')
+    if not eval(when):
+        # if not meeting when condition just skip it.
+        print('Skipping {}'.format(name))
+        return True
     show_stopper = testcase.get('show_stopper', False)
     what = testcase.get('what')
     variables = "variables.yaml"
@@ -33,18 +39,19 @@ def run_testcase(testcase):
     test_path = "tests/"+testcase.get('layer')+"/"+what
     args = ["robot", "-V", variables, "-d", results, test_path]
 
-    print('Executing testcase {}'.format(testcase['name']))
+    print('Executing testcase {}'.format(name))
     print('          show_stopper {}'.format(show_stopper))
     print('Invoking {}'.format(args))
     try:
         status = subprocess.call(args, shell=False)
         if status != 0 and show_stopper:
-            print('Show stopper testcase failed')
-            return status
+            print('Show stopper testcase failed. So stopping it here.')
+            return False
+        else:
+            return True
     except OSError:
         print('Error while executing {}'.format(args))
-        return -1
-    return status
+        return False
 
 
 def validate_layer(blueprint, layer):
@@ -53,7 +60,10 @@ def validate_layer(blueprint, layer):
     print('## Layer {}'.format(layer))
     for testcase in blueprint[layer]:
         testcase['layer'] = layer
-        run_testcase(testcase)
+        can_continue = run_testcase(testcase)
+        if not can_continue:
+            return False;
+    return True
 
 
 def validate_blueprint(yaml_loc, layer):
@@ -65,9 +75,15 @@ def validate_blueprint(yaml_loc, layer):
     blueprint = yamldoc['blueprint']
     if layer is None:
         for each_layer in blueprint['layers']:
-            validate_layer(blueprint, each_layer)
+            can_continue = validate_layer(blueprint, each_layer)
+            if not can_continue:
+                return False;
+
     else:
-        validate_layer(blueprint, layer)
+        can_continue = validate_layer(blueprint, layer)
+        if not can_continue:
+            return False;
+    return True
 
 
 @click.command()

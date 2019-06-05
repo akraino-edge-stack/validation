@@ -24,13 +24,15 @@ blueprint:
     hardware: &hardware_dummy
         -
             name: bios_version
-            # something that can be evaluated to true or false
-            condition: true
+            # To run it keep a string that evaluates to True eg. 1+1==2
+            when: "True"
             what: bios_version
-            # true or false, default is false
-            show_stopper: false
+            # True or False, default is False
+            show_stopper: False
         -
             name: baremetal_hw
+            # To skip it keep a string that evaluates to False eg 1+1==1
+            when: "False"
             what: baremetal_hw
     os: &os_base
         -
