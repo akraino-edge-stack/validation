@@ -24,14 +24,18 @@ blueprint:
     hardware: &hardware_dummy
         -
             name: bios_version
-            # something that can be evaluated to true or false
-            condition: true
+            # To skip this test case keep it as False
+            when: "True"
             what: bios_version
-            # true or false, default is false
-            show_stopper: false
+            # True or False, default is False
+            show_stopper: "False"
         -
             name: baremetal_hw
+            # To skip this test case keep it as False
+            when: "False"
             what: baremetal_hw
+            # True or False, default is False
+            show_stopper: "True"
     os: &os_base
         -
             name: latency_cyclic
