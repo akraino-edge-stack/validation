@@ -42,10 +42,10 @@ bin/
 .project
 .idea
 *~
-pmd-bin-6.15.0*
+pmd-bin-*
+.vscode
 
 .*
 !/.gitignore
 !/.coafile
 !/ui/src/main/webapp/.eslintrc
-
