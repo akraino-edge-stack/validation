@@ -1,2 +1,3 @@
 docker/manifest-tool
 *.sw?
+.py35
