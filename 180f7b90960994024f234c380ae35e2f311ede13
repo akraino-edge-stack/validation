@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8fbbaf2a_f18632e7",
+        "filename": "ui/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-06T08:37:42Z",
+      "side": 1,
+      "message": "Let\u0027s change the file into an rst for consistency (and easy conversion to html)\nAlso, check whitespaces",
+      "revId": "180f7b90960994024f234c380ae35e2f311ede13",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2855f07_aa2d9d0b",
+        "filename": "ui/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-06T08:37:42Z",
+      "side": 1,
+      "message": "Maybe add a note to say that the script will build start the PostgreSQL container.\nThe same for the UI deploy command below.",
+      "revId": "180f7b90960994024f234c380ae35e2f311ede13",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
