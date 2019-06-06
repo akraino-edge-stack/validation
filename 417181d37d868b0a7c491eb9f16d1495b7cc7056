@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7ffa3af9_9cecc0c1",
+        "filename": "tests/hardware/baremetal_hw/baremetal.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "Yes, it\u0027s in line with the initial test scope",
+      "parentUuid": "0cfd8731_60ca2e8f",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 7
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "214b0dae_562531f2",
         "filename": "tests/hardware/baremetal_hw/variables.resource",
         "patchSetId": 17
@@ -39,6 +63,24 @@
       "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23e4c42d_471d8132",
+        "filename": "tests/hardware/baremetal_hw/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "Done in the patch associated to the hp bare metal commit.\nhttps://gerrit.akraino.org/r/c/validation/+/950",
+      "parentUuid": "214b0dae_562531f2",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "992b723b_87d407da",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "In our cluster the ceph is in WARN state which is not expected.\nPer D Korman request, this test was added at the beginning/end of osd tests",
+      "parentUuid": "ebedc533_693ba5d2",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4312f5b5_2fd4ef0e",
         "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
         "patchSetId": 17
@@ -85,6 +151,30 @@
       "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb1502be_4670c437",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "In our cluster the ceph is in WARN state which is not expected.\nPer D Korman request, this test was added at the beginning/end of osd tests",
+      "parentUuid": "4312f5b5_2fd4ef0e",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 40
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "401728a8_02f1d1f9",
+        "filename": "tests/openstack/ceph_ha/ceph_keywords.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "Juah, please advise the polling method.",
+      "parentUuid": "3c8ec284_f76f86bc",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 33
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e08cbb8_7a850b89",
         "filename": "tests/openstack/ceph_ha/variables.resource",
         "patchSetId": 17
@@ -125,6 +239,24 @@
       "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2079f64_fea32b4f",
+        "filename": "tests/openstack/ceph_ha/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "Done in the patch associated to the hp bare metal commit.\nhttps://gerrit.akraino.org/r/c/validation/+/950",
+      "parentUuid": "8e08cbb8_7a850b89",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     },
     {
       "key": {
@@ -145,6 +277,24 @@
     },
     {
       "key": {
+        "uuid": "b4466c91_57c05521",
+        "filename": "tests/os/cyclictest/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "Done in the patch associated to the hp bare metal commit.\nhttps://gerrit.akraino.org/r/c/validation/+/950",
+      "parentUuid": "037e9fcd_0594c204",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2070a61b_7a252466",
         "filename": "tests/os/ltp/variables.resource",
         "patchSetId": 17
@@ -162,6 +312,24 @@
     },
     {
       "key": {
+        "uuid": "b09f9aa8_d62476ba",
+        "filename": "tests/os/ltp/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "Done in the patch associated to the hp bare metal commit.\nhttps://gerrit.akraino.org/r/c/validation/+/950",
+      "parentUuid": "2070a61b_7a252466",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f64a2e24_bae6a001",
         "filename": "tests/os/ltp/variables.resource",
         "patchSetId": 17
@@ -176,6 +344,24 @@
       "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b84ee458_5b1efff3",
+        "filename": "tests/os/ltp/variables.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-06T00:15:18Z",
+      "side": 1,
+      "message": "Yes, I think we can do that.",
+      "parentUuid": "f64a2e24_bae6a001",
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
