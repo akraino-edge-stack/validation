@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "ad211066_84f30bc8",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-06T07:16:42Z",
+      "side": 1,
+      "message": "Yes, my point is that precondition check could be in suite setup instead of being a separate (first) testcase.",
+      "parentUuid": "992b723b_87d407da",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4312f5b5_2fd4ef0e",
         "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
         "patchSetId": 17
@@ -178,6 +202,30 @@
     },
     {
       "key": {
+        "uuid": "fdf38471_d2220975",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-06T07:16:42Z",
+      "side": 1,
+      "message": "Yes, my point is that this check could be in suite teardown instead of being a separate (last) testcase.",
+      "parentUuid": "bb1502be_4670c437",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 40
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3c8ec284_f76f86bc",
         "filename": "tests/openstack/ceph_ha/ceph_keywords.resource",
         "patchSetId": 17
@@ -222,6 +270,30 @@
       "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7461c2b2_aeeb2a0c",
+        "filename": "tests/openstack/ceph_ha/ceph_keywords.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-06T07:16:42Z",
+      "side": 1,
+      "message": "One way to do it is Wait Until Keyword Succeeds, see https://gerrit.akraino.org/r/c/validation/+/802/2/k8s/etcd_ha.resource#45",
+      "parentUuid": "401728a8_02f1d1f9",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 33
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     },
     {
       "key": {
