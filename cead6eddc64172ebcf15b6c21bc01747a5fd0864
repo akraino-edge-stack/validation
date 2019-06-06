@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b59eaf1_9e0e0cf7",
+        "filename": "variables.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-06-06T00:46:22Z",
+      "side": 1,
+      "message": "its hp_baremetal",
+      "revId": "cead6eddc64172ebcf15b6c21bc01747a5fd0864",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
