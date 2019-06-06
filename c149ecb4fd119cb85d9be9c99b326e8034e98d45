@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9f1e849_fc0cf33d",
+        "filename": "ui/README.rst",
+        "patchSetId": 15
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-06T15:24:01Z",
+      "side": 1,
+      "message": "Add some .. code-block:: console styling here (see https://gerrit.akraino.org/r/gitweb?p\u003dvalidation.git;a\u003dblob;f\u003ddocker/README.rst;h\u003d456354faca1a23010909497de48f4becd4cfb636;hb\u003dHEAD#l29)\n\nThe same comment goes for the insert commands below",
+      "revId": "c149ecb4fd119cb85d9be9c99b326e8034e98d45",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "827bdaf2_89c1ec88",
+        "filename": "ui/README.rst",
+        "patchSetId": 15
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-06T15:24:01Z",
+      "side": 1,
+      "message": "Dumping all this content here doesn\u0027t really help readability. It\u0027s better to point to the sql file and maybe just explain 1 entry",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 169
+      },
+      "revId": "c149ecb4fd119cb85d9be9c99b326e8034e98d45",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3e3e424_451c2350",
+        "filename": "ui/README.rst",
+        "patchSetId": 15
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-06T15:24:01Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 141,
+        "startChar": 16,
+        "endLine": 141,
+        "endChar": 25
+      },
+      "revId": "c149ecb4fd119cb85d9be9c99b326e8034e98d45",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aac5caa6_bd2d309a",
+        "filename": "ui/README.rst",
+        "patchSetId": 15
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-06T15:24:01Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 141,
+        "startChar": 45,
+        "endLine": 141,
+        "endChar": 54
+      },
+      "revId": "c149ecb4fd119cb85d9be9c99b326e8034e98d45",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df79549c_e16d49e3",
+        "filename": "ui/README.rst",
+        "patchSetId": 15
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-06T15:24:01Z",
+      "side": 1,
+      "message": "and Arm",
+      "revId": "c149ecb4fd119cb85d9be9c99b326e8034e98d45",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c985cf5_6aa92ded",
+        "filename": "ui/src/main/java/org/akraino/validation/ui/data/Lab.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-06T15:24:01Z",
+      "side": 1,
+      "message": "Arm lab can be added too, as it\u0027s linked to the LF Jenkins slave already",
+      "revId": "c149ecb4fd119cb85d9be9c99b326e8034e98d45",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
