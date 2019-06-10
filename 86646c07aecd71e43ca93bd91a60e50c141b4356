@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09ce662e_bb1f39c3",
+        "filename": "docker/hw/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-06-10T22:08:09Z",
+      "side": 1,
+      "message": "Other blueprint owners can\u0027t use because its hard coded for blueprint base. And there is no way to pass keys and config information.\nIf you publish that images blue print owners can pull them and run them using following example \n\n$ docker run \n-v /root/.ssh:/root/.ssh \n-v /opt/akraino/validation/results:/opt/akraino/validation/results \n-v /one/more/entry/for/ /properties/files\nvalidation:${LAYER} bash -c \"cd /opt/akraino/validation \u0026\u0026 python3 bluval/bluval.py -l ${LAYER} ${BLUEPRINT}\"",
+      "revId": "86646c07aecd71e43ca93bd91a60e50c141b4356",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
