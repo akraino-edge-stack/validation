@@ -4,6 +4,7 @@ ignore = .tox/**,
     .gitignore,
     .gitreview,
     .gitmodules,
+    .py35/**,
     **.sw?,
     **.orig
 
