@@ -155,6 +155,30 @@
     },
     {
       "key": {
+        "uuid": "c22e9c73_0e882425",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-11T23:04:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad211066_84f30bc8",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 23
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4312f5b5_2fd4ef0e",
         "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
         "patchSetId": 17
@@ -226,6 +250,30 @@
     },
     {
       "key": {
+        "uuid": "5d6e9064_f05f1ea7",
+        "filename": "tests/openstack/ceph_ha/ceph_ha_mon_mgr_osd.robot",
+        "patchSetId": 17
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-11T23:04:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf38471_d2220975",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 40
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c8ec284_f76f86bc",
         "filename": "tests/openstack/ceph_ha/ceph_keywords.resource",
         "patchSetId": 17
@@ -285,6 +333,30 @@
       "side": 1,
       "message": "One way to do it is Wait Until Keyword Succeeds, see https://gerrit.akraino.org/r/c/validation/+/802/2/k8s/etcd_ha.resource#45",
       "parentUuid": "401728a8_02f1d1f9",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 33
+      },
+      "revId": "417181d37d868b0a7c491eb9f16d1495b7cc7056",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "795a5b47_e9605890",
+        "filename": "tests/openstack/ceph_ha/ceph_keywords.resource",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 173
+      },
+      "writtenOn": "2019-06-11T23:04:29Z",
+      "side": 1,
+      "message": "Working on this.",
+      "parentUuid": "7461c2b2_aeeb2a0c",
       "range": {
         "startLine": 55,
         "startChar": 4,
