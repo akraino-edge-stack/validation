@@ -52,6 +52,24 @@
       "revId": "510f4ee5acea6fdbb952a268fdc9a0601cf12927",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "133d4d63_1caf2847",
+        "filename": "utils/send_results.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 133
+      },
+      "writtenOn": "2019-06-19T16:24:41Z",
+      "side": 1,
+      "message": "Yes, I would suggest adding this log shipping as a JJB step in your jobs, rather than as part of the build process. You can create a generic macro to run this step, and include the create-netrc macro before it to ensure that the credentials are set up first.",
+      "parentUuid": "572e0bfe_94a49491",
+      "revId": "510f4ee5acea6fdbb952a268fdc9a0601cf12927",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
