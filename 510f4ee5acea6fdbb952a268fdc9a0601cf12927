@@ -34,6 +34,24 @@
       "revId": "510f4ee5acea6fdbb952a268fdc9a0601cf12927",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "572e0bfe_94a49491",
+        "filename": "utils/send_results.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-19T14:56:48Z",
+      "side": 1,
+      "message": "Maybe this script should be in the ci-management project? Added Eric as reviewer for some insight.",
+      "parentUuid": "764d6f9b_62d5f193",
+      "revId": "510f4ee5acea6fdbb952a268fdc9a0601cf12927",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
