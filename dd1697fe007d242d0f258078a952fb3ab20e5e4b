@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "99f3e9ec_5402a3e3",
+        "filename": "e2e/e2e.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-21T11:37:06Z",
+      "side": 1,
+      "message": "Isn\u0027t this suite include the conformance testing too? If so we\u0027re doubling the tests and maybe we should skip those. Also, this test should be moved to tests/k8s folder",
+      "range": {
+        "startLine": 35,
+        "startChar": 32,
+        "endLine": 35,
+        "endChar": 40
+      },
+      "revId": "dd1697fe007d242d0f258078a952fb3ab20e5e4b",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
