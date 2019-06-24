@@ -77,7 +77,7 @@ By default, the container will run the k8s conformance test. If you want to
 enter the container, add */bin/sh* at the end of the command above
 
 
-The postgresql container
+The mariadb container
 =================
 
 Building and pushing the container
@@ -87,13 +87,13 @@ To build just the postgresql container, use the command:
 
 .. code-block:: console
 
-   make postgresql-build [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
+   make mariadb-build [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
 
 To both build and push the container, use the command:
 
 .. code-block:: console
 
-   make postgresql [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
+   make mariadb [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
 
 Using the container
 -------------------
@@ -102,7 +102,7 @@ If you want to deploy the container, you can run the corresponding deploy.sh scr
 Example:
 
 .. code-block:: console
-    ./deploy.sh POSTGRES_PASSWORD=password
+    ./deploy.sh MARIADB_PASSWORD=password
 
 
 The ui container
@@ -111,8 +111,7 @@ The ui container
 Building and pushing the container
 ----------------------------------
 
-To build just the ui container, you must first compile the ui project.
-Then use the command:
+To build just the UI container, use the command:
 
 .. code-block:: console
 
@@ -126,10 +125,16 @@ To both build and push the container, use the command:
 
 Using the container
 -------------------
-If you want to deploy the container, you can run the corresponding deploy.sh script with the appropriate parameters.
-Note, that you must also build and run the postgresql container for a functional UI.
+If you want to deploy the container, you can run the deploy.sh script located under the UI source directory with the appropriate parameters.
+Note that, for a functional UI, the following prerequisites are needed:
+
+- The mariadb container in up and running state
+- A Jenkins instance capable of running the blueprint validation test
+- A Nexus repo in which all the test results are stored.
+
+Look at the UI README file for more info.
 
 Example:
 
 .. code-block:: console
-    ./deploy.sh postgres_db_user_pwd=password jenkins_url=http://192.168.2.2:8080 jenkins_user_name=name jenkins_user_pwd=jenkins_pwd jenkins_job_name=job1 nexus_results_url=https://nexus.akraino.org/content/sites/logs proxy_ip=172.28.40.9 proxy_port=3128
+    ./deploy.sh TAG_PRE=ui db_connection_url=172.17.0.3:3306/akraino mariadb_user_pwd=password jenkins_url=http://192.168.2.2:8080 jenkins_user_name=name jenkins_user_pwd=jenkins_pwd jenkins_job_name=job1

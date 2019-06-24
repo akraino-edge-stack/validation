@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<!-- This tiles definitions file is defs/definitions.xml. It maps tokens 
+	used by app controllers to JSP file paths. Applications that use JSP pages 
+	should modify this file. Configured by ExternalAppConfig#addTileDefinitions(). -->
+
+<tiles-definitions>
+
+	<definition name="newSubmission"
+		template="/app/AECBlueprintValidationUI/NewSubmission/NewSubmission.html" />
+
+	<definition name="committedSubmissions"
+		template="/app/AECBlueprintValidationUI/CommittedSubmissions/CommittedSubmissions.html" />
+
+	<definition name="getBySubmissionId"
+		template="/app/AECBlueprintValidationUI/GetBySubmissionId/GetBySubmissionId.html" />
+
+</tiles-definitions>
