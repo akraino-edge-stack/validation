@@ -60,3 +60,19 @@ All notable changes to this project will be documented in this file.
 - README file is updated.
 
 ### Removed
+
+## [0.1.0-SNAPSHOT] - 24 June 2019
+### Added
+- The following database initialization scripts of ONAP portal SDK project have been added (but modified in order to support the Akraino database) : epsdk-app-common/db-scripts/EcompSdkDDLMySql_2_4_Common.sql, epsdk-app-os/db-scripts/EcompSdkDDLMySql_2_4_OS.sql, epsdk-app-common/db-scripts/EcompSdkDMLMySql_2_4_Common.sql and epsdk-app-os/db-scripts/EcompSdkDMLMySql_2_4_OS.sql. The copyrights of these files have not been changed.
+- Proxies for connecting with Nexus and Jenkins are now supported.
+- io.fabric8/docker-maven-plugin can now be used for creating UI container for development purposes
+
+### Changed
+- Adaptation to ONAP portal SDK completed. Version 2.4.0 (Casablanca) has been used.
+- The new URL of the results stored in Nexus is now used.
+- Jenkins API is used by utilizing lower case for blueprint names and layers
+- README file is updated
+- Bug fixed when test suite is selected
+- Jenkins job name is dynamically defined in the Nexus result URL
+
+### Removed

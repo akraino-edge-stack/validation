@@ -14,20 +14,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-CONTAINER_NAME="validation-ui"
+# Container name
+CONTAINER_NAME="akraino-validation-ui"
+# Image data
 REGISTRY=akraino
 NAME=validation
-TAG_PRE=`echo "${PWD##*/}"`
+TAG_PRE=ui
 TAG_VER=latest
 HOST_ARCH=amd64
-postgres_db_user_pwd=""
+# Container input parameters
+mariadb_user_pwd=""
 jenkins_url=""
 jenkins_user_name=""
 jenkins_user_pwd=""
 jenkins_job_name=""
-nexus_results_url=""
-proxy_ip=""
-proxy_port=""
+db_connection_url=""
+nexus_proxy=""
+jenkins_proxy=""
 
 # get the architecture of the host
 if [ "`uname -m`" = "aarch64" ]
@@ -42,22 +45,30 @@ do
     case "$KEY" in
             REGISTRY)              REGISTRY=${VALUE} ;;
             NAME)    NAME=${VALUE} ;;
+            TAG_PRE)    TAG_PRE=${VALUE} ;;
             TAG_VER)    TAG_VER=${VALUE} ;;
-            postgres_db_user_pwd)    postgres_db_user_pwd=${VALUE} ;;
+            mariadb_user_pwd)    mariadb_user_pwd=${VALUE} ;;
             jenkins_url)    jenkins_url=${VALUE} ;;
             jenkins_user_name)    jenkins_user_name=${VALUE} ;;
             jenkins_user_pwd)    jenkins_user_pwd=${VALUE} ;;
             jenkins_job_name)    jenkins_job_name=${VALUE} ;;
-            nexus_results_url)    nexus_results_url=${VALUE} ;;
-            proxy_ip)    proxy_ip=${VALUE} ;;
-            proxy_port)    proxy_port=${VALUE} ;;
+            db_connection_url)    db_connection_url=${VALUE} ;;
+            CONTAINER_NAME)    CONTAINER_NAME=${VALUE} ;;
+            nexus_proxy) nexus_proxy=${VALUE} ;;
+            jenkins_proxy) jenkins_proxy=${VALUE} ;;
             *)
     esac
 done
 
-if [ -z "$postgres_db_user_pwd" ]
+if [ -z "$db_connection_url" ]
   then
-    echo "ERROR: You must specify the postgresql root user password"
+    echo "ERROR: You must specify the database connection url"
+    exit 1
+fi
+
+if [ -z "$mariadb_user_pwd" ]
+  then
+    echo "ERROR: You must specify the mariadb root user password"
     exit 1
 fi
 
@@ -85,12 +96,6 @@ if [ -z "$jenkins_job_name" ]
     exit 1
 fi
 
-if [ -z "$nexus_results_url" ]
-  then
-    echo "ERROR: You must specify the Nexus Url"
-    exit 1
-fi
-
 IMAGE="$REGISTRY"/"$NAME":"$TAG_PRE"-"$HOST_ARCH"-"$TAG_VER"
-docker run --name $CONTAINER_NAME --network="host" -it --rm -e postgres_db_user_pwd="$postgres_db_user_pwd" -e jenkins_url="$jenkins_url" -e jenkins_user_name="$jenkins_user_name" -e jenkins_user_pwd="$jenkins_user_pwd" -e jenkins_job_name="$jenkins_job_name" -e nexus_results_url="$nexus_results_url" -e proxy_ip="$proxy_ip" -e proxy_port="$proxy_port" $IMAGE
+docker run --name $CONTAINER_NAME --network="host" -it --rm -e db_connection_url="$db_connection_url" -e maria_db_user_pwd="$mariadb_user_pwd" -e jenkins_url="$jenkins_url" -e jenkins_user_name="$jenkins_user_name" -e jenkins_user_pwd="$jenkins_user_pwd" -e jenkins_job_name="$jenkins_job_name" -e nexus_proxy="$nexus_proxy" -e jenkins_proxy="$jenkins_proxy" $IMAGE
 sleep 10
