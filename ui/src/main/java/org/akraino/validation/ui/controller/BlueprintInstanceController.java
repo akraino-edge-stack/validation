@@ -13,35 +13,41 @@
  * implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 package org.akraino.validation.ui.controller;
 
 import java.util.List;
 
 import org.akraino.validation.ui.entity.BlueprintInstance;
 import org.akraino.validation.ui.service.BlueprintInstanceService;
-import org.apache.log4j.Logger;
+import org.onap.portalsdk.core.controller.RestrictedBaseController;
+import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController
+@Controller
 @RequestMapping("/api/blueprintInstance")
-public class BlueprintInstanceController {
+public class BlueprintInstanceController extends RestrictedBaseController {
+
+    private static final EELFLoggerDelegate LOGGER = EELFLoggerDelegate.getLogger(BlueprintInstanceController.class);
 
     @Autowired
     BlueprintInstanceService service;
 
-    private static final Logger LOGGER = Logger.getLogger(BlueprintInstanceController.class);
+    public BlueprintInstanceController() {
+        super();
+    }
 
-    @GetMapping("/")
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public ResponseEntity<List<BlueprintInstance>> getBlueprintInstances() {
         try {
             return new ResponseEntity<>(service.getBlueprintInstances(), HttpStatus.OK);
         } catch (Exception e) {
-            LOGGER.error(e);
+            LOGGER.error(EELFLoggerDelegate.errorLogger, "Error when trying to get blueprint instances", e);
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }

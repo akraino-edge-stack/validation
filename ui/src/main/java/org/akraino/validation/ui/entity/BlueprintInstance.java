@@ -25,13 +25,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.akraino.validation.ui.data.BlueprintLayer;
 
 @Entity
-@Table(name = "akraino.blueprint_instance")
+@Table(name = "blueprint_instance")
 public class BlueprintInstance implements Serializable {
 
     /**
@@ -40,10 +39,8 @@ public class BlueprintInstance implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "blueprint_instance_id_generator")
-    @SequenceGenerator(name = "blueprint_instance_id_generator", sequenceName = "akraino.seq_blueprint_instance",
-            allocationSize = 1)
-    @Column(name = "blueprint_instance_id")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
     private int blueprintInstId;
 
     @ManyToOne

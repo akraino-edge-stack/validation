@@ -15,11 +15,12 @@
  */
 package org.akraino.validation.ui.service;
 
+import org.akraino.validation.ui.conf.UiUtils;
 import org.akraino.validation.ui.data.JnksJobNotify;
 import org.akraino.validation.ui.data.SubmissionStatus;
 import org.akraino.validation.ui.entity.Submission;
 import org.akraino.validation.ui.service.utils.SubmissionHelper;
-import org.apache.log4j.Logger;
+import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,28 +29,30 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class JenkinsJobNotificationService {
 
+    private static final EELFLoggerDelegate LOGGER = EELFLoggerDelegate.getLogger(JenkinsJobNotificationService.class);
+
     @Autowired
     private SubmissionHelper submissionHelper;
 
     @Autowired
     private SubmissionService submissionService;
 
-    private static final Logger LOGGER = Logger.getLogger(JenkinsJobNotificationService.class);
-
     public void handle(JnksJobNotify jnksJobNotify) {
-        String jenkinsJobName = System.getenv("jenkins_job_name");
+        String jenkinsJobName = System.getenv("JENKINS_JOB_NAME");
         if (!jenkinsJobName.equals(jnksJobNotify.getName())) {
             return;
         }
         Submission submission = submissionService.getSubmission(Integer.toString(jnksJobNotify.getSubmissionId()));
         if (submission == null) {
-            LOGGER.debug("No related submission was found.");
+            LOGGER.debug(EELFLoggerDelegate.debugLogger, "No related submission was found");
             return;
         }
-        submission.setNexusResultUrl(System.getenv("nexus_results_url") + "/"
-                + submission.getBlueprintInstance().getTimeslot().getLab().name().toLowerCase() + "-blu-val"
-                + "/job/validation/" + String.valueOf(jnksJobNotify.getbuildNumber()));
-        LOGGER.info("Updating submission with id: " + submission.getSubmissionId());
+        submission.setNexusResultUrl(UiUtils.NEXUS_URL + "/"
+                + submission.getBlueprintInstance().getTimeslot().getLab().name().toLowerCase() + "-blu-val" + "/job/"
+                + System.getenv("JENKINS_JOB_NAME") + "/" + String.valueOf(jnksJobNotify.getbuildNumber() + "/results/"
+                        + submission.getBlueprintInstance().getLayer().name().toLowerCase()));
+        LOGGER.info(EELFLoggerDelegate.applicationLogger,
+                "Updating submission with id: " + submission.getSubmissionId());
         submission.setSubmissionStatus(SubmissionStatus.Completed);
         submissionHelper.saveSubmission(submission);
     }
