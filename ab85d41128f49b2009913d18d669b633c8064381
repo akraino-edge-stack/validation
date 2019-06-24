@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afb27031_8f3b526c",
+        "filename": "docker/ui/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 194
+      },
+      "writtenOn": "2019-06-24T06:33:48Z",
+      "side": 1,
+      "message": "Your approach is better. However, it does not provide to the developer the ability to build the UI image using a modified UI source code, as it always downloads the UI from the repo.\n\nI suggest the followings:\n-Leave the code here as is in your patch, as I believe the docker directory aims to build images for the production environment. \n- Modify the pom.xml file of the UI source code to support the build of an appropriate image containing the modified code. This will concern only the development environment.\n- Move the deploy.sh to the UI source code directory, as it does not longer belong here.\n\nI you agree, I can update the patch.",
+      "revId": "ab85d41128f49b2009913d18d669b633c8064381",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
