@@ -15,6 +15,8 @@
  */
 package org.akraino.validation.ui.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,14 +24,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.akraino.validation.ui.data.SubmissionStatus;
 
 @Entity
-@Table(name = "akraino.submission")
-public class Submission {
+@Table(name = "submission")
+public class Submission implements Serializable {
 
     /**
      *
@@ -37,9 +38,8 @@ public class Submission {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "submission_id_generator")
-    @SequenceGenerator(name = "submission_id_generator", sequenceName = "akraino.seq_submission", allocationSize = 1)
-    @Column(name = "submission_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int submissionId;
 
     @Column(name = "status")

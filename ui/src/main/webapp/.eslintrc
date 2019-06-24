@@ -1,5 +1,5 @@
 {
-  "globals": {
+    "globals": {
     "angular": 1,
     "console": 1,
     "confirm":1,
