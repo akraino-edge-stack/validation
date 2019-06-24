@@ -22,6 +22,30 @@
       "revId": "dd1697fe007d242d0f258078a952fb3ab20e5e4b",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0119b37a_6f23bab8",
+        "filename": "e2e/e2e.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-24T06:55:10Z",
+      "side": 1,
+      "message": "Since e2e.sh was committed along with sonobuoy I was assuming it was done for a reason. But you may have a point here and all e2e tests could/should be done via sonobuoy.\n\nNaga/Miguel, can you comment why kubetest and the execution of \u0027Secrects\u0027 was added in the first place? If this is overlapping the Conformance test by sonobuoy, I\u0027ll simply remove e2e.sh from the repository.",
+      "parentUuid": "99f3e9ec_5402a3e3",
+      "range": {
+        "startLine": 35,
+        "startChar": 32,
+        "endLine": 35,
+        "endChar": 40
+      },
+      "revId": "dd1697fe007d242d0f258078a952fb3ab20e5e4b",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
