@@ -16,6 +16,24 @@
       "revId": "ab85d41128f49b2009913d18d669b633c8064381",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7bcce46_6b9ca29a",
+        "filename": "docker/ui/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-06-24T08:18:51Z",
+      "side": 1,
+      "message": "Thanks for the comment Ioakeim. Your approach sounds good, go ahead and update the patch. Make sure you update the documentation too if needed :D",
+      "parentUuid": "afb27031_8f3b526c",
+      "revId": "ab85d41128f49b2009913d18d669b633c8064381",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
