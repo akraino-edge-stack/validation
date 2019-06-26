@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ab4370b_8447b35b",
+        "filename": "docker/mariadb/Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-06-26T20:47:30Z",
+      "side": 1,
+      "message": "I was looking at pending patches for the validation project, to see whether my recently proposed changes conflict with anything when I noticed this bit.\n\nAlthough `make -C docker/mariadb build # or all` will work, this will probably break when invoked from the parent directly using `make -C docker push-all`, which would omit the `prepare` make target and jump straight to `.push_image` which only depends on `.build` from build.mk.\n\nIn [1] I implemented a solution for a similar issue I had using double-colon make targets.\nSo instead of `prepare:` above, I would use `.build::`. With that in place, `all` and `build` targets in this Makefile can simply depend on `.push_image .push_manifest`, respectively `.build`.\n\nI hope this helps.\n\n[1] https://gerrit.akraino.org/r/c/validation/+/1062/2/docker/kube-conformance/Makefile",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "70f7bf44a0fb2c0bb94ef6299ae79620cdb04115",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
