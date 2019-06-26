@@ -21,6 +21,15 @@ kind: Namespace
 metadata:
   name: heptio-sonobuoy
 ---
+apiVersion: danm.k8s.io/v1
+kind: DanmNet
+metadata:
+  name: default
+  namespace: heptio-sonobuoy
+spec:
+  NetworkID: flannel
+  NetworkType: flannel
+---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
