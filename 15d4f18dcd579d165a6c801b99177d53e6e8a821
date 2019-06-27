@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec1913dd_2af6ba48",
+        "filename": "tests/k8s/conformance/sonobuoy.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-06-27T10:57:25Z",
+      "side": 1,
+      "message": "This is not a generic solution but expecting DANM is in use in all deployments, which is not the case. DANM is used in REC.\n\nSecondly REC requires that admin creates cluster wide resources for applications beforehand (onboarding). This conflicts the test flow where the e2e test itself creates (arbitrary named) resources dynamically during the run. For example, this will happen even danm is added to heptio-sonobuoy namespace:\n\n Warning  FailedCreatePodSandBox  2m2s (x4 over 2m5s)    kubelet, 192.168.10.2  (combined from similar events): Failed create pod sandbox: rpc error: code \u003d Unknown desc \u003d failed to set up sandbox container \"f7575d76208e5ea573629661c0ed362ce9b9ce0d76355052635a6df45733e6a1\" network for pod \"e2e-test-nginx-rc-lxx2v\": NetworkPlugin cni failed to set up pod \"e2e-test-nginx-rc-lxx2v_e2e-tests-kubectl-9pmqt\" network: CNI network could not be set up: failed to get DanmNet due to:NID:default in namespace:e2e-tests-kubectl-9pmqt cannot be GET from K8s API server, because of error:danmnets.danm.k8s.io \"default\" not found",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 3
+      },
+      "revId": "15d4f18dcd579d165a6c801b99177d53e6e8a821",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
