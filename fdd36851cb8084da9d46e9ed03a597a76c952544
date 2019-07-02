@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "176b8073_06f00336",
+        "filename": "tests/security/docker/docker_bench.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-07-02T12:16:06Z",
+      "side": 1,
+      "message": "Souldn\u0027t these be part of test setup too?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 33
+      },
+      "revId": "fdd36851cb8084da9d46e9ed03a597a76c952544",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "156ef6fa_25f9bba8",
+        "filename": "tests/security/docker/variables.resource",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-07-02T12:16:06Z",
+      "side": 1,
+      "message": "Since we need the user to provide these variables as input, I think it\u0027s better to have them all in one place, in the global variable file tests/variables.yaml\nHost and username are already defined there, we only need to add the ssh key file. Keep in mind that the bluval command already runs the tests with that file as input.",
+      "revId": "fdd36851cb8084da9d46e9ed03a597a76c952544",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
