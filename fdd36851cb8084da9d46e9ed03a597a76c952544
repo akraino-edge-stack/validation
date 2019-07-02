@@ -39,6 +39,24 @@
       "revId": "fdd36851cb8084da9d46e9ed03a597a76c952544",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "affa15e1_ecab41ed",
+        "filename": "tests/security/docker/variables.resource",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-07-02T12:49:11Z",
+      "side": 1,
+      "message": "Got it. Is setting of HOME really needed in variables.yaml? Explicitly it is used only in cyclictest:\n\nLogin With Public Key    ${USERNAME}   ${HOME}/.ssh/id_rsa",
+      "parentUuid": "156ef6fa_25f9bba8",
+      "revId": "fdd36851cb8084da9d46e9ed03a597a76c952544",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
