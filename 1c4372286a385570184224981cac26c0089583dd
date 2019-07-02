@@ -46,6 +46,30 @@
       "revId": "1c4372286a385570184224981cac26c0089583dd",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "282bdef6_fb9c0285",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-07-02T13:57:38Z",
+      "side": 1,
+      "message": "I understand what you mean. However I don\u0027t like how we mix the starting of the docker container with the running of the tests inside the container. Maybe we should have separate files for the functionalities? Let\u0027s see what other people think too.",
+      "parentUuid": "b1cb4020_edce37e8",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 35
+      },
+      "revId": "1c4372286a385570184224981cac26c0089583dd",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
