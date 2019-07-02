@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b24308b6_f4b117eb",
+        "filename": "tests/security/docker/docker_bench.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-07-02T14:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "176b8073_06f00336",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 33
+      },
+      "revId": "fdd36851cb8084da9d46e9ed03a597a76c952544",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "156ef6fa_25f9bba8",
         "filename": "tests/security/docker/variables.resource",
         "patchSetId": 2
@@ -57,6 +81,24 @@
       "revId": "fdd36851cb8084da9d46e9ed03a597a76c952544",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb65f753_9ccc9477",
+        "filename": "tests/security/docker/variables.resource",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-07-02T14:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "affa15e1_ecab41ed",
+      "revId": "fdd36851cb8084da9d46e9ed03a597a76c952544",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
