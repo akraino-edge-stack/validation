@@ -22,6 +22,30 @@
       "revId": "1c4372286a385570184224981cac26c0089583dd",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1cb4020_edce37e8",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 17
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-07-02T13:12:37Z",
+      "side": 1,
+      "message": "They way we start a container depends on layer and independent of blue print. Blue print name passed as a variable. We can run the validation containers from CI but when blue print owner want to ran it for \"all\" layers we need a program to parse blue print\u0027s yaml take all the layers and run container for for each layer by mounting appropriate volumes. Simple thing is you can mount same volumes for all layers, the mount point may be used or ignored.",
+      "parentUuid": "639ddb1a_5f62f874",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 35
+      },
+      "revId": "1c4372286a385570184224981cac26c0089583dd",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
