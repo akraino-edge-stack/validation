@@ -178,6 +178,7 @@ public final class NexusExecutorClient {
             JSONObject xmlJSONObj = XML.toJSONObject(result);
             ObjectMapper mapper = new ObjectMapper();
             mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+            mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
             RobotTestResult robotTestResult = mapper.readValue(xmlJSONObj.toString(), RobotTestResult.class);
             robotTestResult.setName(testSuiteName);
             robotTestResults.add(robotTestResult);

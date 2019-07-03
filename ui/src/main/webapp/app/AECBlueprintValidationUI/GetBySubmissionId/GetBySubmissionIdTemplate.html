@@ -70,9 +70,11 @@ limitations under the License.
 
  <div>
 
-  <h2>
-   <u>Test info</u>
-  </h2>
+  <h2 class="heading-small"></h2>
+  <h3 class="heading-small">
+   <u>General Info</u>
+  </h3>
+  <p></p>
 
   <p></p>
   <p>Name: {{selectedRobotTestResult.name}}</p>
@@ -198,6 +200,65 @@ limitations under the License.
         title="0%"></div>
       </div>
      </td>
+    </tr>
+   </tbody>
+  </table>
+
+  <h2 class="heading-small"></h2>
+  <h3 class="heading-small">
+   <u>Test Execution Log</u>
+  </h3>
+  <p></p>
+
+  <p>Root Suite Full Name:
+   {{selectedRobotTestResult.robot.suite.name}}</p>
+  <p>Source: {{selectedRobotTestResult.robot.suite.source}}</p>
+  <p>Status: {{selectedRobotTestResult.robot.suite.status.status}}</p>
+  <p>Start time:
+   {{selectedRobotTestResult.robot.suite.status.starttime}}</p>
+  <p>End time:
+   {{selectedRobotTestResult.robot.suite.status.endtime}}</p>
+
+  <h2 class="heading-small"></h2>
+  <p></p>
+  <p>Sub-suite Full Name:
+   {{selectedRobotTestResult.robot.suite.suite.name}}</p>
+  <p>Documentation:
+   {{selectedRobotTestResult.robot.suite.suite.doc}}</p>
+  <p>Source: {{selectedRobotTestResult.robot.suite.suite.source}}</p>
+  <p>Status:
+   {{selectedRobotTestResult.robot.suite.suite.status.status}}</p>
+  <p>Start time:
+   {{selectedRobotTestResult.robot.suite.suite.status.starttime}}</p>
+  <p>End time:
+   {{selectedRobotTestResult.robot.suite.suite.status.endtime}}</p>
+
+  <h3 class="heading-small">Test Cases</h3>
+  <table class="striped" cellspacing="0" cellpadding="10">
+   <caption>
+    <h3></h3>
+   </caption>
+   <thead>
+    <th><p>&nbsp;Full Name&nbsp;</p></th>
+    <th><p>Documentation&nbsp;</p></th>
+    <th><p>Status&nbsp;</p></th>
+    <th><p>Start Time&nbsp;</p></th>
+    <th><p>End Time&nbsp;</p></th>
+    <th><p>Critical&nbsp;</p></th>
+    <th><p>Message&nbsp;</p></th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr
+     ng-repeat="test in selectedRobotTestResult.robot.suite.suite.test">
+     <td style="padding-left: 10px; font-size: 15px; width: 13%;">{{
+      test.name }}</td>
+     <td style="padding-left: 10px; font-size: 15px; width: 13%;">{{test.doc}}</td>
+     <td style="padding-left: 10px; font-size: 15px; width: 13%;">{{test.status.status}}</td>
+     <td style="padding-left: 10px; font-size: 15px; width: 13%;">{{test.status.starttime}}</td>
+     <td style="padding-left: 10px; font-size: 15px; width: 13%;">{{test.status.endtime}}</td>
+     <td style="padding-left: 10px; font-size: 15px; width: 13%;">{{test.status.critical}}</td>
+     <td style="padding-left: 10px; font-size: 15px; width: 13%;">{{test.status.content}}</td>
     </tr>
    </tbody>
   </table>

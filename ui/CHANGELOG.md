@@ -95,3 +95,11 @@ All notable changes to this project will be documented in this file.
 - Definition of system architecture removed from the pom.xml
 
 ### Removed
+
+## [0.1.0-SNAPSHOT] - 3 Jule 2019
+### Added
+- Declarative info of the results is now displayed
+
+### Changed
+
+### Removed
