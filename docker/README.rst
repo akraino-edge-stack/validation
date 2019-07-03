@@ -116,6 +116,28 @@ Example (assuming you have used the default variables for building the image usi
 
     ./deploy.sh MARIADB_ROOT_PASSWORD=password UI_ADMIN_PASSWORD=admin UI_AKRAINO_PASSWORD=akraino
 
+Also, if you want to re-deploy the database (it is assumed that the corresponding mariadb container has been stopped and deleted) and the persistent storage already exists (currently, the directory /var/lib/mariadb of the host is used), after the image build process, a different approach should be used.
+
+To this end, another script has been developed, namely deploy_with_existing_storage.sh which easily deploys the container. This script accepts the following as input parameters:
+
+CONTAINER_NAME, name of the container, default value is akraino-validation-mariadb
+MARIADB_ROOT_PASSWORD, the desired mariadb root user password, this variable is required
+REGISTRY, registry of the mariadb image, default value is akraino
+NAME, name of the mariadb image, default value is validation
+TAG_PRE, first part of the image version, default value is mariadb
+TAG_VER, last part of the image version, default value is latest
+MARIADB_HOST_PORT, port on which mariadb is exposed on host, default value is 3307
+
+If you want to deploy the container, you can run this script with the appropriate parameters.
+
+Example (assuming you have used the default variables for building the image using the make command):
+
+.. code-block:: console
+
+    ./deploy_with_existing_persistent_storage.sh MARIADB_ROOT_PASSWORD=password
+
+Look at the UI README file for more info.
+
 The ui container
 ================
 
