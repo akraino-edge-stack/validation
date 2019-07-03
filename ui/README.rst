@@ -108,7 +108,7 @@ Configure the mariadb root user password (currently the UI connects to the datab
 .. code-block:: console
 
     cd validation/ui
-    mvn docker:build
+    mvn docker:build -Ddocker.filter=akraino/validation:dev-mariadb-latest
     cd ../docker/mariadb
     ./deploy.sh TAG_PRE=dev-mariadb MARIADB_ROOT_PASSWORD=<root user password> UI_ADMIN_PASSWORD=<UI admin user password> UI_AKRAINO_PASSWORD=<UI akraino user password>
     mysql -p<MARIADB_ROOT_PASSWORD> -uroot -h <IP of the mariadb container> < ../../ui/db-scripts/examples/initialize_db_example.sql
@@ -119,15 +119,37 @@ In order to retrieve the IP of the mariadb container, execute the following comm
 
     docker inspect <name of the mariadb container>
 
-It should be noted that, currently, both images (UI and mariadb) are built using the mvn docker:build command.
+Furthermore, the TAG_PRE variable should be defined because the default value is 'mariadb' (note that the 'dev-mariadb' is used for development purposes - look at pom.xml file).
 
-Furthermore, the TAG_PRE variable should be defined as the default value is 'mariadb' (note that the 'dev-mariadb' is used for development purposes - look at pom.xml file).
+If you want to re-deploy the database (it is assumed that the corresponding mariadb container has been stopped and deleted) and the persistent storage already exists (currently, the directory /var/lib/mariadb of the host is used), after the image build process, a different approach should be used.
 
-If you want to re-deploy the database, you must first delete the container and the directory on the host machine where data are stored. To this end, execute the following command:
+To this end, another script has been developed, namely validation/docker/mariadb/deploy_with_existing_storage.sh which easily deploys the container. This script accepts the following as input parameters:
+
+CONTAINER_NAME, name of the container, default value is akraino-validation-mariadb
+MARIADB_ROOT_PASSWORD, the desired mariadb root user password, this variable is required
+REGISTRY, registry of the mariadb image, default value is akraino
+NAME, name of the mariadb image, default value is validation
+TAG_PRE, first part of the image version, default value is mariadb
+TAG_VER, last part of the image version, default value is latest
+MARIADB_HOST_PORT, port on which mariadb is exposed on host, default value is 3307
+
+Let's deploy the image using only the required parameters and the existing persistent storage.
+
+Configure the mariadb root user password (currently the UI connects to the database using root privileges) in the appropriate variable and execute the following commands in order to build and deploy this database container:
 
 .. code-block:: console
 
-    docker stop <name of the mariadb container> ; docker rm <name of the mariadb container> ; sudo rm -rf /var/lib/mariadb
+    cd validation/docker/mariadb
+    ./deploy_with_existing_persistent_storage.sh TAG_PRE=dev-mariadb MARIADB_ROOT_PASSWORD=<root user password>
+
+Finally, if you want to re-deploy the database (it is assumed that the corresponding mariadb container has been stopped and deleted) and delete the old persistent storage, you must first delete the directory on the host machine where data is stored (note that all database's data will be lost). To this end, after the image build process, execute the following commands:
+
+.. code-block:: console
+
+    sudo rm -rf /var/lib/mariadb
+    cd validation/docker/mariadb
+    ./deploy.sh TAG_PRE=dev-mariadb MARIADB_ROOT_PASSWORD=<root user password> UI_ADMIN_PASSWORD=<UI admin user password> UI_AKRAINO_PASSWORD=<UI akraino user password>
+    mysql -p<MARIADB_ROOT_PASSWORD> -uroot -h <IP of the mariadb container> < ../../ui/db-scripts/examples/initialize_db_example.sql
 
 In the context of the full control loop mode, the following tables must be initialized with appropriate data:
 
@@ -332,7 +354,7 @@ Execute the following commands in order to build and deploy the UI container:
 .. code-block:: console
 
     cd validation/ui
-    mvn docker:build
+    mvn docker:build -Ddocker.filter=akraino/validation:dev-ui-latest
     cd ../docker/ui
     ./deploy.sh TAG_PRE=dev-ui DB_CONNECTION_URL=<Url in order to connect to akraino database of the mariadb> MARIADB_ROOT_PASSWORD=<mariadb root password> JENKINS_URL=<http://jenkinsIP:port> JENKINS_USERNAME=<Jenkins user> JENKINS_USER_PASSWORD=<Jenkins password> JENKINS_JOB_NAME=<Jenkins job name>
 
