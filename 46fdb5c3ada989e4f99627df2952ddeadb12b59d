@@ -22,6 +22,30 @@
       "revId": "46fdb5c3ada989e4f99627df2952ddeadb12b59d",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b04cf4e_d54f7f9a",
+        "filename": "tests/security/docker/docker_bench.resource",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-07-05T09:13:08Z",
+      "side": 1,
+      "message": "At first we are logging into master with the user/key provided. Then from the master we can log into other nodes without defining a key explicitly since that\u0027s already configured in REC by default.\n\nIn REC, worker nodes does not have a public IP.",
+      "parentUuid": "f8ed730b_944d176e",
+      "range": {
+        "startLine": 52,
+        "startChar": 26,
+        "endLine": 52,
+        "endChar": 41
+      },
+      "revId": "46fdb5c3ada989e4f99627df2952ddeadb12b59d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
