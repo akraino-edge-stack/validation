@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8ed730b_944d176e",
+        "filename": "tests/security/docker/docker_bench.resource",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-07-05T08:36:02Z",
+      "side": 1,
+      "message": "Where are you running these ssh commands from, the container or the k8s master? I think they should be from the container, which means user and ssh key needs to be passed to the commands.",
+      "range": {
+        "startLine": 52,
+        "startChar": 26,
+        "endLine": 52,
+        "endChar": 41
+      },
+      "revId": "46fdb5c3ada989e4f99627df2952ddeadb12b59d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
