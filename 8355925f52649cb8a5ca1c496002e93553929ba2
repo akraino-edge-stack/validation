@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd9d1209_76be2656",
+        "filename": "docker/README.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-07-08T13:00:20Z",
+      "side": 1,
+      "message": "Maybe add a command to \"cd\" to the path from which you run this script. It\u0027s needed, since the script uses pwd in it",
+      "revId": "8355925f52649cb8a5ca1c496002e93553929ba2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
