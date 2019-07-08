@@ -16,6 +16,24 @@
       "revId": "8355925f52649cb8a5ca1c496002e93553929ba2",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e10d21ce_a4e649fd",
+        "filename": "docker/README.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 194
+      },
+      "writtenOn": "2019-07-08T13:12:57Z",
+      "side": 1,
+      "message": "This comment has been addressed in patch 6.",
+      "parentUuid": "cd9d1209_76be2656",
+      "revId": "8355925f52649cb8a5ca1c496002e93553929ba2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
