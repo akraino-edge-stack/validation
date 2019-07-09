@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46651e56_85c191fc",
+        "filename": "docker/cord-tester/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-07-09T12:52:10Z",
+      "side": 1,
+      "message": "the overall image would be a bit smaller with fewer layers if we combine some of the RUN commands here and below, i.e. `RUN apt update \u0026\u0026 apt install -y ...`",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 0
+      },
+      "revId": "10d558cf23ed88e792754824d7f90f4e8d064d3f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
