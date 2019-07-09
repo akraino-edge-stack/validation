@@ -274,3 +274,50 @@ want to enter the container, add */bin/sh* at the end of the command above.
 
 Normally, this conainer is not used directly, but instead leveraged via
 sonobuoy.
+
+The cord-tester container
+=========================
+
+Building and pushing the container
+----------------------------------
+
+To build just the cord-tester container, use the command:
+
+.. code-block:: console
+
+    make cord-tester-build [ REGISTRY=<dockerhub_registry> ]
+
+To both build and push the container, use the command:
+
+.. code-block:: console
+
+    make cord-tester [ REGISTRY=<dockerhub_registry> ]
+
+Using the container
+-------------------
+
+The cord-tester image is meant to be ran from a server that has access to the
+kubernetes cluster (jenkins slave, jumpserver, etc).
+
+Before running the image, copy the folder ~/.kube from your kubernetes
+master node to a local folder (e.g. /home/jenkins/k8s_access).
+
+Container needs to be started with the kubernetes access folder mounted.
+Optionally, the results folder can be mounted as well; this way the logs are
+stored on the local server.
+
+The main usecase is running SEBA E2E test cases (SiaB) on a cluster previously
+deployed with SEBA according to the blueprints that implement this usecase.
+To begin with, the container will serve for validating SEBA running on top of
+IEC Type 2.
+
+.. code-block:: console
+
+    docker run -ti -v /home/jenkins/k8s_access:/root/.kube/ \
+    -v /home/jenkins/k8s_results:/opt/akraino/results/ \
+    akraino/validation:cord-tester-latest
+
+The container does not specify an entry point, as it might serve several
+purposes. For example, for the SiaB E2E tests, after starting a container
+it is necessary to clone https://github.com/opencord/cord-tester and run
+setup_venv.sh.
