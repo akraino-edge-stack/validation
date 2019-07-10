@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eaedc379_bdb1c7ea",
+        "filename": "docker/cord-tester/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-07-10T17:39:49Z",
+      "side": 1,
+      "message": "in order to avoid a dependency on this, we could\n- use http instead of https for the APT sources entry (the repository has package singing information anyway, so it\u0027s not unsafe);\n- download the apt-key.gpg in the build stage and COPY it to the final container, then `apt-key add it`;",
+      "range": {
+        "startLine": 39,
+        "startChar": 33,
+        "endLine": 39,
+        "endChar": 52
+      },
+      "revId": "7489e6fdeb0f503ad4c44e4e49bfad28a4de6fc9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19cfe5b0_1efe79c1",
+        "filename": "docker/cord-tester/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-07-10T17:39:49Z",
+      "side": 1,
+      "message": "RUN make -C librdkafka-0.11.6 install \u0026\u0026 rm -rf librdkafka-0.11.6",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 31
+      },
+      "revId": "7489e6fdeb0f503ad4c44e4e49bfad28a4de6fc9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
