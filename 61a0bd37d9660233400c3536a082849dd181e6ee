@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2cf215d1_cc89f08f",
+        "filename": "docker/README.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-07-11T12:42:42Z",
+      "side": 1,
+      "message": "We decided in the validation team that we\u0027ll not specify entry points, as we need to pass the blueprint name at runtime and we\u0027ll have a different mechanism for that.",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 53
+      },
+      "revId": "61a0bd37d9660233400c3536a082849dd181e6ee",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3127345b_bacb7bf8",
+        "filename": "docker/README.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-07-11T12:42:42Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 8
+      },
+      "revId": "61a0bd37d9660233400c3536a082849dd181e6ee",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
