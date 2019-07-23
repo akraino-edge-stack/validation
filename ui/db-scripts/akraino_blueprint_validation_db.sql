@@ -24,10 +24,12 @@ DROP TABLE IF EXISTS blueprint;
 DROP TABLE IF EXISTS silo;
 DROP TABLE IF EXISTS timeslot;
 DROP TABLE IF EXISTS lab;
+DROP TABLE IF EXISTS w_robot_test_result;
+DROP TABLE IF EXISTS validation_test_result;
 
 create table lab (
    id bigint not NULL AUTO_INCREMENT,
-   lab text not NULL,
+   lab text not NULL unique,
    CONSTRAINT id_pk PRIMARY KEY (id)
 );
 
@@ -45,7 +47,7 @@ create table timeslot (
 create table silo (
    id bigint not NULL AUTO_INCREMENT,
    silo text not NULL,
-   lab_id bigint not NULL,
+   lab_id bigint not NULL unique,
    CONSTRAINT id_pk PRIMARY KEY (id),
    CONSTRAINT lab_id_fk2 FOREIGN KEY (lab_id)
       REFERENCES lab (id) MATCH SIMPLE
@@ -69,7 +71,38 @@ CREATE TABLE blueprint_instance_for_validation
    CONSTRAINT id_pk PRIMARY KEY (id),
    CONSTRAINT blueprint_id_fk FOREIGN KEY (blueprint_id)
       REFERENCES blueprint (id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+   unique (version, layer, blueprint_id)
+);
+
+CREATE TABLE validation_test_result
+(
+   id bigint not NULL AUTO_INCREMENT,
+   blueprint_name varchar(20) not NULL,
+   version text not NULL,
+   layer_under_validation text,
+   lab_id bigint not NULL,
+   timestamp text not NULL,
+   result boolean not NULL,
+   date_of_storage text not NULL,
+   CONSTRAINT id_pk PRIMARY KEY (id),
+   CONSTRAINT lab_id_fk3 FOREIGN KEY (lab_id)
+      REFERENCES lab (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+   unique (timestamp, lab_id)
+);
+
+CREATE TABLE w_robot_test_result
+(
+   id bigint not NULL AUTO_INCREMENT,
+   layer text not NULL,
+   validation_test_result_id bigint not NULL,
+   robot_test_results LONGTEXT not NULL,
+   CONSTRAINT id_pk PRIMARY KEY (id),
+   CONSTRAINT validation_test_result_id_fk FOREIGN KEY (validation_test_result_id)
+      REFERENCES validation_test_result (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+   unique (layer, validation_test_result_id)
 );
 
 CREATE TABLE submission
