@@ -17,13 +17,16 @@
 
 <tiles-definitions>
 
-    <definition name="newSubmission"
-        template="/app/AECBlueprintValidationUI/NewSubmission/NewSubmission.html" />
+    <definition name="newsubmission"
+        template="/app/BluvalUI/NewSubmission/NewSubmission.html" />
 
-    <definition name="committedSubmissions"
-        template="/app/AECBlueprintValidationUI/CommittedSubmissions/CommittedSubmissions.html" />
+    <definition name="committedsubmissions"
+        template="/app/BluvalUI/CommittedSubmissions/CommittedSubmissions.html" />
 
-    <definition name="getBySubmissionId"
-        template="/app/AECBlueprintValidationUI/GetBySubmissionId/GetBySubmissionId.html" />
+    <definition name="getbysubmissionid"
+        template="/app/BluvalUI/GetBySubmissionId/GetBySubmissionId.html" />
+
+    <definition name="getallresults"
+        template="/app/BluvalUI/GetAllResults/GetAllResults.html" />
 
 </tiles-definitions>

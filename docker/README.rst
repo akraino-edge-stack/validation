@@ -163,13 +163,13 @@ Using the container
 In order for the container to be easily created, the deploy.sh script has been developed. This script accepts the following as input parameters:
 
 CONTAINER_NAME, the name of the contaner, default value is akraino-validation-ui
-DB_CONNECTION_URL, the URL connection with the akraino database of the maridb instance, this variable is required
+DB_IP_PORT, the IP and port of the maridb instance, this variable is required
 MARIADB_ROOT_PASSWORD, the mariadb root user password, this variable is required
 REGISTRY, the registry of the mariadb image, default value is akraino
 NAME, the name of the mariadb image, default value is validation
 TAG_PRE, the first part of the image version, default value is ui
 TAG_VER, the last part of the image version, default value is latest
-JENKINS_URL, the URL of the Jenkins instance, this variable is required
+JENKINS_URL, the URL of the Jenkins instance (http or https must be defined), this variable is required
 JENKINS_USERNAME, the Jenkins user name, this variable is required
 JENKINS_USER_PASSWORD, the Jenkins user password, this variable is required
 JENKINS_JOB_NAME, the name of Jenkins job capable of executing the blueprint validation tests, this variable is required
@@ -191,7 +191,7 @@ Example (assuming the default variables have been utilized for building the imag
 .. code-block:: console
 
     cd validation/docker/ui
-    ./deploy.sh DB_CONNECTION_URL=172.17.0.3:3306/akraino MARIADB_ROOT_PASSWORD=password JENKINS_URL=http://192.168.2.2:8080 JENKINS_USERNAME=name JENKINS_USER_PASSWORD=jenkins_pwd JENKINS_JOB_NAME=job1
+    ./deploy.sh DB_IP_PORT=172.17.0.3:3306 MARIADB_ROOT_PASSWORD=password JENKINS_URL=http://192.168.2.2:8080 JENKINS_USERNAME=name JENKINS_USER_PASSWORD=jenkins_pwd JENKINS_JOB_NAME=job1
 
 The kube-conformance container
 ==============================

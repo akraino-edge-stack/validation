@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-var appDS2 = angular.module("AECNewSubmission", [ 'ngRoute', 'ngMessages',
-        'modalServices', 'ngCookies', 'b2b.att', 'gridster', 'ui.bootstrap',
-        'ui.bootstrap.modal', 'App.Services' ]);
+var config_module = angular.module('App.Config', []);
+config_module.constant('appContext', '/bluvalui');
+config_module.constant('refreshPeriod', '12000'); // in msecs
