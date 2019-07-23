@@ -24,6 +24,11 @@ CREATE DATABASE IF NOT EXISTS akraino;
 
 USE akraino;
 
+CREATE USER 'akraino' IDENTIFIED BY 'akraino_password';
+GRANT USAGE ON *.* TO 'akraino'@'%' IDENTIFIED BY 'akraino_password';
+GRANT ALL privileges ON `akraino`.* TO 'akraino'@'%' IDENTIFIED BY 'akraino_password';
+FLUSH PRIVILEGES;
+
 -- ---------- create table SECTION
 --
 -- NAME: CR_FAVORITE_REPORTS; TYPE: TABLE
