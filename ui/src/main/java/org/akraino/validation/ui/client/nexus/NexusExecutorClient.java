@@ -23,10 +23,17 @@ import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.X509Certificate;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
+import javax.annotation.Nonnull;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -35,6 +42,8 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import org.akraino.validation.ui.client.nexus.resources.RobotTestResult;
+import org.akraino.validation.ui.client.nexus.resources.Status;
+import org.akraino.validation.ui.client.nexus.resources.TimestampRobotTestResult;
 import org.akraino.validation.ui.client.nexus.resources.WrapperRobotTestResult;
 import org.akraino.validation.ui.data.BlueprintLayer;
 import org.apache.commons.httpclient.HttpException;
@@ -44,6 +53,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
+import org.onap.portalsdk.core.onboarding.util.PortalApiProperties;
+import org.onap.portalsdk.core.web.support.UserUtils;
+import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -62,6 +74,7 @@ import com.sun.jersey.client.urlconnection.HTTPSProperties;
 import com.sun.jersey.client.urlconnection.HttpURLConnectionFactory;
 import com.sun.jersey.client.urlconnection.URLConnectionClientHandler;
 
+@Service
 public final class NexusExecutorClient {
 
     private static final EELFLoggerDelegate LOGGER = EELFLoggerDelegate.getLogger(NexusExecutorClient.class);
@@ -71,8 +84,8 @@ public final class NexusExecutorClient {
     private final HostnameVerifier hostnameVerifier;
     private final TrustManager[] trustAll;
 
-    public NexusExecutorClient(String newBaseurl) {
-        this.baseurl = newBaseurl;
+    public NexusExecutorClient() {
+        this.baseurl = PortalApiProperties.getProperty("nexus_url");
         ClientConfig clientConfig = new DefaultClientConfig();
         clientConfig.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
         this.client = new Client(new URLConnectionClientHandler(new HttpURLConnectionFactory() {
@@ -81,10 +94,10 @@ public final class NexusExecutorClient {
             @Override
             public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
                 try {
-                    String proxyIp =
-                            System.getenv("NEXUS_PROXY").substring(0, System.getenv("NEXUS_PROXY").lastIndexOf(":"));
-                    String proxyPort =
-                            System.getenv("NEXUS_PROXY").substring(System.getenv("NEXUS_PROXY").lastIndexOf(":") + 1);
+                    String proxyIp = System.getenv("NEXUS_PROXY").substring(0,
+                            System.getenv("NEXUS_PROXY").lastIndexOf(":"));
+                    String proxyPort = System.getenv("NEXUS_PROXY")
+                            .substring(System.getenv("NEXUS_PROXY").lastIndexOf(":") + 1);
                     proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyIp, Integer.parseInt(proxyPort)));
                     return (HttpURLConnection) url.openConnection(proxy);
                 } catch (Exception ex) {
@@ -100,7 +113,7 @@ public final class NexusExecutorClient {
             }
         };
         // Create a trust manager that does not validate certificate chains
-        trustAll = new TrustManager[] {new X509TrustManager() {
+        trustAll = new TrustManager[] { new X509TrustManager() {
             @Override
             public X509Certificate[] getAcceptedIssuers() {
                 return null; // Not relevant.
@@ -115,19 +128,97 @@ public final class NexusExecutorClient {
             public void checkServerTrusted(X509Certificate[] certs, String authType) {
                 // Do nothing. Just allow them all.
             }
-        }};
+        } };
     }
 
     public String getBaseUrl() {
         return this.baseurl;
     }
 
-    public List<WrapperRobotTestResult> getRobotTestResults() throws ClientHandlerException, UniformInterfaceException,
-            JsonParseException, JsonMappingException, IOException, KeyManagementException, NoSuchAlgorithmException {
+    public List<String> getResource(String endpoint)
+            throws ClientHandlerException, UniformInterfaceException, JsonParseException, JsonMappingException,
+            IOException, KeyManagementException, NoSuchAlgorithmException, ParseException {
+        List<String> resources = new ArrayList<String>();
+        String nexusUrl = this.baseurl;
+        if (endpoint != null) {
+            nexusUrl = this.baseurl + "/" + endpoint;
+        }
+        LOGGER.info(EELFLoggerDelegate.applicationLogger, "Trying to get nexus resource: " + nexusUrl);
+        setProperties();
+        WebResource webResource = this.client.resource(nexusUrl + "/");
+        LOGGER.debug(EELFLoggerDelegate.debugLogger, "Request URI of get: " + webResource.getURI().toString());
+        ClientResponse response = webResource.get(ClientResponse.class);
+        if (response.getStatus() != 200) {
+            throw new HttpException("Could not retrieve nexus resource " + nexusUrl + ". HTTP error code : "
+                    + response.getStatus() + " and message: " + response.getEntity(String.class));
+        }
+        Document document = Jsoup.parse(response.getEntity(String.class));
+        List<Element> elements = document.getElementsByTag("body").get(0).getElementsByTag("table").get(0)
+                .getElementsByTag("tbody").get(0).getElementsByTag("tr");
+        for (int i = 2; i < elements.size(); i++) {
+            String resource = elements.get(i).getElementsByTag("td").get(0).getElementsByTag("a").get(0).text();
+            resource = resource.substring(0, resource.length() - 1);
+            resources.add(resource);
+        }
+        return resources;
+    }
+
+    public List<String> getResource(@Nonnull String endpoint1, @Nonnull String endpoint2)
+            throws ClientHandlerException, UniformInterfaceException, JsonParseException, JsonMappingException,
+            IOException, KeyManagementException, NoSuchAlgorithmException, ParseException {
+        String endpoint = endpoint1 + "/" + endpoint2;
+        return this.getResource(endpoint);
+    }
+
+    public List<TimestampRobotTestResult> getRobotTestResultsByBlueprint(@Nonnull String name, @Nonnull String version,
+            @Nonnull String siloText, int noOfLastElements)
+                    throws ClientHandlerException, UniformInterfaceException, JsonParseException, JsonMappingException,
+                    IOException, KeyManagementException, NoSuchAlgorithmException, ParseException {
+        String nexusUrl = this.baseurl + "/" + siloText + "/" + name + "/" + version;
+        List<TimestampRobotTestResult> tsTestResults = new ArrayList<TimestampRobotTestResult>();
+        LOGGER.info(EELFLoggerDelegate.applicationLogger, "Trying to get timestamps results");
+        setProperties();
+        WebResource webResource = this.client.resource(nexusUrl + "/");
+        LOGGER.debug(EELFLoggerDelegate.debugLogger, "Request URI of get: " + webResource.getURI().toString());
+        ClientResponse response = webResource.get(ClientResponse.class);
+        if (response.getStatus() != 200) {
+            throw new HttpException("Could not retrieve timestamps results from Nexus. HTTP error code : "
+                    + response.getStatus() + " and message: " + response.getEntity(String.class));
+        }
+        Document document = Jsoup.parse(response.getEntity(String.class));
+        List<Element> elements = document.getElementsByTag("body").get(0).getElementsByTag("table").get(0)
+                .getElementsByTag("tbody").get(0).getElementsByTag("tr");
+        elements = findLastElementsByDate(elements.subList(2, elements.size()), noOfLastElements);
+        for (int i = 0; i < elements.size(); i++) {
+            try {
+                TimestampRobotTestResult tsTestResult = new TimestampRobotTestResult();
+                String timestamp = elements.get(i).getElementsByTag("td").get(0).getElementsByTag("a").get(0).text();
+                timestamp = timestamp.substring(0, timestamp.length() - 1);
+                tsTestResult.setTimestamp(timestamp);
+                String lastModified = elements.get(i).getElementsByTag("td").get(1).text();
+                tsTestResult.setDateOfStorage(lastModified);
+                List<WrapperRobotTestResult> wTestResults = getRobotTestResultsByTimestamp(name, version, siloText,
+                        timestamp);
+                tsTestResult.setWrapperRobotTestResults(wTestResults);
+                tsTestResult.setResult(determineResult(wTestResults));
+                tsTestResults.add(tsTestResult);
+            } catch (HttpException ex) {
+                LOGGER.warn(EELFLoggerDelegate.auditLogger, "Exception occured while retrieving timestamp results");
+                continue;
+            }
+        }
+        return tsTestResults;
+    }
+
+    public List<WrapperRobotTestResult> getRobotTestResultsByTimestamp(@Nonnull String name, @Nonnull String version,
+            @Nonnull String siloText, @Nonnull String timestamp)
+                    throws ClientHandlerException, UniformInterfaceException, JsonParseException, JsonMappingException,
+                    IOException, KeyManagementException, NoSuchAlgorithmException {
+        String nexusUrl = this.baseurl + "/" + siloText + "/" + name + "/" + version + "/" + timestamp + "/results";
         List<WrapperRobotTestResult> listOfwrappers = new ArrayList<WrapperRobotTestResult>();
         LOGGER.info(EELFLoggerDelegate.applicationLogger, "Trying to get the blueprint layers");
         setProperties();
-        WebResource webResource = this.client.resource(this.baseurl + "/");
+        WebResource webResource = this.client.resource(nexusUrl + "/");
         LOGGER.debug(EELFLoggerDelegate.debugLogger, "Request URI of get: " + webResource.getURI().toString());
         ClientResponse response = webResource.get(ClientResponse.class);
         if (response.getStatus() != 200) {
@@ -135,31 +226,36 @@ public final class NexusExecutorClient {
                     + response.getStatus() + " and message: " + response.getEntity(String.class));
         }
         Document document = Jsoup.parse(response.getEntity(String.class));
-        List<Element> elements =
-                document.getElementsByTag("body").get(0).getElementsByTag("table").get(0).getElementsByTag("tr");
+        List<Element> elements = document.getElementsByTag("body").get(0).getElementsByTag("table").get(0)
+                .getElementsByTag("tr");
         for (int i = 2; i < elements.size(); i++) {
-            String layer = elements.get(i).getElementsByTag("td").get(0).getElementsByTag("a").get(0).text();
-            layer = layer.substring(0, layer.length() - 1);
-            List<RobotTestResult> robotTestResults = getResultsOfALayer(this.baseurl + "/" + layer);
-            WrapperRobotTestResult wrapper = new WrapperRobotTestResult();
-            wrapper.setBlueprintLayer(BlueprintLayer.valueOf(layer.substring(0, 1).toUpperCase() + layer.substring(1)));
-            wrapper.setRobotTestResults(robotTestResults);
-            listOfwrappers.add(wrapper);
+            try {
+                String layer = elements.get(i).getElementsByTag("td").get(0).getElementsByTag("a").get(0).text();
+                layer = layer.substring(0, layer.length() - 1);
+                List<RobotTestResult> robotTestResults = getTestSuitesResults(nexusUrl + "/" + layer);
+                WrapperRobotTestResult wrapper = new WrapperRobotTestResult();
+                wrapper.setBlueprintLayer(BlueprintLayer.valueOf(layer));
+                wrapper.setRobotTestResults(robotTestResults);
+                listOfwrappers.add(wrapper);
+            } catch (HttpException ex) {
+                LOGGER.warn(EELFLoggerDelegate.auditLogger, "Exception occured while retrieving robot results");
+                continue;
+            }
         }
         return listOfwrappers;
     }
 
-    private List<RobotTestResult> getResultsOfALayer(String resultsUrl)
+    private List<RobotTestResult> getTestSuitesResults(String resultsUrl)
             throws ClientHandlerException, UniformInterfaceException, JsonParseException, JsonMappingException,
             IOException, KeyManagementException, NoSuchAlgorithmException {
-        List<RobotTestResult> robotTestResults = new ArrayList<RobotTestResult>();
-        LOGGER.info(EELFLoggerDelegate.applicationLogger, "Trying to get Robot Test Results");
+        List<RobotTestResult> rTestResults = new ArrayList<RobotTestResult>();
+        LOGGER.info(EELFLoggerDelegate.applicationLogger, "Trying to get test suites results");
         setProperties();
         WebResource webResource = this.client.resource(resultsUrl + "/");
         LOGGER.debug(EELFLoggerDelegate.debugLogger, "Request URI of get: " + webResource.getURI().toString());
         ClientResponse response = webResource.get(ClientResponse.class);
         if (response.getStatus() != 200) {
-            throw new HttpException("Could not retrieve robot test results from Nexus. HTTP error code : "
+            throw new HttpException("Could not retrieve test suites results from Nexus. HTTP error code : "
                     + response.getStatus() + " and message: " + response.getEntity(String.class));
         }
         Document document = Jsoup.parse(response.getEntity(String.class));
@@ -172,7 +268,7 @@ public final class NexusExecutorClient {
             LOGGER.debug(EELFLoggerDelegate.debugLogger, "Request URI of get: " + webResource.getURI().toString());
             response = webResource.get(ClientResponse.class);
             if (response.getStatus() != 200) {
-                throw new HttpException("Could not retrieve robot test result from Nexus. HTTP error code : "
+                throw new HttpException("Could not retrieve test suite result from Nexus. HTTP error code : "
                         + response.getStatus() + " and message: " + response.getEntity(String.class));
             }
             String result = response.getEntity(String.class);
@@ -183,9 +279,9 @@ public final class NexusExecutorClient {
             mapper.setSerializationInclusion(Include.NON_NULL);
             RobotTestResult robotTestResult = mapper.readValue(xmlJSONObj.toString(), RobotTestResult.class);
             robotTestResult.setName(testSuiteName);
-            robotTestResults.add(robotTestResult);
+            rTestResults.add(robotTestResult);
         }
-        return robotTestResults;
+        return rTestResults;
     }
 
     private void setProperties() throws NoSuchAlgorithmException, KeyManagementException {
@@ -200,4 +296,38 @@ public final class NexusExecutorClient {
         properties.put(HTTPSProperties.PROPERTY_HTTPS_PROPERTIES, httpsProperties);
     }
 
+    private boolean determineResult(List<WrapperRobotTestResult> wTestResults) {
+        boolean result = true;
+        for (WrapperRobotTestResult wTestResult : wTestResults) {
+            for (RobotTestResult robotTestResult : wTestResult.getRobotTestResults()) {
+                for (Status status : robotTestResult.getRobot().getStatistics().getTotal().getStat()) {
+                    if (status.getContent().trim().equals("All Tests") && status.getFail() > 0) {
+                        result = false;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    private List<Element> findLastElementsByDate(List<Element> elements, int noOfLastElements) {
+        if (elements.size() <= noOfLastElements) {
+            return elements;
+        }
+        DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
+        Collections.sort(elements, new Comparator<Element>() {
+            @Override
+            public int compare(Element element1, Element element2) {
+                try {
+                    return dateFormat.parse(element2.getElementsByTag("td").get(1).text())
+                            .compareTo(dateFormat.parse(element1.getElementsByTag("td").get(1).text()));
+                } catch (ParseException e) {
+                    LOGGER.error(EELFLoggerDelegate.errorLogger,
+                            "Error when parsing date. " + UserUtils.getStackTrace(e));
+                    return 0;
+                }
+            }
+        });
+        return elements.subList(0, noOfLastElements);
+    }
 }

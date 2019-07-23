@@ -14,23 +14,7 @@
  * limitations under the License.
  */
 
-var app = angular.module('AECCommittedSubmissions');
+var appDS2 = angular.module("AECGetAllResults", ['ngRoute', 'ngMessages',
+    'modalServices', 'ngCookies', 'b2b.att', 'gridster', 'ui.bootstrap',
+    'ui.bootstrap.modal', 'App.Services', 'App.Config']);
 
-app.controller('AECCommittedSubmissionsController', function($scope,
-        restAPISvc, $interval, refreshPeriod) {
-
-    restAPISvc.getRestAPI("/api/v1/submission/", function(data) {
-        $scope.submissions = data;
-    });
-
-    $scope.refreshCommittedSubmissions = function() {
-        restAPISvc.getRestAPI("/api/v1/submission/", function(data) {
-            $scope.submissions = data;
-        });
-    }
-
-    $interval(function() {
-        $scope.refreshCommittedSubmissions();
-    }, refreshPeriod);
-
-});
