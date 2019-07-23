@@ -14,11 +14,7 @@
  * limitations under the License.
  */
 
-appDS2
-        .config(function($routeProvider) {
-            $routeProvider
-                    .otherwise({
-                        templateUrl : 'app/AECBlueprintValidationUI/CommittedSubmissions/CommittedSubmissionsTemplate.html',
-                        controller : "AECCommittedSubmissionsController"
-                    });
-        });
+var appDS2 = angular.module("GetAllResults", ['ngRoute', 'ngMessages',
+    'modalServices', 'ngCookies', 'b2b.att', 'gridster', 'ui.bootstrap',
+    'ui.bootstrap.modal', 'App.Services', 'App.Config']);
+

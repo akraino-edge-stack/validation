@@ -16,6 +16,9 @@
 
 package org.akraino.validation.ui.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.onap.portalsdk.core.controller.RestrictedBaseController;
@@ -32,21 +35,34 @@ public class ModelsViewsController extends RestrictedBaseController {
         super();
     }
 
-    @RequestMapping(value = {"/newSubmission"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/newsubmission" }, method = RequestMethod.GET)
     public ModelAndView newSubmission(HttpServletRequest request) {
         final String defaultViewName = null;
         return new ModelAndView(defaultViewName);
     }
 
-    @RequestMapping(value = {"/committedSubmissions"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/committedsubmissions" }, method = RequestMethod.GET)
     public ModelAndView committedSubmissions(HttpServletRequest request) {
         final String defaultViewName = null;
         return new ModelAndView(defaultViewName);
     }
 
-    @RequestMapping(value = {"/getBySubmissionId"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/getbysubmissionid" }, method = RequestMethod.GET)
     public ModelAndView getBySubmissionId(HttpServletRequest request) {
         final String defaultViewName = null;
         return new ModelAndView(defaultViewName);
     }
+
+    @RequestMapping(value = { "/getallresults" }, method = RequestMethod.GET)
+    public ModelAndView getAllResults(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/logout.htm" }, method = RequestMethod.GET)
+    public ModelAndView login() {
+        Map<String, Object> model = new HashMap<>();
+        return new ModelAndView("logout", "model", model);
+    }
+
 }

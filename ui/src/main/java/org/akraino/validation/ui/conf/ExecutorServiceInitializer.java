@@ -22,23 +22,30 @@ import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class UiUtils {
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class ExecutorServiceInitializer {
 
     private static final int QUEUE_CAPACITY = 500;
-    private static final int EXECUTOR_SIZE = 20; // the number of threads to keep in the pool, even if
+    private static final int EXECUTOR_SIZE = 30; // the number of threads to keep in the pool, even if
     // they are idle, unless allowCoreThreadTimeOut is
     // set
-    private static final int EXECUTOR_MAX_SIZE = 20; // the maximum number of threads to allow in the pool
-    private static final int KEEPALIVE_TIME = 20; // when the number of threads is greater than the
+    private static final int EXECUTOR_MAX_SIZE = 30; // the maximum number of threads to allow in the pool
+    private static final int KEEPALIVE_TIME = 30; // when the number of threads is greater than the
     // core, this is the maximum time that excess idle
     // threads will wait for new tasks before
     // terminating.
-    private static final PriorityBlockingQueue<Runnable> BLOCKING_QUEUE =
-            new PriorityBlockingQueue<Runnable>(QUEUE_CAPACITY, new CFRunnableComparator());
-    public static ExecutorService executorService =
-            new ThreadPoolExecutor(EXECUTOR_SIZE, EXECUTOR_MAX_SIZE, KEEPALIVE_TIME, TimeUnit.SECONDS, BLOCKING_QUEUE);
+    private static final PriorityBlockingQueue<Runnable> BLOCKING_QUEUE = new PriorityBlockingQueue<Runnable>(
+            QUEUE_CAPACITY, new CFRunnableComparator());
+    private static ExecutorService executorService = new ThreadPoolExecutor(EXECUTOR_SIZE, EXECUTOR_MAX_SIZE,
+            KEEPALIVE_TIME, TimeUnit.SECONDS, BLOCKING_QUEUE);
 
-    public static final String NEXUS_URL = "https://nexus.akraino.org/content/sites/logs";
+    @Bean(name = "executorService")
+    public ExecutorService getExecutorService() {
+        return this.executorService;
+    }
 
     private static class CFRunnableComparator implements Comparator<Runnable> {
         @Override

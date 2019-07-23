@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-var appDS2 = angular.module("AECGetBySubmissionId", [ 'ngRoute', 'ngMessages',
-        'modalServices', 'ngCookies', 'b2b.att', 'gridster', 'ui.bootstrap',
-        'ui.bootstrap.modal', 'App.Services' ]);
+var appDS2 = angular.module("GetBySubmissionId", ['ngRoute', 'ngMessages',
+    'modalServices', 'ngCookies', 'b2b.att', 'gridster', 'ui.bootstrap',
+    'ui.bootstrap.modal', 'App.Services']);

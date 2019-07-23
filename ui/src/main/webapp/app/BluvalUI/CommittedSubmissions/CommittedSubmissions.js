@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 
-var config_module = angular.module('App.Config', []);
-config_module.constant('appContext', '/AECBlueprintValidationUI');
-config_module.constant('refreshPeriod', '5000'); // in msecs
+var appDS2 = angular.module("CommittedSubmissions", ['ngRoute',
+    'ngMessages', 'modalServices', 'ngCookies', 'b2b.att', 'gridster',
+    'ui.bootstrap', 'ui.bootstrap.modal', 'App.Config', 'App.Services']);
