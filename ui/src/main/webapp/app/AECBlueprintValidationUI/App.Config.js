@@ -16,4 +16,4 @@
 
 var config_module = angular.module('App.Config', []);
 config_module.constant('appContext', '/AECBlueprintValidationUI');
-config_module.constant('refreshPeriod', '5000'); // in msecs
+config_module.constant('refreshPeriod', '12000'); // in msecs

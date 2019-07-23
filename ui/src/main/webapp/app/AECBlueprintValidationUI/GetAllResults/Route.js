@@ -14,23 +14,16 @@
  * limitations under the License.
  */
 
-var app = angular.module('AECCommittedSubmissions');
-
-app.controller('AECCommittedSubmissionsController', function($scope,
-        restAPISvc, $interval, refreshPeriod) {
-
-    restAPISvc.getRestAPI("/api/v1/submission/", function(data) {
-        $scope.submissions = data;
+appDS2
+    .config(function ($routeProvider) {
+        $routeProvider
+            .when('/displayDetailedResults', {
+                templateUrl: 'app/AECBlueprintValidationUI/GetAllResults/DisplayDetailedResults/DisplayDetailedResultsTemplate.html',
+                controller: "AECDisplayDetailedResultsController"
+            })
+            .otherwise(
+                {
+                    templateUrl: 'app/AECBlueprintValidationUI/GetAllResults/GetAllResultsTemplate.html',
+                    controller: "AECGetAllResultsController"
+                });
     });
-
-    $scope.refreshCommittedSubmissions = function() {
-        restAPISvc.getRestAPI("/api/v1/submission/", function(data) {
-            $scope.submissions = data;
-        });
-    }
-
-    $interval(function() {
-        $scope.refreshCommittedSubmissions();
-    }, refreshPeriod);
-
-});

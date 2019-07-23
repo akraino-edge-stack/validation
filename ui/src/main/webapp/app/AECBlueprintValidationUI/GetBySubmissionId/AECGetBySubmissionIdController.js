@@ -16,115 +16,123 @@
 
 var app = angular.module('AECGetBySubmissionId');
 app
-        .controller(
-                'AECGetBySubmissionIdController',
-                function($scope, restAPISvc) {
+    .controller(
+        'AECGetBySubmissionIdController',
+        function ($scope, restAPISvc) {
 
-                    initialize();
+            initialize();
 
-                    function initialize() {
-                        $scope.loading = false;
-                        $scope.showResults = false;
-                        $scope.results = [];
-                        $scope.resultsLayers = [];
-                        $scope.resultsLayerTestSuitesNames = [];
-                        $scope.selectedRobotTestResult = [];
-                        restAPISvc
-                                .getRestAPI(
-                                        "/api/submission/",
-                                        function(data) {
-                                            $scope.submissions = data;
-                                            $scope.submissionsForDisplay = [];
-                                            angular
-                                                    .forEach(
-                                                            $scope.submissions,
-                                                            function(
-                                                                    submissionData) {
-                                                                if (submissionData.submissionStatus === "Completed") {
-                                                                    var temp = "id: "
-                                                                            + submissionData.submissionId
-                                                                            + " blueprint: "
-                                                                            + submissionData.blueprintInstanceForValidation.blueprint.blueprintName
-                                                                            + " version: "
-                                                                            + submissionData.blueprintInstanceForValidation.version
-                                                                            + " layer: "
-                                                                            + submissionData.blueprintInstanceForValidation.layer
-                                                                            + " lab: "
-                                                                            + submissionData.timeslot.lab.lab
-                                                                            + " Start date and time: "
-                                                                            + submissionData.timeslot.startDateTime
+            function initialize() {
+                $scope.selectedTestId = null;
+                $scope.selectedTest = null;
+                $scope.loading = false;
+                $scope.showResults = false;
+                $scope.results = [];
+                $scope.resultsLayers = [];
+                $scope.resultsLayerTestSuitesNames = [];
+                $scope.selectedRobotTestResult = [];
+                restAPISvc
+                    .getRestAPI(
+                        "/api/v1/submission/",
+                        function (data) {
+                            $scope.submissions = data;
+                            $scope.submissionsForDisplay = [];
+                            angular
+                                .forEach(
+                                    $scope.submissions,
+                                    function (
+                                        submissionData) {
+                                        if (submissionData.submissionStatus === "Completed") {
+                                            var temp = "id: "
+                                                + submissionData.submissionId
+                                                + " blueprint: "
+                                                + submissionData.blueprintInstanceForValidation.blueprint.blueprintName
+                                                + " version: "
+                                                + submissionData.blueprintInstanceForValidation.version
+                                                + " layer: "
+                                                + submissionData.blueprintInstanceForValidation.layer
+                                                + " lab: "
+                                                + submissionData.timeslot.lab.lab
+                                                + " Start date and time: "
+                                                + submissionData.timeslot.startDateTime
                                                                     /*
                                                                      * + "
                                                                      * duration: " +
                                                                      * submissionData.blueprintInstanceForValidation.timeslot.duration
                                                                      */;
-                                                                    $scope.submissionsForDisplay
-                                                                            .push(temp);
-                                                                }
-                                                            });
+                                            $scope.submissionsForDisplay
+                                                .push(temp);
+                                        }
+                                    });
+                        });
+            }
+            $scope.selectedSubmissionChange = function (
+                selectedSubmission) {
+                $scope.results = [];
+                $scope.resultsLayers = [];
+                $scope.resultsLayerTestSuitesNames = [];
+                $scope.selectedRobotTestResult = [];
+                $scope.loading = true;
+                $scope.showResults = false;
+                var id = selectedSubmission.substring(
+                    selectedSubmission.indexOf("id:") + 4,
+                    selectedSubmission.indexOf("blueprint") - 1);
+                restAPISvc
+                    .getRestAPI(
+                        "/api/v1/results/getbysubmissionid/"
+                        + id,
+                        function (data) {
+                            $scope.loading = false;
+                            if (data !== undefined) {
+                                $scope.results = data;
+                                angular
+                                    .forEach(
+                                        $scope.results,
+                                        function (result) {
+                                            $scope.resultsLayers
+                                                .push(result.blueprintLayer);
                                         });
-                    }
-                    $scope.selectedSubmissionChange = function(
-                            selectedSubmission) {
-                        $scope.results = [];
-                        $scope.resultsLayers = [];
-                        $scope.resultsLayerTestSuitesNames = [];
-                        $scope.selectedRobotTestResult = [];
-                        $scope.loading = true;
-                        $scope.showResults = false;
-                        var id = selectedSubmission.substring(
-                                selectedSubmission.indexOf("id:") + 4,
-                                selectedSubmission.indexOf("blueprint") - 1);
-                        restAPISvc
-                                .getRestAPI(
-                                        "/api/results/getBySubmissionId/" + id,
-                                        function(data) {
-                                            $scope.loading = false;
-                                            if (data !== undefined) {
-                                                $scope.results = data;
-                                                angular
-                                                        .forEach(
-                                                                $scope.results,
-                                                                function(result) {
-                                                                    $scope.resultsLayers
-                                                                            .push(result.blueprintLayer);
-                                                                });
-                                                $scope.showResults = true;
-                                            } else {
-                                                confirm("Error when committing the submission");
-                                            }
-                                        });
-                    }
-
-                    $scope.selectedResultsLayerChange = function(selectedLayer) {
-                        $scope.resultsLayerTestSuitesNames = [];
-                        $scope.robotTestResults = [];
-                        $scope.selectedRobotTestResult = [];
-                        var selectedLayerResult = [];
-                        angular.forEach($scope.results, function(result) {
-                            if (result.blueprintLayer === selectedLayer) {
-                                selectedLayerResult = result;
+                                $scope.showResults = true;
+                            } else {
+                                confirm("Error when retrieving submission results");
                             }
                         });
-                        $scope.robotTestResults = selectedLayerResult.robotTestResults;
-                        angular.forEach($scope.robotTestResults, function(
-                                robotTestResult) {
-                            $scope.resultsLayerTestSuitesNames
-                                    .push(robotTestResult.name);
-                        });
-                    }
+            }
 
-                    $scope.selectedTestSuitesNameChange = function(
-                            selectedTestSuiteName) {
-                        angular
-                                .forEach(
-                                        $scope.robotTestResults,
-                                        function(robotTestResult) {
-                                            if (robotTestResult.name.trim() === selectedTestSuiteName
-                                                    .trim()) {
-                                                $scope.selectedRobotTestResult = robotTestResult;
-                                            }
-                                        });
+            $scope.selectedResultsLayerChange = function (selectedLayer) {
+                $scope.resultsLayerTestSuitesNames = [];
+                $scope.robotTestResults = [];
+                $scope.selectedRobotTestResult = [];
+                var selectedLayerResult = [];
+                angular.forEach($scope.results, function (result) {
+                    if (result.blueprintLayer === selectedLayer) {
+                        selectedLayerResult = result;
                     }
-
                 });
+                $scope.robotTestResults = selectedLayerResult.robotTestResults;
+                angular.forEach($scope.robotTestResults, function (
+                    robotTestResult) {
+                    $scope.resultsLayerTestSuitesNames
+                        .push(robotTestResult.name);
+                });
+            }
+
+            $scope.selectedTestSuitesNameChange = function (
+                selectedTestSuiteName) {
+                angular
+                    .forEach(
+                        $scope.robotTestResults,
+                        function (robotTestResult) {
+                            if (robotTestResult.name.trim() === selectedTestSuiteName
+                                .trim()) {
+                                $scope.selectedRobotTestResult = robotTestResult;
+                            }
+                        });
+            }
+
+            $scope.setClickedTest = function (test) {
+                $scope.selectedTestId = test.id;
+                $scope.selectedTest = test;
+            }
+
+        });

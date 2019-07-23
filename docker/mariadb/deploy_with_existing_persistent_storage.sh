@@ -16,8 +16,7 @@
 
 # Use this script if the persistent storage already exists and you want to use its data
 
-# Directory on host in where database data are stored
-HOST_STORAGE_DIR="/var/lib/mariadb"
+DOCKER_VOLUME_NAME="akraino-validation-mariadb"
 # Container name
 CONTAINER_NAME="akraino-validation-mariadb"
 # Container input variables
@@ -46,6 +45,6 @@ do
 done
 
 IMAGE="$REGISTRY"/"$NAME":"$TAG_PRE"-"$TAG_VER"
-docker run --detach --name $CONTAINER_NAME --publish $MARIADB_HOST_PORT:3306 --volume $HOST_STORAGE_DIR:/var/lib/mysql -v "/$(pwd)/mariadb.conf:/etc/mysql/conf.d/my.cnf" -e MYSQL_ROOT_PASSWORD="$MARIADB_ROOT_PASSWORD" $IMAGE
+docker run --detach --name $CONTAINER_NAME --publish $MARIADB_HOST_PORT:3306 -v $DOCKER_VOLUME_NAME:/var/lib/mysql -v "/$(pwd)/mariadb.conf:/etc/mysql/conf.d/my.cnf" -e MYSQL_ROOT_PASSWORD="$MARIADB_ROOT_PASSWORD" $IMAGE
 sleep 10
 docker exec $CONTAINER_NAME /bin/bash -c 'rm -rf /docker-entrypoint-initdb.d/*.sql'

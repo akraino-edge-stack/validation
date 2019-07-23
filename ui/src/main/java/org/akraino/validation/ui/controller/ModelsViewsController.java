@@ -32,21 +32,28 @@ public class ModelsViewsController extends RestrictedBaseController {
         super();
     }
 
-    @RequestMapping(value = {"/newSubmission"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/newsubmission" }, method = RequestMethod.GET)
     public ModelAndView newSubmission(HttpServletRequest request) {
         final String defaultViewName = null;
         return new ModelAndView(defaultViewName);
     }
 
-    @RequestMapping(value = {"/committedSubmissions"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/committedsubmissions" }, method = RequestMethod.GET)
     public ModelAndView committedSubmissions(HttpServletRequest request) {
         final String defaultViewName = null;
         return new ModelAndView(defaultViewName);
     }
 
-    @RequestMapping(value = {"/getBySubmissionId"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/getbysubmissionid" }, method = RequestMethod.GET)
     public ModelAndView getBySubmissionId(HttpServletRequest request) {
         final String defaultViewName = null;
         return new ModelAndView(defaultViewName);
     }
+
+    @RequestMapping(value = { "/getallresults" }, method = RequestMethod.GET)
+    public ModelAndView getAllResults(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
 }

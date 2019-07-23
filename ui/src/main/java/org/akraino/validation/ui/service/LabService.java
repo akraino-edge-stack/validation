@@ -31,15 +31,11 @@ public class LabService {
     private LabDAO labDAO;
 
     public void saveLab(LabInfo lab) {
-
         labDAO.saveOrUpdate(lab);
-
     }
 
     public List<LabInfo> getLabs() {
-
         return labDAO.getLabs();
-
     }
 
     public void deleteAll() {

@@ -116,3 +116,16 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 - Deletion of submissions
+
+## [0.2.0-SNAPSHOT] - 23 Jule 2019
+### Added
+- Partial loop is supported
+- LAB parameter is now being sent towards Jenkins
+
+### Changed
+- The common Nexus URL is now also used for full control loop mode.
+- Only the IP and port are needed to be defined regarding DB identification process
+- 'v1' has been added in REST API URLs
+- Small letters are used for all the view names
+
+### Removed

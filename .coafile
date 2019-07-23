@@ -68,4 +68,6 @@ ignore = ui/src/main/webapp/app/fusion/**,
     ui/target/**,
     ui/src/main/webapp/app/AECBlueprintValidationUI/NewSubmission/AECNewSubmission.js,
     ui/src/main/webapp/app/AECBlueprintValidationUI/CommittedSubmissions/AECCommittedSubmissions.js,
-    ui/src/main/webapp/app/AECBlueprintValidationUI/GetBySubmissionId/AECGetBySubmissionId.js
+    ui/src/main/webapp/app/AECBlueprintValidationUI/GetBySubmissionId/AECGetBySubmissionId.js,
+    ui/src/main/webapp/app/AECBlueprintValidationUI/GetAllResults/AECGetAllResults.js
+

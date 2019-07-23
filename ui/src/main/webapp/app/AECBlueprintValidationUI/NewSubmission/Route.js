@@ -17,7 +17,6 @@
 appDS2
         .config(function($routeProvider) {
             $routeProvider
-
                     .otherwise({
                         templateUrl : 'app/AECBlueprintValidationUI/NewSubmission/NewSubmissionTemplate.html',
                         controller : "AECNewSubmissionController"
