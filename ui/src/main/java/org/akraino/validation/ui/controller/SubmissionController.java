@@ -26,12 +26,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/api/submission")
+@RequestMapping("/api/v1/submission")
 public class SubmissionController extends RestrictedBaseController {
 
     @Autowired
@@ -43,7 +44,7 @@ public class SubmissionController extends RestrictedBaseController {
         super();
     }
 
-    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public ResponseEntity<List<Submission>> getSubmissions() {
         try {
             return new ResponseEntity<>(service.getSubmissions(), HttpStatus.OK);
@@ -53,7 +54,17 @@ public class SubmissionController extends RestrictedBaseController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }
 
-    @RequestMapping(value = {"/"}, method = RequestMethod.POST)
+    @RequestMapping(value = { "/{id}" }, method = RequestMethod.GET)
+    public ResponseEntity<Submission> getSubmission(@PathVariable("id") String submissionId) {
+        try {
+            return new ResponseEntity<>(service.getSubmission(submissionId), HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.error(EELFLoggerDelegate.errorLogger, "Get of submission failed. " + UserUtils.getStackTrace(e));
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    @RequestMapping(value = { "/" }, method = RequestMethod.POST)
     public ResponseEntity<Submission> postSubmission(@RequestBody Submission newSubmission) {
         try {
             return new ResponseEntity<>(service.saveSubmission(newSubmission), HttpStatus.OK);
