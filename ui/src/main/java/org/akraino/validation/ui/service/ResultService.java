@@ -16,30 +16,37 @@
 package org.akraino.validation.ui.service;
 
 import java.io.IOException;
-import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import org.akraino.validation.ui.client.jenkins.JenkinsExecutorClient;
-import org.akraino.validation.ui.client.jenkins.resources.QueueJobItem;
-import org.akraino.validation.ui.client.jenkins.resources.QueueJobItem.Executable;
 import org.akraino.validation.ui.client.nexus.NexusExecutorClient;
+import org.akraino.validation.ui.client.nexus.resources.TimestampRobotTestResult;
 import org.akraino.validation.ui.client.nexus.resources.WrapperRobotTestResult;
-import org.akraino.validation.ui.conf.UiUtils;
-import org.akraino.validation.ui.data.BlueprintLayer;
+import org.akraino.validation.ui.client.nexus.resources.WrapperTimestampRobotTestResult;
+import org.akraino.validation.ui.data.Lab;
+import org.akraino.validation.ui.entity.BluvalResult;
+import org.akraino.validation.ui.entity.LabInfo;
 import org.akraino.validation.ui.entity.LabSilo;
 import org.akraino.validation.ui.entity.Submission;
 import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.UniformInterfaceException;
 
 @Service
+@Transactional
 public class ResultService {
 
     private static final EELFLoggerDelegate LOGGER = EELFLoggerDelegate.getLogger(ResultService.class);
@@ -50,40 +57,144 @@ public class ResultService {
     @Autowired
     private SiloService siloService;
 
-    @Deprecated
-    public URL getNexusResultUrl(Submission submission) throws Exception {
+    @Autowired
+    NexusExecutorClient nexusService;
 
-        String url = System.getenv("JENKINS_URL");
-        String userName = System.getenv("JENKINS_USERNAME");
-        String password = System.getenv("JENKINS_USER_PASSWORD");
+    @Autowired
+    BluvalResultService bluvalService;
 
-        Executable executable = null;
-        while (executable == null) {
-            JenkinsExecutorClient client;
-            client = JenkinsExecutorClient.getInstance(userName, password, url);
-            QueueJobItem queueJobItem = client.getQueueJobItem(new URL(submission.getJenkinsQueueJobItemUrl()));
-            executable = queueJobItem.getExecutable();
-            Thread.sleep(2000);
+    @Autowired
+    LabService labService;
+
+    public List<Lab> getLabsOnTheFly()
+            throws JsonParseException, JsonMappingException, KeyManagementException, ClientHandlerException,
+            UniformInterfaceException, NoSuchAlgorithmException, IOException, IllegalArgumentException, ParseException {
+        List<Lab> labs = new ArrayList<Lab>();
+        for (String cLabSilo : nexusService.getResource(null)) {
+            for (LabSilo silo : siloService.getSilos()) {
+                if (silo.getSilo().equals(cLabSilo)) {
+                    labs.add(silo.getLab().getLab());
+                }
+            }
         }
+        return labs;
+    }
+
+    public Set<Lab> getLabsFromDb() {
+        Set<Lab> labs = new HashSet<Lab>();
+        for (BluvalResult bluvalResult : bluvalService.getBluvalResults()) {
+            labs.add(bluvalResult.getLab().getLab());
+        }
+        return labs;
+    }
+
+    public List<String> getBlueprintNamesOfLabOnTheFly(Lab lab)
+            throws JsonParseException, JsonMappingException, KeyManagementException, ClientHandlerException,
+            UniformInterfaceException, NoSuchAlgorithmException, IOException, IllegalArgumentException, ParseException {
         String siloText = null;
         for (LabSilo silo : siloService.getSilos()) {
-            if (silo.getLab().getLab().equals(submission.getTimeslot().getLab().getLab())) {
+            if (silo.getLab().getLab().equals(lab)) {
                 siloText = silo.getSilo();
             }
         }
         if (siloText == null) {
-            throw new Exception("Could not retrieve silo of the selected lab : "
-                    + submission.getTimeslot().getLab().getLab().toString());
+            throw new IllegalArgumentException("Could not retrieve blueprint names the lab : " + lab.toString());
         }
-        String nexusUrl = UiUtils.NEXUS_URL + "/" + siloText + "/job/" + System.getenv("JENKINS_JOB_NAME") + "/"
-                + String.valueOf(executable.getNumber() + "/results");
-        if (!submission.getBlueprintInstanceForValidation().getLayer().equals(BlueprintLayer.All)) {
-            nexusUrl = nexusUrl + "/" + submission.getBlueprintInstanceForValidation().getLayer().name().toLowerCase();
+        List<String> blueprintNames = new ArrayList<String>();
+        List<String> cBlueprintNames = nexusService.getResource(siloText);
+        for (String cBlueprintName : cBlueprintNames) {
+            if (!cBlueprintName.equals("job")) {
+                blueprintNames.add(cBlueprintName);
+            }
         }
-        return new URL(nexusUrl);
+        return blueprintNames;
     }
 
-    public List<WrapperRobotTestResult> getRobotTestResults(String submissionId)
+    public Set<String> getBlueprintNamesOfLabFromDb(Lab lab) {
+        Set<String> blueprintNames = new HashSet<String>();
+        for (BluvalResult bluvalResult : bluvalService.getBluvalResults()) {
+            if (bluvalResult.getLab().getLab().equals(lab)) {
+                blueprintNames.add(bluvalResult.getBlueprintName());
+            }
+        }
+        return blueprintNames;
+    }
+
+    public List<String> getBlueprintVersionsOnTheFly(String name, Lab lab)
+            throws JsonParseException, JsonMappingException, KeyManagementException, ClientHandlerException,
+            UniformInterfaceException, NoSuchAlgorithmException, IOException, IllegalArgumentException, ParseException {
+        String siloText = null;
+        for (LabSilo silo : siloService.getSilos()) {
+            if (silo.getLab().getLab().equals(lab)) {
+                siloText = silo.getSilo();
+            }
+        }
+        if (siloText == null) {
+            throw new IllegalArgumentException("Could not retrieve blueprint names the lab : " + lab.toString());
+        }
+        return nexusService.getResource(siloText, name);
+    }
+
+    public Set<String> getBlueprintVersionsFromDb(String name, Lab lab) {
+        Set<String> blueprintVersions = new HashSet<String>();
+        for (BluvalResult bluvalResult : bluvalService.getBluvalResults()) {
+            if (bluvalResult.getLab().getLab().equals(lab) && bluvalResult.getBlueprintName().equals(name)) {
+                blueprintVersions.add(bluvalResult.getVersion());
+            }
+        }
+        return blueprintVersions;
+    }
+
+    public WrapperTimestampRobotTestResult getRobotTestResultsByBlueprintOnTheFly(String name, String version, Lab lab,
+            int noTimestamps)
+                    throws JsonParseException, JsonMappingException, KeyManagementException, ClientHandlerException,
+                    UniformInterfaceException, NoSuchAlgorithmException, IOException, IllegalArgumentException, ParseException {
+        String siloText = null;
+        for (LabSilo silo : siloService.getSilos()) {
+            if (silo.getLab().getLab().equals(lab)) {
+                siloText = silo.getSilo();
+            }
+        }
+        if (siloText == null) {
+            throw new IllegalArgumentException("Could not retrieve silo of the lab : " + lab.toString());
+        }
+        List<TimestampRobotTestResult> results = nexusService.getRobotTestResultsByBlueprint(name, version, siloText,
+                noTimestamps);
+        WrapperTimestampRobotTestResult wrapperResult = new WrapperTimestampRobotTestResult();
+        wrapperResult.setBlueprintName(name);
+        wrapperResult.setVersion(version);
+        wrapperResult.setLab(lab);
+        wrapperResult.setTimestampRobotTestResult(results);
+        return wrapperResult;
+    }
+
+    public WrapperTimestampRobotTestResult getRobotTestResultsByBlueprintFromDb(String name, String version, Lab lab)
+            throws JsonParseException, JsonMappingException, IOException {
+        LabInfo actualLabInfo = null;
+        for (LabInfo labInfo : labService.getLabs()) {
+            if (labInfo.getLab().equals(lab)) {
+                actualLabInfo = labInfo;
+            }
+        }
+        if (actualLabInfo == null) {
+            return null;
+        }
+        BluvalResult bluvalResults = bluvalService.getBluvalResult(name, version, actualLabInfo);
+        if (bluvalResults == null) {
+            return null;
+        }
+        WrapperTimestampRobotTestResult wrapperResult = new WrapperTimestampRobotTestResult();
+        wrapperResult.setBlueprintName(bluvalResults.getBlueprintName());
+        wrapperResult.setLab(lab);
+        wrapperResult.setVersion(bluvalResults.getVersion());
+        ObjectMapper mapper = new ObjectMapper();
+        wrapperResult.setTimestampRobotTestResult(
+                mapper.readValue(bluvalResults.getResults(), new TypeReference<List<TimestampRobotTestResult>>() {
+                }));
+        return wrapperResult;
+    }
+
+    public List<WrapperRobotTestResult> getRobotTestResultsBySubmissionId(String submissionId)
             throws JsonParseException, JsonMappingException, KeyManagementException, ClientHandlerException,
             UniformInterfaceException, NoSuchAlgorithmException, IOException {
         Submission submission = submissionService.getSubmission(submissionId);
@@ -91,22 +202,21 @@ public class ResultService {
             LOGGER.info(EELFLoggerDelegate.applicationLogger, "Requested submission does not exist");
             return null;
         }
-        String nexusUrl = submission.getNexusResultUrl();
-        String urlLastpart = nexusUrl.substring(nexusUrl.lastIndexOf('/') + 1);
-        if (blueprintLayerContains(urlLastpart.substring(0, 1).toUpperCase() + urlLastpart.substring(1))) {
-            nexusUrl = nexusUrl.substring(0, nexusUrl.lastIndexOf(urlLastpart) - 1);
-        }
-        NexusExecutorClient client = new NexusExecutorClient(nexusUrl);
-        return client.getRobotTestResults();
-    }
-
-    private boolean blueprintLayerContains(String layer) {
-        for (BlueprintLayer blueprintLayer : BlueprintLayer.values()) {
-            if (blueprintLayer.name().equals(layer)) {
-                return true;
+        Lab submissionLab = submission.getTimeslot().getLab().getLab();
+        String siloText = null;
+        for (LabSilo silo : siloService.getSilos()) {
+            if (silo.getLab().getLab().equals(submissionLab)) {
+                siloText = silo.getSilo();
             }
         }
-        return false;
+        if (siloText == null) {
+            throw new IllegalArgumentException("Could not retrieve silo of the lab : " + submissionLab.toString());
+        }
+        String timestamp = submission.getNexusResultUrl()
+                .substring(submission.getNexusResultUrl().lastIndexOf('/') + 1);
+        return nexusService.getRobotTestResultsByTimestamp(
+                submission.getBlueprintInstanceForValidation().getBlueprint().getBlueprintName(),
+                submission.getBlueprintInstanceForValidation().getVersion(), siloText, timestamp);
     }
 
 }

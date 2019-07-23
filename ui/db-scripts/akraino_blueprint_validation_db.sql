@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS lab;
 
 create table lab (
    id bigint not NULL AUTO_INCREMENT,
-   lab text not NULL,
+   lab text not NULL unique,
    CONSTRAINT id_pk PRIMARY KEY (id)
 );
 
@@ -45,7 +45,7 @@ create table timeslot (
 create table silo (
    id bigint not NULL AUTO_INCREMENT,
    silo text not NULL,
-   lab_id bigint not NULL,
+   lab_id bigint not NULL unique,
    CONSTRAINT id_pk PRIMARY KEY (id),
    CONSTRAINT lab_id_fk2 FOREIGN KEY (lab_id)
       REFERENCES lab (id) MATCH SIMPLE
@@ -69,7 +69,22 @@ CREATE TABLE blueprint_instance_for_validation
    CONSTRAINT id_pk PRIMARY KEY (id),
    CONSTRAINT blueprint_id_fk FOREIGN KEY (blueprint_id)
       REFERENCES blueprint (id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+   unique (version, layer, blueprint_id)
+);
+
+CREATE TABLE bluval_result
+(
+   id bigint not NULL AUTO_INCREMENT,
+   blueprint_name varchar(20) not NULL,
+   version text not NULL,
+   lab_id bigint not NULL,
+   results LONGTEXT,
+   CONSTRAINT id_pk PRIMARY KEY (id),
+   CONSTRAINT lab_id_fk3 FOREIGN KEY (lab_id)
+      REFERENCES lab (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+   unique (blueprint_name, version, lab_id)
 );
 
 CREATE TABLE submission

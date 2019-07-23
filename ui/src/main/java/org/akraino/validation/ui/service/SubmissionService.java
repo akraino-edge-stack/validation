@@ -26,11 +26,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 
 import org.akraino.validation.ui.client.jenkins.JenkinsExecutorClient;
 import org.akraino.validation.ui.client.jenkins.resources.Parameter;
 import org.akraino.validation.ui.client.jenkins.resources.Parameters;
-import org.akraino.validation.ui.conf.UiUtils;
+import org.akraino.validation.ui.conf.ExecutorServiceInitializer;
 import org.akraino.validation.ui.dao.SubmissionDAO;
 import org.akraino.validation.ui.data.SubmissionStatus;
 import org.akraino.validation.ui.entity.Submission;
@@ -40,6 +41,8 @@ import org.apache.commons.httpclient.HttpException;
 import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
 import org.onap.portalsdk.core.web.support.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,15 +61,18 @@ public class SubmissionService {
     @Autowired
     private SubmissionHelper submissionHelper;
 
+    @Autowired
+    private JenkinsExecutorClient jenkinsService;
+
     public Submission saveSubmission(Submission submission) {
         submission.setSubmissionStatus(SubmissionStatus.Submitted);
         submissionDAO.saveOrUpdate(submission);
-
+        ApplicationContext context = new AnnotationConfigApplicationContext(ExecutorServiceInitializer.class);
+        ExecutorService service = (ExecutorService) context.getBean("executorService");
         JenkinsTriggerSubmissionJob task = new JenkinsTriggerSubmissionJob(submission);
-        CompletableFuture<Submission> completableFuture =
-                CompletableFuture.supplyAsync(new PrioritySupplier<>(1, task::execute), UiUtils.executorService);
+        CompletableFuture<Submission> completableFuture = CompletableFuture
+                .supplyAsync(new PrioritySupplier<>(1, task::execute), service);
         completableFuture.thenAcceptAsync(result -> this.callbackNotify(result));
-
         return submission;
     }
 
@@ -103,9 +109,6 @@ public class SubmissionService {
         }
 
         public Submission execute() {
-            String url = System.getenv("JENKINS_URL");
-            String userName = System.getenv("JENKINS_USERNAME");
-            String userPassword = System.getenv("JENKINS_USER_PASSWORD");
             String jobName = System.getenv("JENKINS_JOB_NAME");
             List<Parameter> listOfParameters = new ArrayList<Parameter>();
             Parameters parameters = new Parameters();
@@ -115,8 +118,7 @@ public class SubmissionService {
             listOfParameters.add(parameter);
             parameter = new Parameter();
             parameter.setName("BLUEPRINT");
-            parameter.setValue(
-                    submission.getBlueprintInstanceForValidation().getBlueprint().getBlueprintName().toLowerCase());
+            parameter.setValue(submission.getBlueprintInstanceForValidation().getBlueprint().getBlueprintName());
             listOfParameters.add(parameter);
             parameter = new Parameter();
             parameter.setName("LAYER");
@@ -124,7 +126,11 @@ public class SubmissionService {
             listOfParameters.add(parameter);
             parameter = new Parameter();
             parameter.setName("VERSION");
-            parameter.setValue(submission.getBlueprintInstanceForValidation().getVersion().toLowerCase());
+            parameter.setValue(submission.getBlueprintInstanceForValidation().getVersion());
+            listOfParameters.add(parameter);
+            parameter = new Parameter();
+            parameter.setName("LAB");
+            parameter.setValue(submission.getTimeslot().getLab().getLab().name());
             listOfParameters.add(parameter);
             parameter = new Parameter();
             parameter.setName("UI_IP");
@@ -137,9 +143,8 @@ public class SubmissionService {
                 parameter.setValue(localIP);
                 listOfParameters.add(parameter);
                 parameters.setParameter(listOfParameters);
-                JenkinsExecutorClient client;
-                client = JenkinsExecutorClient.getInstance(userName, userPassword, url);
-                submission.setJnksQueueJobItemUrl(client.postJobWithQueryParams(jobName, parameters).toString());
+                submission
+                .setJnksQueueJobItemUrl(jenkinsService.postJobWithQueryParams(jobName, parameters).toString());
                 return submission;
             } catch (SocketException | UnknownHostException | KeyManagementException | HttpException
                     | ClientHandlerException | UniformInterfaceException | MalformedURLException

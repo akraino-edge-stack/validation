@@ -22,7 +22,7 @@ limitations under the License.
     <meta charset="ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>Get By Submission Id</title>
+    <title>Get All Results</title>
 
     <!-- B2b Library -->
     <link rel="stylesheet" type="text/css" href="app/fusion/external/b2b/css/b2b-angular/b2b-angular.css">
@@ -57,7 +57,7 @@ limitations under the License.
     <script src="app/fusion/scripts/DS2-services/ds2-modal/modalService.js"></script>
     <script src="app/AECBlueprintValidationUI/App.Config.js"></script>
     <script src="app/AECBlueprintValidationUI/App.Services.js"></script>
-    <script src="app/AECBlueprintValidationUI/GetBySubmissionId/AECGetBySubmissionId.js"></script>
+    <script src="app/AECBlueprintValidationUI/GetAllResults/AECGetAllResults.js"></script>
 
     <script src="app/fusion/scripts/DS2-services/userInfoServiceDS2.js"></script>
     <script src="app/fusion/scripts/DS2-services/headerServiceDS2.js"></script>
@@ -71,8 +71,11 @@ limitations under the License.
     <script src="app/fusion/scripts/DS2-services/userInfoServiceDS2.js"></script>
 
     <!-- Page specific items -->
-    <script src="app/AECBlueprintValidationUI/GetBySubmissionId/AECGetBySubmissionIdController.js"></script>
-    <script src="app/AECBlueprintValidationUI/GetBySubmissionId/Route.js"></script>
+    <script src="app/AECBlueprintValidationUI/GetAllResults/AECGetAllResults.Services.js"></script>
+    <script src="app/AECBlueprintValidationUI/GetAllResults/AECGetAllResultsController.js"></script>
+    <script
+        src="app/AECBlueprintValidationUI/GetAllResults/DisplayDetailedResults/AECDisplayDetailedResultsController.js"></script>
+    <script src="app/AECBlueprintValidationUI/GetAllResults/Route.js"></script>
 
     <style>
         .controls {
@@ -155,7 +158,7 @@ limitations under the License.
     </style>
 </head>
 
-<body class="appBody" ng-app="AECGetBySubmissionId">
+<body class="appBody" ng-app="AECGetAllResults">
     <div ds2-Header class="header-container"></div>
     <div ds2-menu id="menuContainer" class="menu-container"></div>
     <div ng-view id="rightContentProfile" class="content-container"></div>

@@ -17,29 +17,38 @@ package org.akraino.validation.ui.service;
 
 import java.util.List;
 
-import org.akraino.validation.ui.dao.SiloDAO;
-import org.akraino.validation.ui.entity.LabSilo;
+import org.akraino.validation.ui.dao.BluvalResultDAO;
+import org.akraino.validation.ui.entity.BluvalResult;
+import org.akraino.validation.ui.entity.LabInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class SiloService {
+public class BluvalResultService {
 
     @Autowired
-    private SiloDAO siloDAO;
+    private BluvalResultDAO bluvalResultsDAO;
 
-    public void saveSilo(LabSilo silo) {
-        siloDAO.saveOrUpdate(silo);
+    public List<BluvalResult> getBluvalResults() {
+        return bluvalResultsDAO.getBluvalResults();
     }
 
-    public List<LabSilo> getSilos() {
-        return siloDAO.getSilos();
+    public BluvalResult getBluvalResult(Integer bluvalId) {
+        return bluvalResultsDAO.getBluvalResult(bluvalId);
     }
 
-    public void deleteAll() {
-        siloDAO.deleteAll();
+    public BluvalResult getBluvalResult(String blueprintName, String version, LabInfo labInfo) {
+        return bluvalResultsDAO.getBluvalResult(blueprintName, version, labInfo);
+    }
+
+    public void saveOrUpdate(BluvalResult bluvalResults) {
+        bluvalResultsDAO.saveOrUpdate(bluvalResults);
+    }
+
+    public void deleteBluvalResult(BluvalResult bluvalResult) {
+        bluvalResultsDAO.deleteBluvalResult(bluvalResult);
     }
 
 }

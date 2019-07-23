@@ -15,59 +15,62 @@ limitations under the License.
 -->
 
 <div id="page-content" class="content" style="padding: 25px;">
- <div>
-  <h1 class="heading-page">New Submission</h1>
-  <h2 class="heading-small">Submission form</h2>
+    <div>
+        <h1 class="heading-page">New Submission</h1>
+        <h2 class="heading-small">Submission form</h2>
 
-  <div>
-   <div class="form-row">
-    <label for="textinputID-3a">Select Blueprint: </label> <select
-     ng-model="selectedBlueprintName"
-     ng-init="selectedBlueprintName=blueprintNames[0]"
-     ng-change="selectedBluePrintNameChange()"
-     ng-options="n for n in blueprintNames">
-    </select>
-   </div>
-  </div>
-  <br>
+        <div>
+            <div class="form-row">
+                <label for="textinputID-3a">Select Blueprint: </label> <select
+                    ng-model="selectedBlueprintName"
+                    ng-init="selectedBlueprintName=blueprintNames[0]"
+                    ng-change="selectedBluePrintNameChange()"
+                    ng-options="n for n in blueprintNames">
+                </select>
+            </div>
+        </div>
+        <br>
 
-  <div>
-   <div class="form-row">
-    <label for="textinputID-3a">Select Blueprint Version: </label> <select
-     ng-model="selectedBlueprintVersion"
-     ng-change="selectedBluePrintVersionChange()"
-     ng-options="y for y in blueprintVersions">
-    </select>
-   </div>
-  </div>
-  <br>
+        <div>
+            <div class="form-row">
+                <label for="textinputID-3a">Select Blueprint
+                    Version: </label> <select
+                    ng-model="selectedBlueprintVersion"
+                    ng-change="selectedBluePrintVersionChange()"
+                    ng-options="y for y in blueprintVersions">
+                </select>
+            </div>
+        </div>
+        <br>
 
-  <div>
-   <div class="form-row">
-    <label for="textinputID-3a">Select Blueprint Layer: </label> <select
-     ng-model="selectedBlueprintLayer"
-     ng-change="selectedBluePrintLayerChange()"
-     ng-options="l for l in blueprintLayers">
-    </select>
-   </div>
-  </div>
-  <br>
+        <div>
+            <div class="form-row">
+                <label for="textinputID-3a">Select Blueprint
+                    Layer: </label> <select ng-model="selectedBlueprintLayer"
+                    ng-change="selectedBluePrintLayerChange()"
+                    ng-options="l for l in blueprintLayers">
+                </select>
+            </div>
+        </div>
+        <br>
 
 
-  <div>
-   <div class="form-row">
-    <label for="textinputID-3a">Select Timeslot: </label> <select
-     ng-model="selectedDeclerativeTimeslot"
-     ng-options="v for v in declerativeTimeslots">
-    </select>
-   </div>
-  </div>
-  <br>
+        <div>
+            <div class="form-row">
+                <label for="textinputID-3a">Select Timeslot: </label> <select
+                    ng-model="selectedDeclerativeTimeslot"
+                    ng-options="v for v in declerativeTimeslots">
+                </select>
+            </div>
+        </div>
+        <br>
 
-  <div class="fn-ebz-container" style="position: relative; top: 25px;">
-   <button href="javascript:void(0)" id="addbtn" style="bottom: -17px;"
-    size="small" att-accessibility-click="13,32"
-    class="btn btn-alt btn-small" ng-click="submit();">Submit</button>
-  </div>
- </div>
+        <div class="fn-ebz-container"
+            style="position: relative; top: 25px;">
+            <button href="javascript:void(0)" id="addbtn"
+                style="bottom: -17px;" size="small"
+                att-accessibility-click="13,32"
+                class="btn btn-alt btn-small" ng-click="submit();">Submit</button>
+        </div>
+    </div>
 </div>
