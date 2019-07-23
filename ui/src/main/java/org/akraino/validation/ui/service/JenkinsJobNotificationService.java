@@ -15,14 +15,13 @@
  */
 package org.akraino.validation.ui.service;
 
-import org.akraino.validation.ui.conf.UiUtils;
-import org.akraino.validation.ui.data.BlueprintLayer;
 import org.akraino.validation.ui.data.JnksJobNotify;
 import org.akraino.validation.ui.data.SubmissionStatus;
 import org.akraino.validation.ui.entity.LabSilo;
 import org.akraino.validation.ui.entity.Submission;
 import org.akraino.validation.ui.service.utils.SubmissionHelper;
 import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
+import org.onap.portalsdk.core.onboarding.util.PortalApiProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,7 +41,7 @@ public class JenkinsJobNotificationService {
     @Autowired
     private SiloService siloService;
 
-    public void handle(JnksJobNotify jnksJobNotify) throws Exception {
+    public void handle(JnksJobNotify jnksJobNotify) throws IllegalArgumentException {
         String jenkinsJobName = System.getenv("JENKINS_JOB_NAME");
         if (!jenkinsJobName.equals(jnksJobNotify.getName())) {
             return;
@@ -59,15 +58,12 @@ public class JenkinsJobNotificationService {
             }
         }
         if (siloText == null) {
-            throw new Exception("Could not retrieve silo of the selected lab : "
+            throw new IllegalArgumentException("Could not retrieve silo of the selected lab : "
                     + submission.getTimeslot().getLab().getLab().toString());
         }
-
-        String nexusUrl = UiUtils.NEXUS_URL + "/" + siloText + "/job/" + System.getenv("JENKINS_JOB_NAME") + "/"
-                + String.valueOf(jnksJobNotify.getbuildNumber() + "/results");
-        if (!submission.getBlueprintInstanceForValidation().getLayer().equals(BlueprintLayer.All)) {
-            nexusUrl = nexusUrl + "/" + submission.getBlueprintInstanceForValidation().getLayer().name().toLowerCase();
-        }
+        String nexusUrl = PortalApiProperties.getProperty("nexus_url") + "/" + siloText + "/"
+                + submission.getBlueprintInstanceForValidation().getBlueprint().getBlueprintName() + "/"
+                + submission.getBlueprintInstanceForValidation().getVersion() + "/" + jnksJobNotify.getTimestamp();
         submission.setNexusResultUrl(nexusUrl);
         LOGGER.info(EELFLoggerDelegate.applicationLogger,
                 "Updating submission with id: " + submission.getSubmissionId());

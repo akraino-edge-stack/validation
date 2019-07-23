@@ -14,23 +14,11 @@
  * limitations under the License.
  */
 
-var app = angular.module('AECCommittedSubmissions');
-
-app.controller('AECCommittedSubmissionsController', function($scope,
-        restAPISvc, $interval, refreshPeriod) {
-
-    restAPISvc.getRestAPI("/api/submission/", function(data) {
-        $scope.submissions = data;
+appDS2
+    .config(function ($routeProvider) {
+        $routeProvider
+            .otherwise({
+                templateUrl: 'app/BluvalUI/GetBySubmissionId/GetBySubmissionIdTemplate.html',
+                controller: "GetBySubmissionIdController"
+            });
     });
-
-    $scope.refreshCommittedSubmissions = function() {
-        restAPISvc.getRestAPI("/api/submission/", function(data) {
-            $scope.submissions = data;
-        });
-    }
-
-    $interval(function() {
-        $scope.refreshCommittedSubmissions();
-    }, refreshPeriod);
-
-});
