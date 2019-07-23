@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
-var appDS2 = angular.module("AECCommittedSubmissions", [ 'ngRoute',
-        'ngMessages', 'modalServices', 'ngCookies', 'b2b.att', 'gridster',
-        'ui.bootstrap', 'ui.bootstrap.modal', 'App.Config', 'App.Services' ]);
+appDS2
+    .config(function ($routeProvider) {
+        $routeProvider
+            .otherwise({
+                templateUrl: 'app/BluvalUI/CommittedSubmissions/CommittedSubmissionsTemplate.html',
+                controller: "CommittedSubmissionsController"
+            });
+    });

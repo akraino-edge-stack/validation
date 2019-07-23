@@ -16,8 +16,11 @@
 package org.akraino.validation.ui.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.akraino.validation.ui.client.nexus.resources.WrapperRobotTestResult;
+import org.akraino.validation.ui.client.nexus.resources.WrapperTimestampRobotTestResult;
+import org.akraino.validation.ui.data.Lab;
 import org.akraino.validation.ui.service.ResultService;
 import org.onap.portalsdk.core.controller.RestrictedBaseController;
 import org.onap.portalsdk.core.logging.logic.EELFLoggerDelegate;
@@ -31,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/api/results")
+@RequestMapping("/api/v1/results")
 public class ResultsController extends RestrictedBaseController {
 
     private static final EELFLoggerDelegate LOGGER = EELFLoggerDelegate.getLogger(ResultsController.class);
@@ -43,13 +46,59 @@ public class ResultsController extends RestrictedBaseController {
         super();
     }
 
-    @RequestMapping(value = {"/getBySubmissionId/{id}"}, method = RequestMethod.GET)
-    public ResponseEntity<List<WrapperRobotTestResult>> getByBlueprintId(@PathVariable("id") String submissionId) {
+    @RequestMapping(value = { "/getbysubmissionid/{id}" }, method = RequestMethod.GET)
+    public ResponseEntity<List<WrapperRobotTestResult>> getBySubmissionId(@PathVariable("id") String submissionId) {
         try {
-            return new ResponseEntity<>(service.getRobotTestResults(submissionId), HttpStatus.OK);
+            return new ResponseEntity<>(service.getRobotTestResultsBySubmissionId(submissionId), HttpStatus.OK);
         } catch (Exception e) {
             LOGGER.error(EELFLoggerDelegate.errorLogger,
-                    "Error when retrieving results. " + UserUtils.getStackTrace(e));
+                    "Error when retrieving results using submission id. " + UserUtils.getStackTrace(e));
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    @RequestMapping(value = { "/getlabs/" }, method = RequestMethod.GET)
+    public ResponseEntity<Set<Lab>> getLabs() {
+        try {
+            return new ResponseEntity<>(service.getLabsFromDb(), HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.error(EELFLoggerDelegate.errorLogger, "Error when retrieving labs. " + UserUtils.getStackTrace(e));
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    @RequestMapping(value = { "/getblueprintnamesoflab/{lab}" }, method = RequestMethod.GET)
+    public ResponseEntity<Set<String>> getBlueprintNamesOfLab(@PathVariable("lab") Lab lab) {
+        try {
+            return new ResponseEntity<>(service.getBlueprintNamesOfLabFromDb(lab), HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.error(EELFLoggerDelegate.errorLogger,
+                    "Error when retrieving blueprint names of a lab. " + UserUtils.getStackTrace(e));
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    @RequestMapping(value = { "/getblueprintversions/{name}/{lab}" }, method = RequestMethod.GET)
+    public ResponseEntity<Set<String>> getBlueprintVersions(@PathVariable("name") String name,
+            @PathVariable("lab") Lab lab) {
+        try {
+            return new ResponseEntity<>(service.getBlueprintVersionsFromDb(name, lab), HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.error(EELFLoggerDelegate.errorLogger,
+                    "Error when retrieving blueprint versions. " + UserUtils.getStackTrace(e));
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    @RequestMapping(value = { "/getbyblueprint/{name}/{version}/{lab}" }, method = RequestMethod.GET)
+    public ResponseEntity<WrapperTimestampRobotTestResult> getByBlueprint(@PathVariable("name") String name,
+            @PathVariable("version") String version, @PathVariable("lab") Lab lab) {
+        try {
+            return new ResponseEntity<>(service.getRobotTestResultsByBlueprintFromDb(name, version, lab),
+                    HttpStatus.OK);
+        } catch (Exception e) {
+            LOGGER.error(EELFLoggerDelegate.errorLogger,
+                    "Error when retrieving results using blueprint data. " + UserUtils.getStackTrace(e));
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }

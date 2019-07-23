@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/api/submission")
+@RequestMapping("/api/v1/submission")
 public class SubmissionController extends RestrictedBaseController {
 
     @Autowired

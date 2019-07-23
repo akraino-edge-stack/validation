@@ -18,6 +18,7 @@ package org.akraino.validation.ui.daoimpl;
 import java.util.List;
 
 import org.akraino.validation.ui.dao.LabDAO;
+import org.akraino.validation.ui.data.Lab;
 import org.akraino.validation.ui.entity.LabInfo;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -49,6 +50,13 @@ public class LabDAOImpl implements LabDAO {
     public LabInfo getLab(Integer labId) {
         Criteria criteria = getSession().createCriteria(LabInfo.class);
         criteria.add(Restrictions.eq("id", String.valueOf(labId)));
+        return criteria.list() == null ? null : (LabInfo) criteria.list().get(0);
+    }
+
+    @Override
+    public LabInfo getLab(Lab lab) {
+        Criteria criteria = getSession().createCriteria(LabInfo.class);
+        criteria.add(Restrictions.eq("lab", lab));
         return criteria.list() == null ? null : (LabInfo) criteria.list().get(0);
     }
 

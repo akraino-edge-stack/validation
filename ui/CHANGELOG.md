@@ -116,3 +116,20 @@ All notable changes to this project will be documented in this file.
 
 ### Removed
 - Deletion of submissions
+
+## [0.2.0-SNAPSHOT] - 26 Jule 2019
+### Added
+- Partial loop is supported
+- LAB parameter is now being sent towards Jenkins
+- Logout process is supported
+
+### Changed
+- The common Nexus URL is now also used for full control loop mode.
+- Only the IP and port are needed to be defined regarding DB identification process
+- 'v1' has been added in REST API URLs
+- Small letters are used for all the view names
+- Timestamp is now a column in 'timestamp_robot_test_result' table in database
+- Bug with infinite nested ng-repeat loops fixed
+- The name of war file has been changed from 'AECBlueprintValidationUI' to 'bluvalui'.
+
+### Removed
