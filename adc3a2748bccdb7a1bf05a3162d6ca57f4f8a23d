@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94d451b0_36dcaadc",
+        "filename": "k8s/etcd_ha.resource",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-08-15T09:56:10Z",
+      "side": 1,
+      "message": "This is retrieving all nodes, the original idea was to get master nodes only, e.g.\n\n[cloudadmin@controller-1 ~]$ kubectl get nodes\nNAME           STATUS   ROLES    AGE   VERSION\n192.168.10.1   Ready    master   80d   v1.14.0\n192.168.10.2   Ready    worker   80d   v1.14.0\n192.168.10.3   Ready    worker   80d   v1.14.0\n192.168.10.4   Ready    master   80d   v1.14.0\n192.168.10.5   Ready    master   80d   v1.14.0\n[cloudadmin@controller-1 ~]$ kubectl get nodes -l nodetype\\\u003dcaas_master -o jsonpath\\\u003d\u0027{.items[*].metadata.name}\u0027\n192.168.10.1 192.168.10.4 192.168.10.5[cloudadmin@controller-1 ~]$ \n[cloudadmin@controller-1 ~]$ kubectl get nodes -l kubernetes.io/hostname -o jsonpath\\\u003d\u0027{.items[*].metadata.name}\u0027\n192.168.10.1 192.168.10.2 192.168.10.3 192.168.10.4 192.168.10.5[cloudadmin@controller-1 ~]$",
+      "revId": "adc3a2748bccdb7a1bf05a3162d6ca57f4f8a23d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2007792e_bfda50c4",
+        "filename": "k8s/etcd_ha.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-08-15T09:56:10Z",
+      "side": 1,
+      "message": "Any way to resolve etcdctl vs. etcdctl3 on runtime?",
+      "revId": "adc3a2748bccdb7a1bf05a3162d6ca57f4f8a23d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
