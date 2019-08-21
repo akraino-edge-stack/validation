@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f163986e_297b86a9",
+        "filename": "tests/openstack/tempest/tempest.resource",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-08-21T08:00:29Z",
+      "side": 1,
+      "message": "Should we retrieve the test list dynamically (either here or when building the container) instead of statically creating it? This way we can control versions and get new tests when they are added the tempest.",
+      "range": {
+        "startLine": 70,
+        "startChar": 50,
+        "endLine": 70,
+        "endChar": 63
+      },
+      "revId": "bd0850f70d7381fd5658bc0c7674ae37d25fea9e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
