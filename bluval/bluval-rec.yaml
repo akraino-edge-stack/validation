@@ -22,15 +22,19 @@ blueprint:
         - os
         - k8s
     # Any hardware some basic tests
-    hardware: &hardware_dummy
+    hardware: &hardware_rec
         -
             name: hp_baremetal
             what: hp_baremetal
-    os: &os_base
+    os: &os_rec
+        -
+            name: ltp
+            what: ltp
         -
             name: cyclictest
             what: cyclictest
-    k8s: &k8s
+            optional: "True"
+    k8s: &k8s_rec
         -
             name: conformance
             what: conformance
