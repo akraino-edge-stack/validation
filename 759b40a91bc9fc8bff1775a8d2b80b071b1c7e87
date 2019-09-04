@@ -46,6 +46,30 @@
       "revId": "759b40a91bc9fc8bff1775a8d2b80b071b1c7e87",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f63a68a2_2490f080",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-09-04T10:18:09Z",
+      "side": 1,
+      "message": "Then maybe modify the description to something like: \"verified on a REC cluster only\" so that it\u0027s not misleading.",
+      "parentUuid": "55c5c486_b080515b",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 6
+      },
+      "revId": "759b40a91bc9fc8bff1775a8d2b80b071b1c7e87",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
