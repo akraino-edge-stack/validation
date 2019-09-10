@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7520047f_cc97fbf2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-09-10T07:49:15Z",
+      "side": 1,
+      "message": "Remove REC since this is a generic solution",
+      "range": {
+        "startLine": 7,
+        "startChar": 22,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "8f5a5b186041c32dded9fbe174d3834a84f9207c",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bc6d808_06034807",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-09-10T07:49:15Z",
+      "side": 1,
+      "message": "Please mark the sign-off is by you and add me as a co-author.",
+      "revId": "8f5a5b186041c32dded9fbe174d3834a84f9207c",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab4ca971_a233f30f",
+        "filename": "k8s/etcd_ha.resource",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-09-10T07:49:15Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s reasonable to require user to define what tool/version must be used in validation testing.",
+      "revId": "8f5a5b186041c32dded9fbe174d3834a84f9207c",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32299219_794d57b8",
+        "filename": "k8s/etcd_ha.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-09-10T07:49:15Z",
+      "side": 1,
+      "message": "This is defined as ${ETCD_VERSION} in resource file.",
+      "range": {
+        "startLine": 21,
+        "startChar": 76,
+        "endLine": 21,
+        "endChar": 86
+      },
+      "revId": "8f5a5b186041c32dded9fbe174d3834a84f9207c",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
