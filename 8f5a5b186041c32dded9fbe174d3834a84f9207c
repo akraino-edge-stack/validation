@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "76cd4076_0922c6ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-09-13T05:30:03Z",
+      "side": 1,
+      "message": "Please add me as a co-author. See example here https://gerrit.opnfv.org/gerrit/c/functest/+/68357",
+      "parentUuid": "8bfbf509_e7ddc699",
+      "revId": "8f5a5b186041c32dded9fbe174d3834a84f9207c",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab4ca971_a233f30f",
         "filename": "k8s/etcd_ha.resource",
         "patchSetId": 4
