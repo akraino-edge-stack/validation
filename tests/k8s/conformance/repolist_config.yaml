@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+data:
+  repo-list.yaml: |
+    dockerLibraryRegistry: {{ registry }}
+    e2eRegistry: {{ registry }}
+    gcRegistry: {{ registry }}
+    etcdRegistry: {{ registry }}
+    privateRegistry: {{ registry }}
+    sampleRegistry: {{ registry }}
+kind: ConfigMap
+metadata:
+  name: repolist-cm
+  namespace: heptio-sonobuoy

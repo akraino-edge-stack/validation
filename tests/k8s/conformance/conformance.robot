@@ -20,11 +20,34 @@
 Documentation     Run k8s conformance test using sonobuoy
 Library           OperatingSystem
 Library           BuiltIn
-Test Setup        Check that k8s cluster is reachable
-Test Teardown     Cleanup Sonobuoy
+Library           Collections
+Library           String
+Library           SSHLibrary
+Library           Process
+Test Setup        Run Keywords
+...               Check that k8s cluster is reachable
+...               Onboard Images
+...               Update Manifest
+Test Teardown     Run Keywords
+...               Cleanup Sonobuoy
+...               Close All Connections
 
 *** Variables ***
 ${LOG}            ${LOG_PATH}${/}${SUITE_NAME.replace(' ','_')}.log
+
+&{SONOBUOY}         path=gcr.io/heptio-images
+...                 name=sonobuoy:v0.15.1
+...                 var=sonobuoy-img
+&{SONOBUOY_LATEST}  path=gcr.io/heptio-images
+...                 name=sonobuoy:latest
+...                 var=sonobuoy-latest-img
+&{E2E}              path=akraino
+...                 name=validation:kube-conformance-v1.15
+...                 var=e2e-img
+&{SYSTEMD_LOGS}     path=akraino
+...                 name=validation:sonobuoy-plugin-systemd-logs-latest
+...                 var=systemd-logs-img
+@{SONOBUOY_IMGS}    &{SONOBUOY}  &{SONOBUOY_LATEST}  &{E2E}  &{SYSTEMD_LOGS}
 
 *** Test Cases ***
 Run Sonobuoy Conformance Test
@@ -36,7 +59,7 @@ Run Sonobuoy Conformance Test
         Append To File          ${LOG}  ${output}${\n}
 
         # Wait until the test finishes execution
-        Run                     while sonobuoy status | grep "Sonobuoy is still running"; do sleep 180; done
+        Run                     while sonobuoy status | grep "Sonobuoy is still running"; do sleep 240; done
         Append To File          ${LOG}  "Sonobuoy has completed"${\n}
 
         # Get the result and store the sonobuoy logs
@@ -62,3 +85,58 @@ Cleanup Sonobuoy
         Append To File          ${LOG}  ${output}${\n}
         Sleep                   3s
         Should Contain          ${output}      service "sonobuoy-master" deleted
+
+Open Connection And Log In
+        Open Connection         ${HOST}
+        Login With Public Key   ${USERNAME}  ${SSH_KEYFILE}
+
+Upload To Internal Registry
+         [Arguments]            ${path}  ${name}
+         ${rc}=  Execute Command
+         ...     docker pull ${path}/${name}
+         ...       return_stdout=False  return_rc=True
+         Should Be Equal As Integers  ${rc}  0
+         ${rc}=  Execute Command
+         ...     docker tag ${path}/${name} ${INT_REG}/bluval/${name}
+         ...       return_stdout=False  return_rc=True
+         Should Be Equal As Integers  ${rc}  0
+         ${rc}=  Execute Command
+         ...     docker push ${INT_REG}/bluval/${name}
+         ...       return_stdout=False  return_rc=True
+         Should Be Equal As Integers  ${rc}  0
+
+Onboard Sonobuoy Images
+        FOR  ${img}  IN  @{SONOBUOY_IMGS}
+            Upload To Internal Registry  ${img.path}  ${img.name}
+            Set To Dictionary  ${img}  path=${INT_REG}/bluval
+        END
+
+Onboard Kubernetes e2e Test Images
+        ${result}=              Run Process  sonobuoy  images
+        Should Be Equal As Integers  ${result.rc}  0
+        @{images}=              Split String  ${result.stdout}
+        FOR  ${img}  IN  @{images}
+            ${path}  ${name}  Split String From Right  ${img}  /  1
+            Upload To Internal Registry  ${path}  ${name}
+        END
+
+Onboard Images
+        ${INT_REG}=             Get Variable Value  ${INTERNAL_REGISTRY}  ${EMPTY}
+        Set Test Variable       ${INT_REG}
+        Return From Keyword If  $INT_REG == '${EMPTY}'
+        Open Connection And Log In
+        Onboard Sonobuoy Images
+        Onboard Kubernetes e2e Test Images
+
+Update Manifest
+        FOR  ${img}  IN  @{SONOBUOY_IMGS}
+            Run Process  sed  -i  s|{{ ${img.var} }}|${img.path}/${img.name}|g
+            ...              /opt/akraino/validation/tests/k8s/conformance/sonobuoy.yaml
+        END
+        Return From Keyword If  $INT_REG == '${EMPTY}'
+        Run Process             sed  -i  s|{{ registry }}|${INT_REG}/bluval|g
+        ...                         /opt/akraino/validation/tests/k8s/conformance/repolist_config.yaml
+        ${repolist}=            OperatingSystem.Get File
+        ...                         /opt/akraino/validation/tests/k8s/conformance/repolist_config.yaml
+        Append To File          /opt/akraino/validation/tests/k8s/conformance/sonobuoy.yaml
+        ...                     ${repolist}
