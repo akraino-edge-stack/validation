@@ -44,3 +44,7 @@ blueprint:
             name: conformance
             what: conformance
             optional: "True"
+    openstack: &openstack
+        -
+            name: tempest
+            what: tempest
