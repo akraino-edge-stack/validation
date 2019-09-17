@@ -1,6 +1,7 @@
 [all]
 ignore = .tox/**,
     .py35/**,
+    .py36/**,
     .git/**,
     .gitignore,
     .gitreview,
@@ -35,7 +36,7 @@ bears = YAMLLintBear
 files = **.yaml, **.yml
 use_spaces = true
 max_line_length = 120
-ignore = tests/k8s/conformance/custom_repos.yaml
+ignore = tests/k8s/conformance/custom_repos.yaml, tests/variables*.yaml
 
 [all.Python]
 bears = PyLintBear
