@@ -1,3 +1,5 @@
+bluval/__pycache__
+tests/variables*.yaml
 docker/manifest-tool
 *.sw?
 
