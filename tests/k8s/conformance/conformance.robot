@@ -20,11 +20,34 @@
 Documentation     Run k8s conformance test using sonobuoy
 Library           OperatingSystem
 Library           BuiltIn
-Test Setup        Check that k8s cluster is reachable
-Test Teardown     Cleanup Sonobuoy
+Library           Collections
+Library           SSHLibrary
+Library           Process
+Test Setup        Run Keywords
+...               Check that k8s cluster is reachable
+...               Onboard Images
+...               Update Resource Config
+Test Teardown     Run Keywords
+...               Cleanup Sonobuoy
+...               Remove Images
+...               Close All Connections
 
 *** Variables ***
 ${LOG}            ${LOG_PATH}${/}${SUITE_NAME.replace(' ','_')}.log
+
+&{SONOBUOY}         path=gcr.io/heptio-images
+...                 name=sonobuoy:v0.15.1
+...                 var=sonobuoy-img
+&{SONOBUOY_LATEST}  path=gcr.io/heptio-images
+...                 name=sonobuoy:latest
+...                 var=sonobuoy-latest-img
+&{E2E}              path=akraino
+...                 name=validation:kube-conformance-v1.15
+...                 var=e2e-img
+&{SYSTEMD_LOGS}     path=akraino
+...                 name=validation:sonobuoy-plugin-systemd-logs-latest
+...                 var=systemd-logs-img
+@{IMGS}           &{SONOBUOY}  &{SONOBUOY_LATEST}  &{E2E}  &{SYSTEMD_LOGS}
 
 *** Test Cases ***
 Run Sonobuoy Conformance Test
@@ -62,3 +85,40 @@ Cleanup Sonobuoy
         Append To File          ${LOG}  ${output}${\n}
         Sleep                   3s
         Should Contain          ${output}      service "sonobuoy-master" deleted
+
+Open Connection And Log In
+        Open Connection         ${HOST}
+        Login With Public Key   ${USERNAME}  ${SSH_KEYFILE}
+
+Onboard Images
+        ${INT_REG}=             Get Variable Value  ${INTERNAL_REGISTRY}  ${EMPTY}
+        Set Test Variable       ${INT_REG}
+        Return From Keyword If  $INT_REG == '${EMPTY}'
+        Open Connection And Log In
+        FOR  ${img}  IN  @{IMGS}
+            ${rc}=  Execute Command
+            ...     docker pull ${img.path}/${img.name}
+            ...       return_stdout=False  return_rc=True
+            Should Be Equal As Integers  ${rc}  0
+            ${rc}=  Execute Command
+            ...     docker tag ${img.path}/${img.name} ${INT_REG}/bluval/${img.name}
+            ...       return_stdout=False  return_rc=True
+            Should Be Equal As Integers  ${rc}  0
+            ${rc}=  Execute Command
+            ...     docker push ${INT_REG}/bluval/${img.name}
+            ...       return_stdout=False  return_rc=True
+            Should Be Equal As Integers  ${rc}  0
+            Set To Dictionary  ${img}  path=${INT_REG}/bluval
+        END
+
+Remove Images
+        Return From Keyword If  $INT_REG == '${EMPTY}'
+        FOR  ${img}  IN  @{IMGS}
+            Execute Command  docker rmi ${img.path}/${img.name}
+        END
+
+Update Resource Config
+        FOR  ${img}  IN  @{IMGS}
+            Run Process  sed  -i  s|{{ ${img.var} }}|${img.path}/${img.name}|g
+            ...              /opt/akraino/validation/tests/k8s/conformance/sonobuoy.yaml
+        END
