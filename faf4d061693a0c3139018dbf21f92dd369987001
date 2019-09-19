@@ -46,6 +46,30 @@
       "revId": "faf4d061693a0c3139018dbf21f92dd369987001",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c77beeaa_09155d21",
+        "filename": "tests/k8s/conformance/conformance.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-09-19T08:12:23Z",
+      "side": 1,
+      "message": "After yesterday\u0027s meeting and giving it some more thought, I think it makes sense to keep the functionality in the validation project, but it makes more sense to have it in the bluval logic. Blucon.py already starts the docker container + invokes the tests for each layer. I\u0027m thinking we can add a step before that to populate the private docker registry with the images needed by that layer. What do you think?",
+      "parentUuid": "1708dd03_9627eb8f",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 111,
+        "endChar": 61
+      },
+      "revId": "faf4d061693a0c3139018dbf21f92dd369987001",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
