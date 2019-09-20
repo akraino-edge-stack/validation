@@ -77,6 +77,72 @@ public class ModelsViewsController extends RestrictedBaseController {
         return new ModelAndView(defaultViewName);
     }
 
+    @RequestMapping(value = { "/registerlab" }, method = RequestMethod.GET)
+    public ModelAndView registerLab(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/unregisterlab" }, method = RequestMethod.GET)
+    public ModelAndView unRegisterLab(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/modifylab" }, method = RequestMethod.GET)
+    public ModelAndView modifyLab(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/registerblueprint" }, method = RequestMethod.GET)
+    public ModelAndView registerBlueprint(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/unregisterblueprint" }, method = RequestMethod.GET)
+    public ModelAndView unRegisterBlueprint(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/registerlayer" }, method = RequestMethod.GET)
+    public ModelAndView registerLayer(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/unregisterlayer" }, method = RequestMethod.GET)
+    public ModelAndView unRegisterLayer(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/registertimeslot" }, method = RequestMethod.GET)
+    public ModelAndView registerTimeslot(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/registerblueprintinstance" }, method = RequestMethod.GET)
+    public ModelAndView registerBlueprintInstance(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/unregisterblueprintinstance" }, method = RequestMethod.GET)
+    public ModelAndView unRegisterBlueprintInstance(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
+    @RequestMapping(value = { "/modifyblueprintinstance" }, method = RequestMethod.GET)
+    public ModelAndView modifyBlueprintInstance(HttpServletRequest request) {
+        final String defaultViewName = null;
+        return new ModelAndView(defaultViewName);
+    }
+
     @RequestMapping(value = { "/logout.htm" }, method = RequestMethod.GET)
     public ModelAndView login() {
         Map<String, Object> model = new HashMap<>();
