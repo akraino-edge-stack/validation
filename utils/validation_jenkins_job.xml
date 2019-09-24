@@ -1,0 +1,126 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.7"/>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>BLUEPRINT</name>
+          <description>Blueprint name to validate</description>
+          <defaultValue>dummy</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>LAYER</name>
+          <description>layer name to validate</description>
+          <defaultValue>hardware</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>UI_IP</name>
+          <description>IP Address of UI Server.</description>
+          <defaultValue>192.168.62.230</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SUBMISSION_ID</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>VERSION</name>
+          <description></description>
+          <defaultValue>master</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>LAB</name>
+          <description></description>
+          <defaultValue>att</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>OPTIONAL</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>aknode220</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>BLUEPRINT=$(echo $BLUEPRINT | tr [A-Z] [a-z])
+export AKRAINO_HOME=${HOME}
+export VALIDATION_HOME=${HOME}/validation
+export TIMESTAMP=$(date +&quot;%Y%m%d-%H%M%S&quot;)
+echo $TIMESTAMP &gt; timestamp.txt
+OPTIONAL_STR=&quot;&quot;
+if [ $OPTIONAL ]
+then
+  OPTIONAL_STR=&quot;-o&quot;
+fi
+
+cd ${VALIDATION_HOME}\
+	&amp;&amp; . .py36/bin/activate \
+    &amp;&amp; python bluval/blucon.py -l ${LAYER} ${OPTIONAL_STR} ${BLUEPRINT}</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.postbuildtask.PostbuildTask plugin="postbuild-task@1.8">
+      <tasks>
+        <hudson.plugins.postbuildtask.TaskProperties>
+          <logTexts>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText></logText>
+              <operator>AND</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+          </logTexts>
+          <EscalateStatus>false</EscalateStatus>
+          <RunIfJobSuccessful>false</RunIfJobSuccessful>
+          <script>export AKRAINO_HOME=${HOME}&#xd;
+export TIMESTAMP=`cat timestamp.txt`&#xd;
+echo &quot;TIMESTAMP=$TIMESTAMP&quot;&#xd;
+cd ${AKRAINO_HOME} \&#xd;
+  &amp;&amp; . validation/.py36/bin/activate \&#xd;
+  &amp;&amp; sh send_logs.sh&#xd;
+deactivate</script>
+        </hudson.plugins.postbuildtask.TaskProperties>
+        <hudson.plugins.postbuildtask.TaskProperties>
+          <logTexts>
+            <hudson.plugins.postbuildtask.LogProperties>
+              <logText></logText>
+              <operator>AND</operator>
+            </hudson.plugins.postbuildtask.LogProperties>
+          </logTexts>
+          <EscalateStatus>false</EscalateStatus>
+          <RunIfJobSuccessful>false</RunIfJobSuccessful>
+          <script>UI_IP=192.168.62.230&#xd;
+echo &quot;Trying to communicate with UI&quot;&#xd;
+echo &quot;SUBMISSION_ID=$SUBMISSION_ID&quot;&#xd;
+echo &quot;UI_IP=$UI_IP&quot;&#xd;
+echo &quot;JOB_NAME=$JOB_NAME&quot;&#xd;
+echo &quot;BUILD_NUMBER=$BUILD_NUMBER&quot;&#xd;
+TIMESTAMP=`cat timestamp.txt`&#xd;
+echo &quot;TIMESTAMP=$TIMESTAMP&quot;&#xd;
+cookie=`curl -v -H &quot;Content-Type: application/x-www-form-urlencoded&quot; -X POST --insecure --silent https://$UI_IP:8443/bluvalui/login_external -d &quot;loginId=akraino&amp;password=akraino&quot; 2&gt;&amp;1 | grep &quot;Set-Cookie: &quot; | awk -F &apos;:&apos; &apos;{print $2}&apos;`  &#xd;
+echo $cookie&#xd;
+curl -v --cookie &quot;$cookie&quot; -H &quot;Content-Type: application/json&quot; -X POST --insecure --silent https://$UI_IP:8443/bluvalui/api/v1/jenkinsjobnotification/ --data &apos;{&quot;submissionId&quot;: &quot;&apos;&quot;$SUBMISSION_ID&quot;&apos;&quot; , &quot;name&quot;:&quot;&apos;&quot;$JOB_NAME&quot;&apos;&quot;, &quot;buildNumber&quot;:&quot;&apos;&quot;$BUILD_NUMBER&quot;&apos;&quot;, &quot;timestamp&quot;:&quot;&apos;&quot;$TIMESTAMP&quot;&apos;&quot;}&apos;</script>
+        </hudson.plugins.postbuildtask.TaskProperties>
+      </tasks>
+    </hudson.plugins.postbuildtask.PostbuildTask>
+  </publishers>
+  <buildWrappers/>
+</project>
