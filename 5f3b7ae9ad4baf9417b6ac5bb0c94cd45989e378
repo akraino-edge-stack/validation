@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaef27f6_8285fcd0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 194
+      },
+      "writtenOn": "2019-09-27T09:35:50Z",
+      "side": 1,
+      "message": "These instructions should be placed inside a readme file under the utils directory",
+      "revId": "5f3b7ae9ad4baf9417b6ac5bb0c94cd45989e378",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ba37f4a1_17ffed68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 194
+      },
+      "writtenOn": "2019-09-27T09:35:50Z",
+      "side": 1,
+      "message": "Please mention that this jar file can be downloaded directly from the Jenkins server",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "5f3b7ae9ad4baf9417b6ac5bb0c94cd45989e378",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b8f62acc_8f3272ee",
+        "filename": "utils/validation_jenkins_job.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 194
+      },
+      "writtenOn": "2019-09-27T09:35:50Z",
+      "side": 1,
+      "message": "Mention in the readme file which versions of Jenkins are compatible with this xml file. For example, in my local Jenkins instance, I had to downgrade the xml version to \u00271.0\u0027 in order to import it.",
+      "range": {
+        "startLine": 1,
+        "startChar": 15,
+        "endLine": 1,
+        "endChar": 18
+      },
+      "revId": "5f3b7ae9ad4baf9417b6ac5bb0c94cd45989e378",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f99e06c_42ffb4a7",
+        "filename": "utils/validation_jenkins_job.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 194
+      },
+      "writtenOn": "2019-09-27T09:35:50Z",
+      "side": 1,
+      "message": "Jenkins secrets should be used for storing username and passwords. Please have a look at the following url\n\nhttps://jenkins.io/doc/book/using/using-credentials/\n\nThen, the jenkins job can use the secret names.",
+      "range": {
+        "startLine": 118,
+        "startChar": 160,
+        "endLine": 118,
+        "endChar": 200
+      },
+      "revId": "5f3b7ae9ad4baf9417b6ac5bb0c94cd45989e378",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8872e9ac_9cb8bee6",
+        "filename": "utils/validation_jenkins_job.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 194
+      },
+      "writtenOn": "2019-09-27T09:35:50Z",
+      "side": 1,
+      "message": "For UI mode 2, this part should not be executed. We can use the UI_IP variable as an indication. For example, if this variable is set, UI mode 1 is used and the notification should be sent. On the contrary, if this variable is null, then mode 2 is used and no notification should be sent. Please also mention this at the readme file.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 54
+      },
+      "revId": "5f3b7ae9ad4baf9417b6ac5bb0c94cd45989e378",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
