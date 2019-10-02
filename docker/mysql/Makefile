@@ -18,18 +18,17 @@
 all: .push_image .push_manifest
 
 # MySQL 5.6 is not supported on arm64 yet, skip building it for now
-ifeq ($(shell uname -m), aarch64)
-.PHONY: .build
-.build::
+.PHONY: build
+ifneq ($(shell uname -m), aarch64)
+build: .build
+else
+build:
 	echo "Skipping build on aarch64 platform!"
 	exit 0
 .PHONY: .push_image
-.push_image::
+.push_image:
 	echo "Skipping push on aarch64 platform!"
 	exit 0
 endif
-
-.PHONY: build
-build: .build
 
 include ../build.mk
