@@ -31,21 +31,12 @@ TAG_PRE=mysql
 TAG_VER=latest
 MYSQL_HOST_PORT=3307
 
-for ARGUMENT in "$@"
-do
-    KEY=$(echo $ARGUMENT | cut -f1 -d=)
-    VALUE=$(echo $ARGUMENT | cut -f2 -d=)
-    case "$KEY" in
-            REGISTRY)              REGISTRY=${VALUE} ;;
-            NAME)    NAME=${VALUE} ;;
-            TAG_VER)    TAG_VER=${VALUE} ;;
-            TAG_PRE)    TAG_PRE=${VALUE} ;;
-            MYSQL_ROOT_PASSWORD)    MYSQL_ROOT_PASSWORD=${VALUE} ;;
-            MYSQL_AKRAINO_PASSWORD)    MYSQL_AKRAINO_PASSWORD=${VALUE} ;;
-            CONTAINER_NAME)    CONTAINER_NAME=${VALUE} ;;
-            MYSQL_HOST_PORT)    MYSQL_HOST_PORT=${VALUE} ;;
-            *)
-    esac
+while [ $# -gt 0 ]; do
+   if [[ $1 == *"--"* ]]; then
+        v="${1/--/}"
+        declare $v="$2"
+   fi
+   shift
 done
 
 if [ -z "$MYSQL_ROOT_PASSWORD" ]
@@ -62,5 +53,5 @@ fi
 
 IMAGE="$REGISTRY"/"$NAME":"$TAG_PRE"-"$TAG_VER"
 chmod 0444 "/$(pwd)/mysql.conf"
-docker run --detach --name $CONTAINER_NAME --publish $MYSQL_HOST_PORT:3306 -v $DOCKER_VOLUME_NAME:/var/lib/mysql -v "/$(pwd)/mysql.conf:/etc/mysql/conf.d/my.cnf" -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" -e MYSQL_DATABASE="akraino_bluvalui" -e MYSQL_USER="akraino" -e MYSQL_PASSWORD="$MYSQL_AKRAINO_PASSWORD" $IMAGE
+docker run --detach --name $CONTAINER_NAME --publish $MYSQL_HOST_PORT:3306 -v $DOCKER_VOLUME_NAME:/var/lib/mysql -v "$(pwd)/mysql.conf:/etc/mysql/conf.d/my.cnf" -e MYSQL_ROOT_PASSWORD="$MYSQL_ROOT_PASSWORD" -e MYSQL_DATABASE="akraino_bluvalui" -e MYSQL_USER="akraino" -e MYSQL_PASSWORD="$MYSQL_AKRAINO_PASSWORD" $IMAGE
 sleep 10
