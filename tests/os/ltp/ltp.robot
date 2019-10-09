@@ -30,6 +30,15 @@ ${LOG}            ${LOG_PATH}${/}${SUITE_NAME.replace(' ','_')}.log
 
 
 *** Test Cases ***
+Print Host Name
+    ${hostname} =  Execute Command  hostname
+    Log  Hostname = ${hostname}
+    ${whoami} =  Execute Command  whoami
+    Log  Who = ${whoami}
+    ${sudouser} =  Execute Command  sudo whoami
+    Log  sudouser = ${sudouser}
+
+
 #Run whole ltp test suite
 #    [Documentation]         Wait ~5hrs to complete 2536 tests
 #    ${result}=              Run Process       ./runltp     shell=yes     cwd=/opt/ltp     stdout=${LOG}
@@ -46,13 +55,11 @@ ${LOG}            ${LOG_PATH}${/}${SUITE_NAME.replace(' ','_')}.log
 
 Run ltp syscalls madvise
     [Documentation]         Wait ~1m for madvise01-10 to complete
-    ${result}=              Run Process       ./runltp -f syscalls -s madvise     shell=yes     cwd=/opt/ltp     stdout=${LOG}
+    ${result}=              Execute Command  sudo /opt/ltp/runltp -f syscalls -s madvise    stdout=${LOG}
     Append To File          ${LOG}  ${result}${\n}
-    Sleep                   2s
-    Should Contain          ${result.stdout}   failed   0
+    Should Contain          ${result}    INFO: ltp-pan reported all tests PASS
 
 *** Keywords ***
 Open Connection And Log In
   Open Connection       ${HOST}
-  Login                 ${ROOTUSER}     ${ROOTPSWD}
-
+  Login With Public Key    ${USERNAME}   ${HOME}/.ssh/id_rsa
