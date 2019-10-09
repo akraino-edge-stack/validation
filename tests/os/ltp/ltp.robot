@@ -22,14 +22,27 @@ Library           OperatingSystem
 Library           BuiltIn
 Library           Process
 Resource          variables.resource
-Suite Setup       Open Connection And Log In
-Suite Teardown    Close All Connections
+Suite Setup       Run Keywords
+...               Open Connection And Log In
+...               Install LTP
+Suite Teardown    Run Keywords
+...               Uninstall LTP
+...               Close All Connections
 
 *** Variables ***
 ${LOG}            ${LOG_PATH}${/}${SUITE_NAME.replace(' ','_')}.log
 
 
 *** Test Cases ***
+Print Host Name
+    ${hostname} =  Execute Command  hostname
+    Log  Hostname = ${hostname}
+    ${whoami} =  Execute Command  whoami
+    Log  Who = ${whoami}
+    ${sudouser} =  Execute Command  sudo whoami
+    Log  sudouser = ${sudouser}
+
+
 #Run whole ltp test suite
 #    [Documentation]         Wait ~5hrs to complete 2536 tests
 #    ${result}=              Run Process       ./runltp     shell=yes     cwd=/opt/ltp     stdout=${LOG}
@@ -46,13 +59,18 @@ ${LOG}            ${LOG_PATH}${/}${SUITE_NAME.replace(' ','_')}.log
 
 Run ltp syscalls madvise
     [Documentation]         Wait ~1m for madvise01-10 to complete
-    ${result}=              Run Process       ./runltp -f syscalls -s madvise     shell=yes     cwd=/opt/ltp     stdout=${LOG}
+    ${result}=              Execute Command  sudo /opt/ltp/runltp -f syscalls -s madvise    stdout=${LOG}
     Append To File          ${LOG}  ${result}${\n}
-    Sleep                   2s
-    Should Contain          ${result.stdout}   failed   0
+    Should Contain          ${result}    INFO: ltp-pan reported all tests PASS
 
 *** Keywords ***
 Open Connection And Log In
-  Open Connection       ${HOST}
-  Login                 ${ROOTUSER}     ${ROOTPSWD}
+    Open Connection       ${HOST}
+    Login With Public Key    ${USERNAME}   ${HOME}/.ssh/id_rsa
 
+
+Install LTP
+    Log  Place Holder to install LTP on each node
+
+Uninstall LTP
+    Log  Place Holder to uninstall LTP on each node
