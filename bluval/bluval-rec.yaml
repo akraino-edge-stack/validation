@@ -44,3 +44,7 @@ blueprint:
             name: conformance
             what: conformance
             optional: "True"
+        -
+            name: etcd_ha
+            what: etcd_ha
+            optional: "True"
