@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a212b5b_ce386b28",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-10-24T07:50:39Z",
+      "side": 1,
+      "message": "I don\u0027t think we should skip the checks on this file. We create it and it should respect the yamllint recommendations. We should use skip only for generated files or code from external sources.",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "09dd1a3c86be0e9d4d00867db888fa57e390f7d4",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
