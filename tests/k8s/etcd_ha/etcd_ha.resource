@@ -15,48 +15,48 @@
 # limitations under the License.                                             #
 ##############################################################################
 
-
 *** Settings ***
 Library            BuiltIn
 Library            Process
 Library            String
-Library            SSHLibrary
-Library            OperatingSystem
 
 *** Variables ***
 ${ETCD_VERSION}         3
-${SSH_KEYFILE}          ${HOME}/.ssh/id_rsa
 
 *** Keywords ***
-Open Connection And Log In
-    Open Connection        ${HOST}
-    Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}
-
 Retrieve Etcd Config
-     ${result}=     Execute Command    kubectl get nodes -l node-role.kubernetes.io/master -o jsonpath\='{.items[*].metadata.name}'
-     @{nodes}=      Split String  ${result}
-     Set Test Variable  ${pod}  etcd-@{nodes}[0]
-     ${members}=    Get Etcd Members
-     Set Test Variable  ${members}
+    ${result}=     Run Process  kubectl  get  nodes  -l  node.kubernetes.io/master
+    ...                         -o  jsonpath\='{.items[*].metadata.name}'
+    ${output}=     Evaluate  ${result.stdout}
+    @{nodes}=      Split String  ${output}
+    Set Test Variable  ${pod}  etcd-@{nodes}[0]
+    ${members}=    Get Etcd Members
+    Set Test Variable  ${members}
 
 Get Etcd Members
-    ${result}=     Execute Command  kubectl exec -n kube-system -it ${pod} etcdctl${ETCD_VERSION} member list
-    log        ${result}
+    ${result}=     Run Process  kubectl  exec  -n  kube-system  -it  ${pod}
+    ...                         etcdctl${ETCD_VERSION}  member  list
+    [Return]       ${result.stdout}
 
 Delete Etcd Node
-    ${result}=     Execute Command  kubectl delete pod -n kube-system ${pod}
-    Should Be Equal As Strings  ${result}  pod "${pod}" deleted  msg="pod delete failed"
+    ${result}=     Run Process  kubectl  delete  pod  -n  kube-system  ${pod}
+    Should Be Equal As Strings  ${result.stdout}  pod "${pod}" deleted  msg="pod delete failed"
 
 Wait For Etcd Node To Recover
     Wait Until Keyword Succeeds  5m  10s  Etcd Node Should Be Running
 
 Etcd Node Should Be Running
-    ${result}=     Execute Command  kubectl get -n kube-system -o template pod/${pod} --template\='{{.status.phase}}'
-    Should Contain  ${result}  Running
+    ${result}=     Run Process  kubectl  get  -n  kube-system  -o  template  pod/${pod}
+    ...                         --template\='{{.status.phase}}'
+    Should Be Equal As Strings  ${result.stdout}  'Running'
 
 Etcd Endpoint Should Be Healthy
-    ${result}=     Execute Command  kubectl exec -n kube-system -ti ${pod} etcdctl${ETCD_VERSION} endpoint health
-    Should Contain  ${result}  healthy
+    ${result}=     Run Process  kubectl  exec  -n  kube-system  -ti  ${pod}
+    ...                         etcdctl${ETCD_VERSION}  endpoint  health  >  temp_etcd_health
+    Should Be Equal As Numbers  ${result.rc}  0
+    ${result}=     Run Process  cat  temp_etcd_health
+    Should Contain  ${result.stdout}  is healthy:
+    Run Process  rm  temp_etcd_health
 
 Etcd Members Should Be Unchanged
     ${output}=     Get Etcd Members
