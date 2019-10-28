@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "63b1dff9_f1d17ca2",
+        "filename": "tests/k8s/etcd_ha/etcd_ha.resource",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-28T21:03:24Z",
+      "side": 1,
+      "message": "On some clusters masters labeled as node.kubernetes.io/master, can we handle it any way?",
+      "revId": "44bca81723492e72f12f037a668ddefc2531e356",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6b51298_85113da7",
+        "filename": "tests/k8s/etcd_ha/etcd_ha.resource",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-28T21:03:24Z",
+      "side": 1,
+      "message": "exec writes to STDOUT of the pod that is different from host\u0027s. I don\u0027t think it works?",
+      "revId": "44bca81723492e72f12f037a668ddefc2531e356",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
