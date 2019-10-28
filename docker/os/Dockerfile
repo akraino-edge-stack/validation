@@ -34,10 +34,32 @@ RUN pip3 install wheel
 RUN pip3 wheel -r /wheels/requirements/pip-requirements.txt
 RUN git clone https://gerrit.akraino.org/r/validation /opt/akraino/validation
 
-# Copy binaries in the final contaier and install robot framework
+#Build ltp tests
+FROM ubuntu as build_ubuntu
+RUN linux_headers=$(uname -r) && \
+    if [ $(uname -m) == 'aarch64' ]; then linux_headers='generic'; fi && \
+    apt-get update && apt-get -y install \
+    build-essential \
+    autoconf automake autotools-dev m4 \
+    git \ 
+    linux-headers-$linux_headers \
+    libaio-dev libattr1-dev libcap-dev 
+RUN mkdir -p /opt/akraino
+RUN mkdir -p /root/src
+WORkDIR  /root/src
+RUN git clone https://github.com/linux-test-project/ltp.git
+WORKDIR /root/src/ltp
+RUN pwd && make autotools && \
+    ./configure --prefix=/opt/ltp && \ 
+    make -j $(getconf _NPROCESSORS_ONLN) 2>&1 | tee ../build-log.txt && \
+    make install 2>&1 | tee ../install-log.txt
+RUN tar -czvf ltp.tar.gz /opt/ltp && mv ltp.tar.gz /opt/akraino
+
+# Copy binaries in the final contaier and install robot framewor
 FROM python:3.6-alpine3.9
 COPY --from=build /wheels /wheels
 COPY --from=build /opt/akraino/validation /opt/akraino/validation
+COPY --from=build_ubuntu /opt/akraino/ltp.tar.gz /opt/akraino/ltp.tar.gz
 
 RUN pip3 install -r /wheels/requirements/pip-requirements.txt \
                  -f /wheels && \
