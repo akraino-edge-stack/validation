@@ -34,6 +34,21 @@ RUN pip3 install wheel
 RUN pip3 wheel -r /wheels/requirements/pip-requirements.txt
 RUN git clone https://gerrit.akraino.org/r/validation /opt/akraino/validation
 
+#Build ltp tests
+RUN sudo apt-get install build-essential
+RUN sudo apt-get install autoconf automake autotools-dev m4
+RUN sudo apt-get install git
+RUN sudo apt-get install linux-headers
+RUN sudo apt-get install libaio-dev libattr1-dev libcap-dev
+RUN mkdir -p ~/src/ltp
+WORKDIR ~/src/ltp
+RUN git clone https://github.com/linux-test-project/ltp.git ltp_git
+WORKDIR ltp_git
+RUN make autotools
+RUN ./configure --prefix=/opt/akraino/ltp 
+RUN make -j (getconf _NPROCESSORS_ONLN) 2>&1 | tee ../build-log.txt
+RUN sudo make install 2>&1 | tee ../install-log.txt
+
 # Copy binaries in the final contaier and install robot framework
 FROM python:3.6-alpine3.9
 COPY --from=build /wheels /wheels
@@ -46,3 +61,4 @@ RUN pip3 install -r /wheels/requirements/pip-requirements.txt \
 
 # Install blueval dependencies
 RUN pip install -r /opt/akraino/validation/bluval/requirements.txt
+
