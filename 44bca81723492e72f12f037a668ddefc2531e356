@@ -69,6 +69,24 @@
       "revId": "44bca81723492e72f12f037a668ddefc2531e356",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cae1874_6995576c",
+        "filename": "tests/k8s/etcd_ha/etcd_ha.resource",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-31T21:35:18Z",
+      "side": 1,
+      "message": "Assuming its working for others and issue is only for me. So keeping it as it is.",
+      "parentUuid": "ec19df69_86a86f31",
+      "revId": "44bca81723492e72f12f037a668ddefc2531e356",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
