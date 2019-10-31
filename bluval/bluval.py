@@ -59,10 +59,11 @@ def run_testcase(testcase):
     variables_file = mypath.parents[1].joinpath("tests/variables.yaml")
     variables_dict = yaml.safe_load(variables_file.open())
     variables_dict['log_path'] = str(results_path)
-    variables_file.write_text(str(variables_dict))
+    variables_updated_file = mypath.parents[1].joinpath("tests/variables_updated.yaml")
+    variables_updated_file.write_text(str(variables_dict))
 
     # run the test
-    args = ["robot", "-V", str(variables_file), "-d",
+    args = ["robot", "-V", str(variables_updated_file), "-d",
             str(results_path), str(test_path)]
 
     print('Executing testcase {}'.format(name))

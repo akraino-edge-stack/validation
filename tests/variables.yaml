@@ -17,17 +17,23 @@
 
 # This file provides variables required by robot testcases
 # This file can be passed to robot testcases as follows
-# $ robot -v varables.yaml <robot test case file>
+# $ robot -V varables.yaml <robot test case file>
 #
 # All keys are converted UPPERCASE before submitting to robot. YAML notation is
 # smallcase and Robot variables notation is UPPERCASE so industry is following
 # this.
+#
+# bluval.py takes this file and updates it to new file and passes to
+# robot framework
+#
+
 
 ### Input variables cluster's master host
-host: aknode109             # cluster's master host address
-username: mm747b            # user credentials
-home: /home/mm747b          # Public keys location
-ssh_keyfile: ~/.ssh/id_rsa  # Identity file for authentication
+host: 172.28.17.206             # cluster's master host address
+username: cloudadmin            # user credentials
+home: /root                     # $HOME on container
+ssh_keyfile: /root/.ssh/id_rsa  # Identity file for authentication
+# log_path: /opt/akraino/results/<layer>/<what> is added by bluval.py
 
 ### Input variables for bios_version_dell.robot
 sysinfo: PowerEdge R740xd
