@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "cb9fd3f8_991a1f0b",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-10-31T19:11:36Z",
+      "side": 1,
+      "message": "this is a rolling tag, so it might point to a different ubuntu release later, let\u0027s pin it to something like:\n\n  FROM ubuntu:18.04 as build_ubuntu",
+      "range": {
+        "startLine": 38,
+        "startChar": 5,
+        "endLine": 38,
+        "endChar": 12
+      },
+      "revId": "7eafc6667f0bc17e325755a9661b4b4de5b4d1b8",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51ab568e_b113f926",
         "filename": "docker/os/Dockerfile",
         "patchSetId": 2
@@ -18,6 +41,52 @@
         "startChar": 9,
         "endLine": 44,
         "endChar": 10
+      },
+      "revId": "7eafc6667f0bc17e325755a9661b4b4de5b4d1b8",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bb6097e_f1e29413",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-10-31T19:11:36Z",
+      "side": 1,
+      "message": "This has a high risk of not working as expected if the host kernel is different/custom than the headers version available in the Ubuntu repositories, e.g. if building this container image on CentOS host (especially older versions of CentOS with kernel 3.x), which will probably require kernel headers not available on Ubuntu.\n\nSince LTP uses pretty old/generic syscalls, I think it\u0027s safer to go with `linux-headers-generic` on all architectures.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "7eafc6667f0bc17e325755a9661b4b4de5b4d1b8",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "068c1b81_21214135",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2019-10-31T19:11:36Z",
+      "side": 1,
+      "message": "Since alpine uses musl and not glibc, the resulting binaries cannot be ran inside the container.\nAfaict, these binaries will be used on different systems (CentOS/Ubuntu) after being transferred to, so it shouldn\u0027t be a real issue, but I would still align the lib requirements and use an ubuntu container base image here, e.g.:\n\n  FROM ubuntu:18.04",
+      "range": {
+        "startLine": 59,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 25
       },
       "revId": "7eafc6667f0bc17e325755a9661b4b4de5b4d1b8",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
