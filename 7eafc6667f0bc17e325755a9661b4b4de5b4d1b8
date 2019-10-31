@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51ab568e_b113f926",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-10-31T14:44:51Z",
+      "side": 1,
+      "message": "remove whitespaces",
+      "range": {
+        "startLine": 44,
+        "startChar": 9,
+        "endLine": 44,
+        "endChar": 10
+      },
+      "revId": "7eafc6667f0bc17e325755a9661b4b4de5b4d1b8",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
