@@ -87,6 +87,24 @@
       "revId": "44bca81723492e72f12f037a668ddefc2531e356",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b27227e_3ef90377",
+        "filename": "tests/k8s/etcd_ha/etcd_ha.resource",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-11-01T09:54:58Z",
+      "side": 1,
+      "message": "This is something related to TTY (https://github.com/kubernetes/kubernetes/issues/37471)\n\nAt least following seems to work:\n\nEtcd Endpoint Should Be Healthy\n    ${result}\u003d     Run Process  kubectl  exec  -n  kube-system  ${pod}\n    ...                         etcdctl${ETCD_VERSION}  endpoint  health\n    Should Contain  ${result.stderr}  is healthy:",
+      "parentUuid": "6cae1874_6995576c",
+      "revId": "44bca81723492e72f12f037a668ddefc2531e356",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
