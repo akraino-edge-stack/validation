@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13f605b1_0f656e30",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-11-01T15:18:21Z",
+      "side": 1,
+      "message": "You can remove this line, as the above build container is also ubuntu now",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "85052eb1878f502f2b50ac123f33e71e8203d4a2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e387d20_13e68a97",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-11-01T15:18:21Z",
+      "side": 1,
+      "message": "Add this list of packages to the installation command above and remove it from here",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 38
+      },
+      "revId": "85052eb1878f502f2b50ac123f33e71e8203d4a2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14424145_4d5fc3c8",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-11-01T15:18:21Z",
+      "side": 1,
+      "message": "Just \"build\" since we\u0027re going to use just 1 build container",
+      "range": {
+        "startLine": 60,
+        "startChar": 12,
+        "endLine": 60,
+        "endChar": 21
+      },
+      "revId": "85052eb1878f502f2b50ac123f33e71e8203d4a2",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
