@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5876dbea_94820b9f",
+        "filename": "tests/variables.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-11-01T15:25:09Z",
+      "side": 1,
+      "message": "Please add a comment here that log_path\u0027s value is overridden when running the tests with bluval.py. It\u0027s value changes for each layer.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 30
+      },
+      "revId": "c987ab62ff2a3d65f6d764a4a6dfffe6b70df295",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
