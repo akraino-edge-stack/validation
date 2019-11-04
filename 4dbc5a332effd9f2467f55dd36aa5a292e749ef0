@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a38cd8f2_b86674b4",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-11-04T08:40:47Z",
+      "side": 1,
+      "message": "Why do we need this change?. The former logic modified the original file in place, why allocate another variable for it?",
+      "revId": "4dbc5a332effd9f2467f55dd36aa5a292e749ef0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
