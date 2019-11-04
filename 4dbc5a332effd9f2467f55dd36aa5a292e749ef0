@@ -16,6 +16,24 @@
       "revId": "4dbc5a332effd9f2467f55dd36aa5a292e749ef0",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0c1d7f7_39b24c18",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-11-04T20:23:36Z",
+      "side": 1,
+      "message": "variables.yaml is provided by blue print owner. If bluval.py overwrites the same file in different structure its difficult for blue print owner to compare and modify it later.",
+      "parentUuid": "a38cd8f2_b86674b4",
+      "revId": "4dbc5a332effd9f2467f55dd36aa5a292e749ef0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
