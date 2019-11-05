@@ -34,6 +34,24 @@
       "revId": "4dbc5a332effd9f2467f55dd36aa5a292e749ef0",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb236fab_229634ef",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-11-05T08:46:06Z",
+      "side": 1,
+      "message": "OK, thanks for the explanation.",
+      "parentUuid": "e0c1d7f7_39b24c18",
+      "revId": "4dbc5a332effd9f2467f55dd36aa5a292e749ef0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
