@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "035fcfaa_0d6b291d",
+        "filename": "tests/os/ltp/ltp.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-11-06T16:30:03Z",
+      "side": 1,
+      "message": "If sudo is required, pass it as an argument.",
+      "revId": "990907516a0138b090a19de47a42a9b49e80040d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5524a68e_aeda280b",
+        "filename": "tests/os/ltp/ltp.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-11-06T16:30:03Z",
+      "side": 1,
+      "message": "If sudo is required, pass it as an argument.",
+      "revId": "990907516a0138b090a19de47a42a9b49e80040d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a54b2545_74698733",
+        "filename": "tests/os/ltp/ltp.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-11-06T16:30:03Z",
+      "side": 1,
+      "message": "If sudo is required, pass it as an argument.",
+      "revId": "990907516a0138b090a19de47a42a9b49e80040d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
