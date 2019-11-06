@@ -24,23 +24,23 @@
 volumes:
     # location of the ssh key to access the cluster
     ssh_key_dir:
-        local: ''
+        local: '$HOME/.ssh'
         target: '/root/.ssh'
     # location of the k8s access files (config file, certificates, keys)
     kube_config_dir:
-        local: ''
-        target: '/root/.kube/'
+        local: '$HOME/.kube'
+        target: '/root/.kube'
     # location of the customized variables.yaml
     custom_variables_file:
-        local: ''
+        local: '$AKRAINO_HOME/validation/tests/variables.yaml'
         target: '/opt/akraino/validation/tests/variables.yaml'
     # location of the bluval-<blueprint>.yaml file
     blueprint_dir:
-        local: ''
+        local: '$AKRAINO_HOME/validation/bluval'
         target: '/opt/akraino/validation/bluval'
     # location on where to store the results on the local jumpserver
     results_dir:
-        local: ''
+        local: '$AKRAINO_HOME/results'
         target: '/opt/akraino/results'
 
 # parameters that will be passed to the container at each layer
