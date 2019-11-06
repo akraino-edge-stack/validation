@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60430b34_821525c2",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-11-06T15:26:12Z",
+      "side": 1,
+      "message": "blucon.py invokes eg. \"cd /opt/akraino/validation \u0026\u0026 python bluval/bluval.py -l hardware  rec\" on the container by passing layer and bluprint name. python is a program on all other layer images where as this one is expecting python3. \n\nAll other layer images are using python3.6, can we use same python3.6 here too.",
+      "revId": "3767c92710a009f2e91ba720738c88418a46e7cd",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
