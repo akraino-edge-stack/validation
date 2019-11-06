@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "25ca645b_def1933f",
+        "filename": "tests/k8s/etcd_ha/etcd_ha.resource",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-11-06T22:22:01Z",
+      "side": 0,
+      "message": "In this case its expecting -v HOME:xxxx from CLI, this can be avoided as we are running within a container we designed. \n\nIf at all if we need this ENV variable, OperatingSystem library is better choice.",
+      "revId": "35aa365da408361021f18273296d382bdb08a74b",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
