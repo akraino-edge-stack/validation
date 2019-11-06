@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0c45765f_8086beff",
+        "filename": "bluval/bluval-kni.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-11-06T15:07:38Z",
+      "side": 1,
+      "message": "You can safely remove \u0026hardware_dummy, \u0026os_base, \u0026k8s",
+      "revId": "25cba0e9de1b7786e08d10b5df506258691016f5",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d5a5064_1839ce7c",
+        "filename": "bluval/bluval-kni.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-11-06T15:07:38Z",
+      "side": 1,
+      "message": "By default show_stopper is \"False\", you can keep it if it is intentional.",
+      "revId": "25cba0e9de1b7786e08d10b5df506258691016f5",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63b063de_33042bc6",
+        "filename": "bluval/bluval-kni.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-11-06T15:07:38Z",
+      "side": 1,
+      "message": "By default optional is \"False\", you can keep it if it is intentional.",
+      "revId": "25cba0e9de1b7786e08d10b5df506258691016f5",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
