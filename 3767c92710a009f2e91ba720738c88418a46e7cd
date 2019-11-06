@@ -16,6 +16,24 @@
       "revId": "3767c92710a009f2e91ba720738c88418a46e7cd",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cab1fa4c_6b25cf1c",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-11-06T15:32:28Z",
+      "side": 1,
+      "message": "You are correct, that should have been python3.6. I\u0027ll make a subsequent patch for it and the command name to be the same as for the other layers",
+      "parentUuid": "60430b34_821525c2",
+      "revId": "3767c92710a009f2e91ba720738c88418a46e7cd",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
