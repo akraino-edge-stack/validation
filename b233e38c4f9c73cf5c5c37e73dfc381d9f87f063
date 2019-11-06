@@ -22,6 +22,30 @@
       "revId": "b233e38c4f9c73cf5c5c37e73dfc381d9f87f063",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03b71094_6f19de91",
+        "filename": "tests/k8s/conformance/conformance.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-11-06T07:20:17Z",
+      "side": 1,
+      "message": "Couldn\u0027t agree more. But still sonobuoy lists it as a image used by e2e plugin...",
+      "parentUuid": "3e957f29_31c986da",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 1
+      },
+      "revId": "b233e38c4f9c73cf5c5c37e73dfc381d9f87f063",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
