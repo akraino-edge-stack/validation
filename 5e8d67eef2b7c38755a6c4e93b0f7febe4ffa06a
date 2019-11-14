@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b90ad5b3_b21ce0c4",
+        "filename": "tests/k8s/conformance/conformance.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 252
+      },
+      "writtenOn": "2019-11-14T10:04:38Z",
+      "side": 1,
+      "message": "Remove extra spaces",
+      "range": {
+        "startLine": 95,
+        "startChar": 30,
+        "endLine": 95,
+        "endChar": 161
+      },
+      "revId": "5e8d67eef2b7c38755a6c4e93b0f7febe4ffa06a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a02bb65_d3b004eb",
+        "filename": "tests/k8s/conformance/conformance.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 252
+      },
+      "writtenOn": "2019-11-14T10:04:38Z",
+      "side": 1,
+      "message": "Remove extra spaces",
+      "range": {
+        "startLine": 96,
+        "startChar": 83,
+        "endLine": 96,
+        "endChar": 161
+      },
+      "revId": "5e8d67eef2b7c38755a6c4e93b0f7febe4ffa06a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
