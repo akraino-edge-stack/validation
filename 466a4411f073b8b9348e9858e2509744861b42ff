@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4788c1d1_a273fb3e",
+        "filename": "tests/k8s/etcd_ha/etcd_ha.resource",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-11-15T13:41:24Z",
+      "side": 1,
+      "message": "Why this was changed? Does this work on latest REC? My test env is still k8s 1.15 based and this doesn\u0027t work there:\n\n/ # kubectl get no 192.168.17.1 --show-labels\nNAME           STATUS   ROLES    AGE   VERSION   LABELS\n192.168.17.1   Ready    master   50d   v1.15.3   beta.kubernetes.io/arch\u003damd64,beta.kubernetes.io/os\u003dlinux,kubernetes.io/arch\u003damd64,kubernetes.io/hostname\u003d192.168.17.1,kubernetes.io/os\u003dlinux,node-role.kubernetes.io/master\u003d,nodeindex\u003d1,nodename\u003dcaas_master1,nodetype\u003dcaas_master,sriov\u003denabled,type\u003dedge",
+      "range": {
+        "startLine": 28,
+        "startChar": 57,
+        "endLine": 28,
+        "endChar": 82
+      },
+      "revId": "466a4411f073b8b9348e9858e2509744861b42ff",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
