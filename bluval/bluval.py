@@ -31,6 +31,7 @@ from bluutil import BluvalError
 from bluutil import ShowStopperError
 
 _OPTIONAL_ALSO = False
+_TESTS_FAILED = False
 
 def run_testcase(testcase):
     """Runs a single testcase
@@ -71,9 +72,11 @@ def run_testcase(testcase):
     try:
         status = subprocess.call(args, shell=False)
         if status != 0 and show_stopper.lower() == "true":
+            _TESTS_FAILED = True
             raise ShowStopperError(name)
     except OSError:
         #print('Error while executing {}'.format(args))
+        _TESTS_FAILED = True
         raise BluvalError(OSError)
 
 
@@ -119,6 +122,8 @@ def main(blueprint, layer, optional_also):
     yaml location from blueprint name. Invokes validate on blue print.
     """
     global _OPTIONAL_ALSO  # pylint: disable=global-statement
+    global _TESTS_FAILED # pylint: disable=global-statement
+
     mypath = Path(__file__).absolute()
     yaml_loc = mypath.parents[0].joinpath('bluval-{}.yaml'.format(blueprint))
     if layer is not None:
@@ -130,6 +135,8 @@ def main(blueprint, layer, optional_also):
     try:
         write_test_info(layer)
         validate_blueprint(yaml_loc, layer)
+        if _TESTS_FAILED == True:
+            sys.exit(1)
     except ShowStopperError as err:
         print('ShowStopperError:', err)
     except BluvalError as err:

@@ -21,9 +21,11 @@
 
 class BluvalError(Exception):
     """Base class for exceptions in this module."""
+    print('Test failed')
     pass
 
 
 class ShowStopperError(Exception):
     """Showstopper test case failed"""
+    print('Test failed')
     pass
