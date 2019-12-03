@@ -27,14 +27,12 @@ from pathlib import Path
 import click
 import yaml
 
-from bluutil import BluvalError
-from bluutil import ShowStopperError
-
 _OPTIONAL_ALSO = False
 
 def run_testcase(testcase):
     """Runs a single testcase
     """
+    result = 1;
     name = testcase.get('name')
     skip = testcase.get('skip', "False")
     optional = testcase.get('optional', "False")
@@ -69,21 +67,26 @@ def run_testcase(testcase):
     print('show_stopper {}'.format(show_stopper))
     print('Invoking {}'.format(args))
     try:
-        status = subprocess.call(args, shell=False)
-        if status != 0 and show_stopper.lower() == "true":
-            raise ShowStopperError(name)
+        result = subprocess.call(args, shell=False)
+        print('Result {}'.format(result))
     except OSError:
+        result = 1
+        return result
         #print('Error while executing {}'.format(args))
-        raise BluvalError(OSError)
-
+    return result
 
 def validate_layer(blueprint, layer):
     """validates a layer by validating all testcases under that layer
     """
+    result = 1
     print('## Layer {}'.format(layer))
     for testcase in blueprint[layer]:
         testcase['layer'] = layer
-        run_testcase(testcase)
+        result = run_testcase(testcase)
+        if result:
+            print('test '+ str(testcase) + ' failed with error' +str(result))
+            #if one test fails, all tests are failed
+    return result
 
 
 def validate_blueprint(yaml_loc, layer):
@@ -93,8 +96,8 @@ def validate_blueprint(yaml_loc, layer):
     with open(str(yaml_loc)) as yaml_file:
         yamldoc = yaml.safe_load(yaml_file)
     blueprint = yamldoc['blueprint']
-    validate_layer(blueprint, layer)
-
+    result = validate_layer(blueprint, layer)
+    return result
 
 def write_test_info(layer):
     """writes testing info to test_info.yaml
@@ -119,6 +122,7 @@ def main(blueprint, layer, optional_also):
     yaml location from blueprint name. Invokes validate on blue print.
     """
     global _OPTIONAL_ALSO  # pylint: disable=global-statement
+    result = 1
     mypath = Path(__file__).absolute()
     yaml_loc = mypath.parents[0].joinpath('bluval-{}.yaml'.format(blueprint))
     if layer is not None:
@@ -126,22 +130,17 @@ def main(blueprint, layer, optional_also):
     if optional_also:
         _OPTIONAL_ALSO = True
         print("_OPTIONAL_ALSO {}".format(_OPTIONAL_ALSO))
-
     try:
         write_test_info(layer)
-        validate_blueprint(yaml_loc, layer)
-    except ShowStopperError as err:
-        print('ShowStopperError:', err)
-    except BluvalError as err:
-        print('Unexpected BluvalError', err)
-        raise
+        result = validate_blueprint(yaml_loc, layer)
     except:
         print("Exception in user code:")
         print("-"*60)
         traceback.print_exc(file=sys.stdout)
         print("-"*60)
-        raise
-
+        sys.exit(1)
+    if result:
+        sys.exit(1)
 
 if __name__ == "__main__":
     # pylint: disable=no-value-for-parameter
