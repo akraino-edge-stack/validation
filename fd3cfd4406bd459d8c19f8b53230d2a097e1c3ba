@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ddee0869_62a7575b",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-12-04T14:16:10Z",
+      "side": 1,
+      "message": "We don\u0027t build just layer containers from the docker folder, we build whatever we need. \nWe can keep the Dockerfile here if its purpose is for development purposes only and we advise users to build it by hand.",
+      "parentUuid": "a984ebec_e0b391ea",
+      "revId": "fd3cfd4406bd459d8c19f8b53230d2a097e1c3ba",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c98e3662_021202a6",
         "filename": "bluval/Dockerfile",
         "patchSetId": 1
