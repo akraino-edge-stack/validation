@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a984ebec_e0b391ea",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-12-04T02:49:08Z",
+      "side": 1,
+      "message": "All those are layers and this is not. This is BluVal itself. So I kept here so that its easy we we have to COPY any files from this context.",
+      "parentUuid": "1b8c7395_3e388ea8",
+      "revId": "fd3cfd4406bd459d8c19f8b53230d2a097e1c3ba",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c98e3662_021202a6",
         "filename": "bluval/Dockerfile",
         "patchSetId": 1
