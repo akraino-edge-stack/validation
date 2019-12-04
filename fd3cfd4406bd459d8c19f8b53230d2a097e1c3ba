@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "b22b2a95_8f998ba2",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-12-04T15:47:14Z",
+      "side": 1,
+      "message": "That is a good point. \nNow blucon.sh itself builds this image from downloaded code and uses this image.\nWe don\u0027t need to push this image to docker hub.\nUpdated ( patch5) commit message and also blucon.sh according to this change.",
+      "parentUuid": "ddee0869_62a7575b",
+      "revId": "fd3cfd4406bd459d8c19f8b53230d2a097e1c3ba",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c98e3662_021202a6",
         "filename": "bluval/Dockerfile",
         "patchSetId": 1
