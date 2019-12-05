@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb140357_ed5f6ba5",
+        "filename": "blucon.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-12-05T17:05:39Z",
+      "side": 1,
+      "message": "Let\u0027s add some help message for the parameters of the script, even if the parameters are passed as-is to the blucon script",
+      "revId": "0e6ed89e9c257704f424daccd280b75bf53d23b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "808810e0_56ff3a79",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-12-05T17:05:39Z",
+      "side": 1,
+      "message": "Should we use python 3.6 to be consistent all over our containers? We can upgrade them all to 3.7 when needed.",
+      "range": {
+        "startLine": 20,
+        "startChar": 57,
+        "endLine": 20,
+        "endChar": 66
+      },
+      "revId": "0e6ed89e9c257704f424daccd280b75bf53d23b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6f77e92_fea727b7",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-12-05T17:05:39Z",
+      "side": 1,
+      "message": "why do we set the entrypoint if the bluval.sh script is not going to use it anyhow?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "0e6ed89e9c257704f424daccd280b75bf53d23b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
