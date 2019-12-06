@@ -42,6 +42,30 @@
     },
     {
       "key": {
+        "uuid": "d138260a_fffedd22",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-12-06T03:11:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "808810e0_56ff3a79",
+      "range": {
+        "startLine": 20,
+        "startChar": 57,
+        "endLine": 20,
+        "endChar": 66
+      },
+      "revId": "0e6ed89e9c257704f424daccd280b75bf53d23b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b6f77e92_fea727b7",
         "filename": "bluval/Dockerfile",
         "patchSetId": 6
@@ -62,6 +86,30 @@
       "revId": "0e6ed89e9c257704f424daccd280b75bf53d23b0",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d716cf5_f7b9db7d",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-12-06T03:11:45Z",
+      "side": 1,
+      "message": "blucon.sh is using it. It is just passing arguments, that is equal to \"cd /opt/akraino/validation \u0026\u0026 python3 bluval/blucon.py $@\"",
+      "parentUuid": "b6f77e92_fea727b7",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "0e6ed89e9c257704f424daccd280b75bf53d23b0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
