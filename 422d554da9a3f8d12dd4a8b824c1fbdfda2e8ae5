@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a5a3f57_585eee2f",
+        "filename": "blucon.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2019-12-06T11:14:26Z",
+      "side": 1,
+      "message": "I think we should have a way to parametrize the version of the layer images one can run. Right now it will always run with latest, but we should be able to start the release containers as well. \nAlso, shouldn\u0027t this script be in the \"bluval\" or \"utils\" folder?",
+      "revId": "422d554da9a3f8d12dd4a8b824c1fbdfda2e8ae5",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
