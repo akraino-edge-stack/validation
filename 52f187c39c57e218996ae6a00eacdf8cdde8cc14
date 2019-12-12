@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "231dc52a_1ada9ab7",
+        "filename": "bluval/blucon.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 252
+      },
+      "writtenOn": "2019-12-12T14:03:23Z",
+      "side": 1,
+      "message": "image_tag can be HEAD so it might endup with akraino/validation:blucon-(HEAD",
+      "revId": "52f187c39c57e218996ae6a00eacdf8cdde8cc14",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
