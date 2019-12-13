@@ -34,6 +34,24 @@
       "revId": "52f187c39c57e218996ae6a00eacdf8cdde8cc14",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d527ce81_8670815a",
+        "filename": "bluval/blucon.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-12-13T17:30:57Z",
+      "side": 1,
+      "message": "That should not be the case if you follow https://wiki.akraino.org/display/AK/Bluval+User+Guide\n\nIf you are getting a fetch eg. \ngit fetch \"https://gerrit.akraino.org/r/validation\" refs/changes/89/2089/14 \u0026\u0026 git checkout FETCH_HEAD\nalso run eg.\ngit checkout -b VAL87\n\nand that should solve the problem.\n\nThis is the issue for only developers and not to end customers. So we should not consider this as issue. \nInstead of asking exporting $VERSION we can advise developers to run \"git checkout -b VAL87\"",
+      "parentUuid": "b3376120_d4ba75b8",
+      "revId": "52f187c39c57e218996ae6a00eacdf8cdde8cc14",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
