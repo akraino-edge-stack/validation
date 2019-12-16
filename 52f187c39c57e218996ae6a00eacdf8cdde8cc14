@@ -52,6 +52,24 @@
       "revId": "52f187c39c57e218996ae6a00eacdf8cdde8cc14",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae7eb274_f332739c",
+        "filename": "bluval/blucon.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 252
+      },
+      "writtenOn": "2019-12-16T09:44:11Z",
+      "side": 1,
+      "message": "Please keep in mind that  \"git checkout -b VAL87\" means using a branch while we are working with tags.\nAlso, I tried the following scenario:\ngit clone https://gerrit.akraino.org/r/validation\ncd validation/\ngit checkout 2.0.0  --\u003e I want to use the 2.0.0 release tag\nimage_tag\u003d$( (git branch || echo \"* local\") | grep \"^\\*\" | awk \u0027{print $2}\u0027\necho $image_tag\n(HEAD\nSo, it looks like the issue can be found when using a release tag also.",
+      "parentUuid": "d527ce81_8670815a",
+      "revId": "52f187c39c57e218996ae6a00eacdf8cdde8cc14",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
