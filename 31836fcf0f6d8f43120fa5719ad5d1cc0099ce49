@@ -22,6 +22,30 @@
       "revId": "31836fcf0f6d8f43120fa5719ad5d1cc0099ce49",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6907362d_290b2ef1",
+        "filename": "tests/os/lynis/lynis.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-12-17T19:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f788c925_04770f4a",
+      "range": {
+        "startLine": 39,
+        "startChar": 57,
+        "endLine": 39,
+        "endChar": 90
+      },
+      "revId": "31836fcf0f6d8f43120fa5719ad5d1cc0099ce49",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
