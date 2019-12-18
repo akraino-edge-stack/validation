@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "48c8c0be_21e847eb",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 252
+      },
+      "writtenOn": "2019-12-18T12:23:01Z",
+      "side": 1,
+      "message": "Remove newline at end of base file.",
+      "revId": "9e4a5486d0630566d02008788189ac595375ba33",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
