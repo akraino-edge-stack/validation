@@ -17,7 +17,11 @@
 # ref: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds
 FROM ubuntu:18.04 as build
 
-RUN apt-get update && apt-get -y install git python3-pip python3.6
+RUN apt-get update && apt-get -y install \
+    git \
+    python3.6 \
+    python3-pip \
+    libffi-dev
 
 # Build binaries
 RUN git clone https://gerrit.akraino.org/r/validation /opt/akraino/validation
