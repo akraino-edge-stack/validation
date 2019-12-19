@@ -34,6 +34,24 @@
       "revId": "9e4a5486d0630566d02008788189ac595375ba33",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c059b4c_708f340d",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 251
+      },
+      "writtenOn": "2019-12-19T08:28:32Z",
+      "side": 1,
+      "message": "Having a new line at the end of file is actual best-practice.\nGit also complained about the missing new line:\n-ENTRYPOINT  [\"python3\", \"bluval/blucon.py\"]\n\\ No newline at end of file\n+ENTRYPOINT  [\"python3\", \"bluval/blucon.py\"]",
+      "parentUuid": "d1952e1d_7c91f8e0",
+      "revId": "9e4a5486d0630566d02008788189ac595375ba33",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
