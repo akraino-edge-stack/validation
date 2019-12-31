@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "622d04e4_a5d826d7",
+        "filename": ".gitignore",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2019-12-31T12:18:14Z",
+      "side": 1,
+      "message": "Along with the patch related to https://jira.akraino.org/browse/VAL-94, system doesn\u0027t create bluval/__pycache__.",
+      "revId": "8159d2db59e36e0fe204cb07a53074f0e74ac64e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
