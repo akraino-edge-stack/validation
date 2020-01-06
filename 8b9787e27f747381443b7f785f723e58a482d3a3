@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6d8efe4c_03fe5106",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2020-01-06T20:45:15Z",
+      "side": 1,
+      "message": "I am facing this issue after this commit\n\n$ bash bluval/blucon.sh -l hardware rec\n...\nSuccessfully tagged akraino/validation:blucon-master\n+ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /tmp/akraino/results:/opt/akraino/results -v /tmp/akraino/validation:/opt/akraino/validation akraino/validation:blucon-master -l hardware rec\nError relocating /usr/bin/docker: __fprintf_chk: symbol not found\nError relocating /usr/bin/docker: __vfprintf_chk: symbol not found",
+      "revId": "8b9787e27f747381443b7f785f723e58a482d3a3",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
