@@ -65,6 +65,14 @@ RUN apt-get update && apt-get -y install \
     cd /usr/bin && ln -s python3 python && \
     pip3 install -r /wheels/requirements/pip-requirements.txt \
                  -f /wheels && \
+    apt-get install -y  curl apt-transport-https ca-certificates software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+    apt-get update && \
+    apt-get install -y docker-ce \
+    sqlite \
+    debian-goodies \
+    wget && \
     rm -rf /wheels && \
     rm -rf /root/.cache/pip/* && \
     rm -rf /var/cache/apt/* && \
