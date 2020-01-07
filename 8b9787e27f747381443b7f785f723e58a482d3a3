@@ -16,6 +16,24 @@
       "revId": "8b9787e27f747381443b7f785f723e58a482d3a3",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36c087d3_58f7f2c8",
+        "filename": "bluval/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 251
+      },
+      "writtenOn": "2020-01-07T10:29:22Z",
+      "side": 1,
+      "message": "What host Linux distro and host docker version are you using?\nThere might be a mismatch between the container and the host.",
+      "parentUuid": "6d8efe4c_03fe5106",
+      "revId": "8b9787e27f747381443b7f785f723e58a482d3a3",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
