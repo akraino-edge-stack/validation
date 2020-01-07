@@ -60,8 +60,16 @@ COPY --from=build /opt/akraino/ltp.tar.gz /opt/akraino/ltp.tar.gz
 COPY --from=build /opt/akraino/lynis-remote.tar.gz /opt/akraino/lynis-remote.tar.gz
 
 
-RUN apt-get update && apt-get -y install \
-    python3-pip python3.6 && \
+RUN apt-get update && apt-get -y upgrade && apt-get -y install \
+    python3-pip python3.6 \
+    sqlite \
+    debian-goodies \
+    wget \
+    curl apt-transport-https ca-certificates software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    add-apt-repository "deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+    apt-get update && \
+    apt-get install -y docker-ce && \
     cd /usr/bin && ln -s python3 python && \
     pip3 install -r /wheels/requirements/pip-requirements.txt \
                  -f /wheels && \
