@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200108 07:47:57.971" rpa="false">
+<suite id="s1" name="Vuls" source="/opt/akraino/validation/tests/os/vuls/vuls.robot">
+<test id="s1-t1" name="Install images">
+<kw name="Run" library="OperatingSystem">
+<doc>Runs the given command in the system and returns the output.</doc>
+<arguments>
+<arg>docker run -v ${SSH_KEYFILE}:/root/.ssh/mcp.rsa -v /tmp/:/vuls/results/ -v /tmp/gost-log:/var/log/vuls -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --entrypoint /bin/sh vuls/vuls -c "rm -rf /vuls/environment.sh &amp;&amp; echo '$(cat /opt/akraino/validation/tests/os/vuls/environment.sh)' &gt; /vuls/environment.sh &amp;&amp; echo '$(sed -e 's|HOST|${HOST}|g' -e 's|USERNAME|${USERNAME}|g' /opt/akraino/validation/tests/os/vuls/config.toml)' &gt; /vuls/config.toml &amp;&amp; cat /vuls/config.toml &amp;&amp; chmod +x /vuls/environment.sh &amp;&amp; /vuls/environment.sh "</arg>
+</arguments>
+<msg timestamp="20200108 07:47:58.134" level="INFO">Running command 'docker run -v /var/lib/opnfv/mcp.rsa:/root/.ssh/mcp.rsa -v /tmp/:/vuls/results/ -v /tmp/gost-log:/var/log/vuls -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro --entrypoint /bin/sh vuls/vuls -c "rm -rf /vuls/environment.sh &amp;&amp; echo '$(cat /opt/akraino/validation/tests/os/vuls/environment.sh)' &gt; /vuls/environment.sh &amp;&amp; echo '$(sed -e 's|HOST|172.16.10.36|g' -e 's|USERNAME|ubuntu|g' /opt/akraino/validation/tests/os/vuls/config.toml)' &gt; /vuls/config.toml &amp;&amp; cat /vuls/config.toml &amp;&amp; chmod +x /vuls/environment.sh &amp;&amp; /vuls/environment.sh "'.</msg>
+<status status="PASS" starttime="20200108 07:47:58.133" endtime="20200108 07:47:58.940"></status>
+</kw>
+<kw name="Run" library="OperatingSystem">
+<doc>Runs the given command in the system and returns the output.</doc>
+<arguments>
+<arg>docker cp vuls/vuls:vuls.log /tmp/vuls.log</arg>
+</arguments>
+<msg timestamp="20200108 07:47:58.949" level="INFO">Running command 'docker cp vuls/vuls:vuls.log /tmp/vuls.log 2&gt;&amp;1'.</msg>
+<status status="PASS" starttime="20200108 07:47:58.941" endtime="20200108 07:47:59.060"></status>
+</kw>
+<status status="PASS" starttime="20200108 07:47:58.132" endtime="20200108 07:47:59.060" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200108 07:47:57.972" endtime="20200108 07:47:59.061"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Vuls">Vuls</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
