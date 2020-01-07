@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "257124ef_8c69761a",
+        "filename": "bluval/blucon.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-01-07T11:31:16Z",
+      "side": 1,
+      "message": "This indicates we don\u0027t use the Docker daemon inside the alpine container, but we merely connect to the host container to spawn sibling containers.\nIf that\u0027s the case, we can install only the `docker-cli` package using apk.",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 48
+      },
+      "revId": "fe2369f9aabd17e971c21b71d193bdbcf409fbcd",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
