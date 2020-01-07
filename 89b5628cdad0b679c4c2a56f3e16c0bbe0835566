@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40aa35d0_42c0449c",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-01-07T11:56:59Z",
+      "side": 1,
+      "message": "move these into the `apt-get -y install` above",
+      "range": {
+        "startLine": 68,
+        "startChar": 24,
+        "endLine": 68,
+        "endChar": 91
+      },
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8b09f3ed_c2f1253d",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-01-07T11:56:59Z",
+      "side": 1,
+      "message": "remove this as it\u0027s superfluous on amd64, but breaks any other arch, e.g. arm64",
+      "range": {
+        "startLine": 70,
+        "startChar": 28,
+        "endLine": 70,
+        "endChar": 40
+      },
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cc142bf_b25faf4d",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-01-07T11:56:59Z",
+      "side": 1,
+      "message": "Let\u0027s use a common default name here (also add a space before \u0027\u003d\u0027):\n\n  keyPath \u003d \"/root/.ssh/id_rsa\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20f825ce_2bd6add4",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-01-07T11:56:59Z",
+      "side": 1,
+      "message": "\"docker\"",
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77a4e199_9fb51521",
+        "filename": "tests/os/vuls/environment.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-01-07T11:56:59Z",
+      "side": 1,
+      "message": "I assume this will only work on x86_64 or should it also support aarch64?",
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
