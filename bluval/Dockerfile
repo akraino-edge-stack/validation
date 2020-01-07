@@ -20,6 +20,7 @@ FROM python:3.6-alpine3.9
 RUN apk --no-cache add --update \
         gcc \
         git \
+        docker-cli \
         libc6-compat \
         libc-dev \
         libffi \
