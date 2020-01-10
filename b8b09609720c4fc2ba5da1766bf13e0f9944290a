@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36b9ab70_d36b7158",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-10T11:50:36Z",
+      "side": 1,
+      "message": "Is the idea to scan one server only instead of multiple or all nodes of the cluster?",
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce55c6fd_788ff423",
+        "filename": "tests/os/vuls/environment.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-10T11:50:36Z",
+      "side": 1,
+      "message": "On the cluster I\u0027m using, just this phase took over 1h to complete. Would it be possible to fetch the data already when building bluval/os container image? Or necessary in test running stage?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 111
+      },
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24675eb6_238cd149",
+        "filename": "tests/os/vuls/environment.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-10T11:50:36Z",
+      "side": 1,
+      "message": "Fetches only from ubuntu, should there be redhat also?",
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f62a52c2_acbe1649",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-10T11:50:36Z",
+      "side": 1,
+      "message": "Remove since not used.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 40
+      },
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd95dfef_af8dbb91",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-10T11:50:36Z",
+      "side": 1,
+      "message": "Not used.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "247b267f_fa7308b8",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-10T11:50:36Z",
+      "side": 1,
+      "message": "Defined in variables.yaml",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 40
+      },
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec07035d_9fb34f4d",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-10T11:50:36Z",
+      "side": 1,
+      "message": "A more descriptive test case name preferred.",
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0af3f98_fef60715",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-10T11:50:36Z",
+      "side": 1,
+      "message": "What\u0027s the benefit of running plain vuls/vuls container (a container in container) and then installing vuls related stuff there, instead of installing vuls and vuls related stuff to bluval/os container?",
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
