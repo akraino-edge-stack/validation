@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c8a9e2f7_125155d9",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-01-14T13:05:48Z",
+      "side": 1,
+      "message": "In the first phase I decided to test only on the master node",
+      "parentUuid": "36b9ab70_d36b7158",
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce55c6fd_788ff423",
         "filename": "tests/os/vuls/environment.sh",
         "patchSetId": 6
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "171b1778_515304ad",
+        "filename": "tests/os/vuls/environment.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-01-14T13:05:48Z",
+      "side": 1,
+      "message": "Fetch the data is made in the test running stage because i didn\u0027t want to increase the build time. I will move this part on the build image if you think it\u0027s better",
+      "parentUuid": "ce55c6fd_788ff423",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 111
+      },
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24675eb6_238cd149",
         "filename": "tests/os/vuls/environment.sh",
         "patchSetId": 6
@@ -53,6 +95,24 @@
       "writtenOn": "2020-01-10T11:50:36Z",
       "side": 1,
       "message": "Fetches only from ubuntu, should there be redhat also?",
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f20ee445_bd378f3e",
+        "filename": "tests/os/vuls/environment.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-01-14T13:05:48Z",
+      "side": 1,
+      "message": "Indeed in this patch the vuls tests are only for ubuntu. The instructions for centos follow a different procedure so will integrate those in a future patch",
+      "parentUuid": "24675eb6_238cd149",
       "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
@@ -156,6 +216,24 @@
       "writtenOn": "2020-01-10T11:50:36Z",
       "side": 1,
       "message": "What\u0027s the benefit of running plain vuls/vuls container (a container in container) and then installing vuls related stuff there, instead of installing vuls and vuls related stuff to bluval/os container?",
+      "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "991a4379_ec6e45d3",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-01-14T13:05:48Z",
+      "side": 1,
+      "message": "In the implementation I followed the steps that are described in wiki page\nhttps://wiki.akraino.org/display/AK/Steps+To+Implement+Security+Requirements#StepsToImplementSecurityRequirements-Vuls \nAlso note that the test does not spawn the vuls container in the OS container but on the same host.",
+      "parentUuid": "a0af3f98_fef60715",
       "revId": "b8b09609720c4fc2ba5da1766bf13e0f9944290a",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
