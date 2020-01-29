@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7975c814_77e31de9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-29T12:27:28Z",
+      "side": 1,
+      "message": "Remove \u0027WIP\u0027 and add description of the change",
+      "revId": "19f999a42c63c382a328c09f8bc5d59788d8eebd",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "878a538c_3f957cc8",
+        "filename": "tests/os/lynis/lynis.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-29T12:27:28Z",
+      "side": 1,
+      "message": "chmod +r /var/log/lynis-report.dat  sudo\u003dTrue",
+      "revId": "19f999a42c63c382a328c09f8bc5d59788d8eebd",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
