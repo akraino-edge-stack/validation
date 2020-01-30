@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce3356f7_f0897367",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-30T09:00:11Z",
+      "side": 1,
+      "message": "Fails to fetch dictionaries when running behind a proxy. Got it working by adding -http-proxy option.",
+      "range": {
+        "startLine": 96,
+        "startChar": 45,
+        "endLine": 96,
+        "endChar": 71
+      },
+      "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4b36699_9605ac93",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-30T09:00:11Z",
+      "side": 1,
+      "message": "Could we use a common default name as suggested earlier by Alexandru?",
+      "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69ca6907_af6dff53",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-30T09:00:11Z",
+      "side": 1,
+      "message": "Check the execution return code.\n\nImage id can be retrieved like this: docker images -q vuls/vuls:v2\n\nGetting the image id and launching a container could be in separate keywords.\n\nJust a suggestion: how about implementing the functionality of environment.sh (or the relevant parts from vuls run point of view) directly via Robot keywords here?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 331
+      },
+      "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c397a5e8_4798fa4e",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-01-30T09:00:11Z",
+      "side": 1,
+      "message": "As a such downloading logs is not a separate test case but a part of \"vuls test\" or its teardown.",
+      "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
