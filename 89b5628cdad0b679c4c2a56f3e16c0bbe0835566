@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a8324d1_fd930d55",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40aa35d0_42c0449c",
+      "range": {
+        "startLine": 68,
+        "startChar": 24,
+        "endLine": 68,
+        "endChar": 91
+      },
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8b09f3ed_c2f1253d",
         "filename": "docker/os/Dockerfile",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3af53603_dc4ce882",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b09f3ed_c2f1253d",
+      "range": {
+        "startLine": 70,
+        "startChar": 28,
+        "endLine": 70,
+        "endChar": 40
+      },
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "300191c3_88bd4817",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cc142bf_b25faf4d",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "20f825ce_2bd6add4",
         "filename": "tests/os/vuls/config.toml",
         "patchSetId": 1
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "ac54719d_952b4d95",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20f825ce_2bd6add4",
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77a4e199_9fb51521",
         "filename": "tests/os/vuls/environment.sh",
         "patchSetId": 1
@@ -102,6 +192,24 @@
       "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e2686cc8_d4467b20",
+        "filename": "tests/os/vuls/environment.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77a4e199_9fb51521",
+      "revId": "89b5628cdad0b679c4c2a56f3e16c0bbe0835566",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
