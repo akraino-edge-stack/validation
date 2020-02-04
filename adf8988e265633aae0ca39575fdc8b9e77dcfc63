@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8cbd8715_5ecc16c3",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "Because the OS build is not done under a proxy, i will document in Dockerfile its use",
+      "parentUuid": "ce3356f7_f0897367",
+      "range": {
+        "startLine": 96,
+        "startChar": 45,
+        "endLine": 96,
+        "endChar": 71
+      },
+      "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4b36699_9605ac93",
         "filename": "tests/os/vuls/config.toml",
         "patchSetId": 7
@@ -39,6 +63,24 @@
       "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9cae7e0_b08d1217",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4b36699_9605ac93",
+      "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "44a37611_e9da6eb9",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "I can\u0027t implement the functionality of environment.sh in Robot, because the vuls container stops after each run command",
+      "parentUuid": "69ca6907_af6dff53",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 331
+      },
+      "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c397a5e8_4798fa4e",
         "filename": "tests/os/vuls/vuls.robot",
         "patchSetId": 7
@@ -79,6 +145,24 @@
       "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88f0624b_580130fc",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 283
+      },
+      "writtenOn": "2020-02-04T14:24:00Z",
+      "side": 1,
+      "message": "The download log is a part of vuls test, I\u0027ll move this in the run test case",
+      "parentUuid": "c397a5e8_4798fa4e",
+      "revId": "adf8988e265633aae0ca39575fdc8b9e77dcfc63",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
