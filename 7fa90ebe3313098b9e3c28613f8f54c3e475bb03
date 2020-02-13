@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1c45115_fff5952a",
+        "filename": "tests/os/vuls/Dockerfile",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-13T08:57:31Z",
+      "side": 1,
+      "message": "id_rsa",
+      "range": {
+        "startLine": 8,
+        "startChar": 5,
+        "endLine": 8,
+        "endChar": 12
+      },
+      "revId": "7fa90ebe3313098b9e3c28613f8f54c3e475bb03",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "971cea05_7f5a74f8",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-13T08:57:31Z",
+      "side": 1,
+      "message": "Are tools like make and gcc really needed in vuls container? If yes, they could be installed already in image building phase.",
+      "revId": "7fa90ebe3313098b9e3c28613f8f54c3e475bb03",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
