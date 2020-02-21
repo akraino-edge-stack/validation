@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3db2dc1_7749716b",
+        "filename": "docker/os/Dockerfile",
+        "patchSetId": 10
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-21T11:53:47Z",
+      "side": 1,
+      "message": "Whether proxy is defined via HTTP_PROXY or not, following setting should work in both cases:\n\ngo-cve-dictionary fetchnvd -http-proxy\u003d${HTTP_PROXY}",
+      "revId": "fc4c0b4407c6483d7176b15caff4de8f3c0b549e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f698527_d194096c",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-21T11:53:47Z",
+      "side": 1,
+      "message": "/root/.ssh/id_rsa",
+      "revId": "fc4c0b4407c6483d7176b15caff4de8f3c0b549e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ccda74e6_8913c3c3",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-21T11:53:47Z",
+      "side": 1,
+      "message": "Not used",
+      "revId": "fc4c0b4407c6483d7176b15caff4de8f3c0b549e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47aff22b_906665d0",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-21T11:53:47Z",
+      "side": 1,
+      "message": "Not used",
+      "revId": "fc4c0b4407c6483d7176b15caff4de8f3c0b549e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a6ed094_88c00ff0",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-21T11:53:47Z",
+      "side": 1,
+      "message": "GOROOT defined twice.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 51
+      },
+      "revId": "fc4c0b4407c6483d7176b15caff4de8f3c0b549e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "870dac9c_972dab2a",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-21T11:53:47Z",
+      "side": 1,
+      "message": "Had to use -ssh-config option",
+      "revId": "fc4c0b4407c6483d7176b15caff4de8f3c0b549e",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
