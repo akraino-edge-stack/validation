@@ -103,7 +103,13 @@ RUN wget https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz -P /root/ && \
     git -C /root/go/src/github.com/kotakanbe clone https://github.com/kotakanbe/goval-dictionary.git && \
     cd /root/go/src/github.com/kotakanbe/goval-dictionary && \
     make install && \
-    goval-dictionary fetch-ubuntu -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval.sqlite3 16 && \
+    goval-dictionary fetch-ubuntu -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_ubuntu.sqlite3 16 && \
+    goval-dictionary fetch-redhat -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_centos.sqlite3 7 && \
+    mkdir -p /root/go/src/github.com/knqyf263 && \
+    git -C /root/go/src/github.com/knqyf263 clone https://github.com/knqyf263/gost.git && \
+    cd /root/go/src/github.com/knqyf263/gost && \
+    make install && \
+    gost fetch redhat --http-proxy=${HTTP_PROXY} --dbpath=/opt/akraino/validation/tests/os/vuls/gost_centos.sqlite3 && \
     cd /opt/akraino/validation/tests/os/vuls && \
     tar cvzf db.tar.gz *.sqlite3 && \
     rm *.sqlite3

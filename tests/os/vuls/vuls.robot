@@ -19,7 +19,7 @@
 Library           SSHLibrary
 Library           OperatingSystem
 Library           BuiltIn
-Library           Process
+Suite Setup       Open Connection And Log In
 
 *** Variables ***
 ${LOG_PATH}       /opt/akraino/validation/tests/os/vuls
@@ -43,10 +43,30 @@ Run Vuls test
 
     ${rc} =  Run And Return Rc  tar xvzf db.tar.gz -C /opt/akraino/validation/tests/os/vuls/
     Should Be Equal As Integers  ${rc}  0
- 
+
+    SSHLibrary.Get File  /etc/os-release  /opt/akraino/  sudo=True
+    ${rc}  ${os} =  Run And Return Rc And Output  sed -n /ID=/p /opt/akraino/os-release | cut -d '"' -f 2 | cut -d = -f 2 | sed -n '1'p
+
+    Run Keyword If  '${os}' == 'ubuntu'   Run vuls for ubuntu   ELSE   Run vuls for centos
+
+*** Keywords ***
+Run vuls for ubuntu
     ${rc} =  Run And Return Rc  vuls scan -config config.toml -ssh-config
     Should Be Equal As Integers  ${rc}  0
 
-    ${rc}  ${output} =  Run And Return Rc And Output  vuls report
+    ${rc}  ${output} =  Run And Return Rc And Output  vuls report -cvedb-sqlite3-path=${LOG_PATH}/cve.sqlite3 -ovaldb-sqlite3-path=${LOG_PATH}/oval_ubuntu.sqlite3
     Should Be Equal As Integers  ${rc}  0
     Append To File  ${LOG_PATH}/vuls.log  ${output}${\n}
+
+Run vuls for centos 
+    ${rc} =  Run And Return Rc  vuls scan -config config.toml -ssh-config
+    Should Be Equal As Integers  ${rc}  0
+
+    ${rc}  ${output} =  Run And Return Rc And Output  vuls report -cvedb-sqlite3-path=${LOG_PATH}/cve.sqlite3 -ovaldb-sqlite3-path=${LOG_PATH}/oval_centos.sqlite3 -gostdb-sqlite3-path=${LOG_PATH}/gost_centos.sqlite3
+    Should Be Equal As Integers  ${rc}  0 
+    Append To File  ${LOG_PATH}/vuls.log  ${output}${\n}
+
+Open Connection And Log In
+    Open Connection  ${HOST}
+    Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}
+
