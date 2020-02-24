@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ce0d6ba3_623c71bb",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-24T10:41:17Z",
+      "side": 1,
+      "message": "Typically .ssh directory is mapped via volumes.yaml and in that case this fails: \n\n20200224 08:43:36.571 - INFO - +-- START KW: OperatingSystem.Run And Return Rc [ mkdir /root/.ssh/ ]\n20200224 08:43:36.573 - INFO - Running command \u0027mkdir /root/.ssh/ 2\u003e\u00261\u0027.\n20200224 08:43:36.574 - INFO - ${rc} \u003d 1\n20200224 08:43:36.575 - INFO - +-- END KW: OperatingSystem.Run And Return Rc (4)\n\nE.g. following works even when .ssh is already there\n\n35,38c35\n\u003c     ${rc} \u003d  Run And Return Rc  mkdir /root/.ssh/\n\u003c     Should Be Equal As Integers  ${rc}  0\n\u003c \n\u003c     ${rc} \u003d  Run And Return Rc  cp /opt/akraino/validation/tests/os/vuls/config /root/.ssh/\n---\n\u003e     ${rc} \u003d  Run And Return Rc  install -D /opt/akraino/validation/tests/os/vuls/config /root/.ssh/",
+      "revId": "cdc62b7a054adcee06cd09b2526c2314e65fba8a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
