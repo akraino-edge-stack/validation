@@ -28,6 +28,7 @@ RUN apt-get update && apt-get -y install \
     libffi-dev \
     make \
     libssl-dev \
+    wget \
     golint \
     sqlite3 \
     debian-goodies \
@@ -55,33 +56,7 @@ RUN tar czvf /opt/akraino/ltp.tar.gz /opt/ltp
 WORKDIR /root/src
 RUN git clone https://github.com/CISOfy/lynis && tar czvf /opt/akraino/lynis-remote.tar.gz ./lynis
 
-# Copy binaries into the final container and install robot framework
-FROM ubuntu:18.04
-COPY --from=build /wheels /wheels
-COPY --from=build /opt/akraino/validation /opt/akraino/validation
-COPY --from=build /opt/akraino/ltp.tar.gz /opt/akraino/ltp.tar.gz
-COPY --from=build /opt/akraino/lynis-remote.tar.gz /opt/akraino/lynis-remote.tar.gz
-
-
-RUN apt-get update && apt-get -y upgrade && apt-get -y install \
-    python3-pip python3.6 \
-    sqlite \
-    debian-goodies \
-    wget \
-    curl apt-transport-https ca-certificates software-properties-common && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-    add-apt-repository "deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
-    apt-get update && \
-    apt-get install -y docker-ce && \
-    cd /usr/bin && ln -s python3 python && \
-    pip3 install -r /wheels/requirements/pip-requirements.txt \
-                 -f /wheels && \
-    rm -rf /wheels && \
-    rm -rf /root/.cache/pip/* && \
-    rm -rf /var/cache/apt/* && \
-    rm -rf /var/lib/apt/lists/*
-
-# Fetches vuls databases
+#Fetches vuls databases
 SHELL ["/bin/bash", "-c"]
 RUN wget https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz -P /root/ && \
     cd /root/ && \
@@ -103,10 +78,43 @@ RUN wget https://dl.google.com/go/go1.12.6.linux-amd64.tar.gz -P /root/ && \
     git -C /root/go/src/github.com/kotakanbe clone https://github.com/kotakanbe/goval-dictionary.git && \
     cd /root/go/src/github.com/kotakanbe/goval-dictionary && \
     make install && \
-    goval-dictionary fetch-ubuntu -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval.sqlite3 16 && \
+    goval-dictionary fetch-ubuntu -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_ubuntu_16.sqlite3 16 && \
+    goval-dictionary fetch-ubuntu -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_ubuntu_18.sqlite3 18 && \
+    goval-dictionary fetch-redhat -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_centos.sqlite3 7 && \
+    mkdir -p /root/go/src/github.com/knqyf263 && \
+    git -C /root/go/src/github.com/knqyf263 clone https://github.com/knqyf263/gost.git && \
+    cd /root/go/src/github.com/knqyf263/gost && \
+    make install && \
+    gost fetch redhat --http-proxy=${HTTP_PROXY} --dbpath=/opt/akraino/validation/tests/os/vuls/gost_centos.sqlite3 && \
     cd /opt/akraino/validation/tests/os/vuls && \
     tar cvzf db.tar.gz *.sqlite3 && \
     rm *.sqlite3
+
+# Copy binaries into the final container and install robot framework
+FROM ubuntu:18.04
+COPY --from=build /wheels /wheels
+COPY --from=build /opt/akraino/validation /opt/akraino/validation
+COPY --from=build /opt/akraino/ltp.tar.gz /opt/akraino/ltp.tar.gz
+COPY --from=build /opt/akraino/lynis-remote.tar.gz /opt/akraino/lynis-remote.tar.gz
+COPY --from=build /root/go/bin /root/go/bin
+COPY --from=build /root/go/src/bin /root/go/src/bin
+
+RUN apt-get update && apt-get -y upgrade && apt-get -y install \
+    python3-pip python3.6 \
+    sqlite \
+    debian-goodies \
+    curl apt-transport-https ca-certificates software-properties-common && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    add-apt-repository "deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+    apt-get update && \
+    apt-get install -y docker-ce && \
+    cd /usr/bin && ln -s python3 python && \
+    pip3 install -r /wheels/requirements/pip-requirements.txt \
+                 -f /wheels && \
+    rm -rf /wheels && \
+    rm -rf /root/.cache/pip/* && \
+    rm -rf /var/cache/apt/* && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install bluval dependencies
 RUN pip3 install -r /opt/akraino/validation/bluval/requirements.txt

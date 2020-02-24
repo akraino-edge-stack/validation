@@ -19,7 +19,8 @@
 Library           SSHLibrary
 Library           OperatingSystem
 Library           BuiltIn
-Library           Process
+Suite Setup       Open Connection And Log In
+Suite Teardown    Close All Connections
 
 *** Variables ***
 ${LOG_PATH}       /opt/akraino/validation/tests/os/vuls
@@ -43,10 +44,36 @@ Run Vuls test
 
     ${rc} =  Run And Return Rc  tar xvzf db.tar.gz -C /opt/akraino/validation/tests/os/vuls/
     Should Be Equal As Integers  ${rc}  0
- 
+
+    ${os}  ${rc} =  SSHLibrary.Execute Command  awk -F= '$1=="ID" { print $2 ;}' /etc/os-release | cut -d '"' -f2  return_rc=True  return_stdout=True
+
     ${rc} =  Run And Return Rc  vuls scan -config config.toml -ssh-config
     Should Be Equal As Integers  ${rc}  0
 
-    ${rc}  ${output} =  Run And Return Rc And Output  vuls report
+    Run Keyword IF  '${os}' == 'ubuntu'  Run vuls for ubuntu  ELSE IF  '${os}' == 'centos'  Run vuls for centos  ELSE FALSE
+
+*** Keywords ***
+Run vuls for ubuntu
+   ${os_version}  ${rc} =  SSHLibrary.Execute Command  awk -F= '$1=="VERSION_ID" { print $2 ;}' /etc/os-release | cut -d '"' -f2 | cut -d '.' -f1  return_rc=True  return_stdout=True
+   Should Be Equal As Integers  ${rc}  0
+
+   Run Keyword If  '${os_version}' == '16'  Run vuls for ubuntu 16  ELSE IF  '${os_version}' == '18'  Run vuls for ubuntu 18  ELSE  FAIL
+
+Run vuls for ubuntu 16
+    ${rc}  ${output} =  Run And Return Rc And Output  vuls report -cvedb-sqlite3-path=${LOG_PATH}/cve.sqlite3 -ovaldb-sqlite3-path=${LOG_PATH}/oval_ubuntu_16.sqlite3
     Should Be Equal As Integers  ${rc}  0
     Append To File  ${LOG_PATH}/vuls.log  ${output}${\n}
+
+Run vuls for ubuntu 18
+    ${rc}  ${output} =  Run And Return Rc And Output  vuls report -cvedb-sqlite3-path=${LOG_PATH}/cve.sqlite3 -ovaldb-sqlite3-path=${LOG_PATH}/oval_ubuntu_18.sqlite3
+    Should Be Equal As Integers  ${rc}  0
+    Append To File  ${LOG_PATH}/vuls.log  ${output}${\n}
+
+Run vuls for centos
+    ${rc}  ${output} =  Run And Return Rc And Output  vuls report -cvedb-sqlite3-path=${LOG_PATH}/cve.sqlite3 -ovaldb-sqlite3-path=${LOG_PATH}/oval_centos.sqlite3 -gostdb-sqlite3-path=${LOG_PATH}/gost_centos.sqlite3
+    Should Be Equal As Integers  ${rc}  0
+    Append To File  ${LOG_PATH}/vuls.log  ${output}${\n}
+
+Open Connection And Log In
+    Open Connection  ${HOST}
+    Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}
