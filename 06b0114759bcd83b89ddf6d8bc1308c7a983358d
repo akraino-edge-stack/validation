@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5792e183_b8663a33",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-25T11:27:26Z",
+      "side": 1,
+      "message": "Add also a teardown for closing the connection",
+      "revId": "06b0114759bcd83b89ddf6d8bc1308c7a983358d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "805f2480_26bbd603",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-25T11:27:26Z",
+      "side": 1,
+      "message": "Maybe /tmp as a target instead of /opt/akraino?\n\nNo need to use sudo.",
+      "revId": "06b0114759bcd83b89ddf6d8bc1308c7a983358d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbd4965d_ec72b9e9",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-25T11:27:26Z",
+      "side": 1,
+      "message": "If sed\u0026cut is preferred, this could be simplified a bit, e.g.\nsed -n /^ID\u003d/p /opt/akraino/os-release | cut -d \u0027\"\u0027 -f 2 | cut -d \u003d -f 2",
+      "revId": "06b0114759bcd83b89ddf6d8bc1308c7a983358d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10f82720_1120863d",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-25T11:27:26Z",
+      "side": 1,
+      "message": "Might be better to fail if os is not supported.\n\nHow about defining only one keyword for running the test and pass os as an argument?",
+      "revId": "06b0114759bcd83b89ddf6d8bc1308c7a983358d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88cce4b5_df8bcb7c",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-25T11:27:26Z",
+      "side": 1,
+      "message": "Trailing whitespace",
+      "revId": "06b0114759bcd83b89ddf6d8bc1308c7a983358d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9e92a14_b795e1e5",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-02-25T11:27:26Z",
+      "side": 1,
+      "message": "Trailing whitespace",
+      "revId": "06b0114759bcd83b89ddf6d8bc1308c7a983358d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
