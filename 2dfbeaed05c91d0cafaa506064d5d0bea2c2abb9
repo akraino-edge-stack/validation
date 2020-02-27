@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e862c998_222c0353",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-02-27T16:21:18Z",
+      "side": 1,
+      "message": "rc does not seem to be checked, so what\u0027s the point of catching it? It still does not solve the default value for `os`. See my proposal on the previous change rev.",
+      "range": {
+        "startLine": 48,
+        "startChar": 11,
+        "endLine": 48,
+        "endChar": 16
+      },
+      "revId": "2dfbeaed05c91d0cafaa506064d5d0bea2c2abb9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
