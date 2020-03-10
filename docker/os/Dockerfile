@@ -66,7 +66,7 @@ RUN if [ $(uname -m) == 'aarch64' ]; then HOST_ARCH=arm64; else HOST_ARCH=amd64;
     rm go1.12.6.linux-$HOST_ARCH.tar.gz && \
     export GOROOT=/root/go && \
     export GOPATH=/root/go/src && \
-    export PATH=$PATH:/root/go/bin:/root/go/src/bin && \
+    export PATH=$PATH:/root/go/bin:/root/go/src/bin:/usr/local/go/bin && \
     mkdir -p /root/go/src/github.com/future-architect && \
     cd /root/go/src/github.com/future-architect && \
     git clone https://github.com/future-architect/vuls && \
