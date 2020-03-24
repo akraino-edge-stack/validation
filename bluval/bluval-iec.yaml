@@ -29,3 +29,13 @@ blueprint:
             name: kube-hunter
             what: kube-hunter
             optional: "True"
+
+    os: &os
+            -
+            name: lynis
+            what: lynis
+            optional: "False"
+        -
+            name: vuls
+            what: vuls
+            optional: "False"
