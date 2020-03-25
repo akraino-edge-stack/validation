@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "789a68a6_bc754594",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-03-25T13:40:22Z",
+      "side": 1,
+      "message": "These could be combined into a single sed, e.g.\n\n  sed -i -e \u0027s/HOST/${HOST}/g\u0027 -e \u0027s/USERNAME/${USERNAME}/g\u0027 ${CURDIR}/config.toml",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 41
+      },
+      "revId": "71b0cac033d51dd327f39cef65ee0834083422a6",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
