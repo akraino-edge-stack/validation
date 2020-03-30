@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b89a496c_f194cd09",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-03-30T12:39:32Z",
+      "side": 1,
+      "message": "Not really something worth changing, but fwiw, we could write this as:\n\n  Run Keyword IF  \u0027${os}\u0027 in \u0027ubuntu centos\u0027  Run vuls for ${os}  ELSE  FAIL  Distro \u0027${os}\u0027 not supported",
+      "range": {
+        "startLine": 47,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 153
+      },
+      "revId": "10f8fdddb0d58e4cf15177bc4bb29775244c4cfe",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
