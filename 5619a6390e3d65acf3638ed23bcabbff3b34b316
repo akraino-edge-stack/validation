@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c746cd90_e4a6ee76",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2020-04-03T07:10:14Z",
+      "side": 1,
+      "message": "Can you explain a bit what this passing this argument does? Since this code runs all the test suites, I am concerned it will affect the logic for other tests.",
+      "revId": "5619a6390e3d65acf3638ed23bcabbff3b34b316",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
