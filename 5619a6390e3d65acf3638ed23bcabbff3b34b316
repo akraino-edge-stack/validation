@@ -16,6 +16,24 @@
       "revId": "5619a6390e3d65acf3638ed23bcabbff3b34b316",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23141726_2f6b9b50",
+        "filename": "bluval/bluval.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-04-03T07:22:08Z",
+      "side": 1,
+      "message": "This defines all tests which have a tag \"non-critical\" as non-critical. Initially none of the tests have this tag. Now, when kube-hunter has detected vulnerabilities this tag is set and along with this the test in question becomes non-critical.",
+      "parentUuid": "c746cd90_e4a6ee76",
+      "revId": "5619a6390e3d65acf3638ed23bcabbff3b34b316",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
