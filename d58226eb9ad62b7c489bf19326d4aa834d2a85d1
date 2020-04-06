@@ -34,6 +34,24 @@
       "revId": "d58226eb9ad62b7c489bf19326d4aa834d2a85d1",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a358e6a_13aafcd0",
+        "filename": "bluval/bluval-iec.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-04-06T07:16:35Z",
+      "side": 1,
+      "message": "Slide 3 indicates it\u0027s mandatory, but summary (slide 20) states recommended. Tapio?",
+      "parentUuid": "16b27864_563ef6a9",
+      "revId": "d58226eb9ad62b7c489bf19326d4aa834d2a85d1",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
