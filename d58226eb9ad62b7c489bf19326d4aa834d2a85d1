@@ -16,6 +16,24 @@
       "revId": "d58226eb9ad62b7c489bf19326d4aa834d2a85d1",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16b27864_563ef6a9",
+        "filename": "bluval/bluval-iec.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2020-04-06T07:08:25Z",
+      "side": 1,
+      "message": "From our initial discussion about it, I was under the impression the test is recommended as well. But in the meeting you linked here, kube-hunter is on the list of mandatory tests. Maybe Tapio can clarify.",
+      "parentUuid": "46fc064b_850cb456",
+      "revId": "d58226eb9ad62b7c489bf19326d4aa834d2a85d1",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
