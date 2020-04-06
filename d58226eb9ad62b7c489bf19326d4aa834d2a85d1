@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "46fc064b_850cb456",
+        "filename": "bluval/bluval-iec.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-04-06T06:28:55Z",
+      "side": 1,
+      "message": "Should kube-hunter be optional or IEC just wants to always run it? According to Akraino Bluval.pdf in https://wiki.akraino.org/display/AK/TSC+2020-03-31, the test is \u0027recommended\u0027.",
+      "revId": "d58226eb9ad62b7c489bf19326d4aa834d2a85d1",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
