@@ -40,6 +40,11 @@ Run Lynis Audit System
     Append To File  ${log}  ${stdout}${\n}
     Should Be Equal As Integers  ${rc}	0
 
+    ${STATUS} =  Evaluate  "[WARNING]" in """${stdout}"""
+    Return From Keyword If  ${STATUS}
+    Fail                    Vulnerabilities discovered
+    ...                     non-critical
+
 
 *** Keywords ***
 Open Connection And Log In
