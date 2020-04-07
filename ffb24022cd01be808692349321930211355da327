@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a78a23ce_0ea6654c",
+        "filename": "docker/os/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2020-04-07T10:17:49Z",
+      "side": 1,
+      "message": "Could you give some details on why we are using 3 .build targets and why we need to run a container of the OS image?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 8
+      },
+      "revId": "ffb24022cd01be808692349321930211355da327",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
