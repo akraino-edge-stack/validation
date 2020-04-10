@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bf24df53_2d6a8a30",
+        "filename": "tests/os/lynis/lynis.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 150
+      },
+      "writtenOn": "2020-04-10T11:46:20Z",
+      "side": 1,
+      "message": "Lynis reports warnings, so let\u0027s change the wording to reflect that",
+      "range": {
+        "startLine": 44,
+        "startChar": 50,
+        "endLine": 44,
+        "endChar": 65
+      },
+      "revId": "964219c87867fc5a56c7aea93674b0ba9051d47d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
