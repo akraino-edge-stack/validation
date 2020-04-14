@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6dfe2ed1_cf80328d",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 146
+      },
+      "writtenOn": "2020-04-14T06:46:47Z",
+      "side": 1,
+      "message": "Not a big deal, but in case of utilizing a global variable the recommended convention is to use capital letters (https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#using-variables).",
+      "revId": "1541bb9d15b2f0777ab36fad431e02df6a4e7982",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
