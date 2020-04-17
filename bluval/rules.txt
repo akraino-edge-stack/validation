@@ -1,0 +1,13 @@
+# Most tests are non-critical, so the default behavior should be raising
+# warnings for them. The critical tests should be explicitly listed here
+# so their failures would also fail the CI job.
+
+# Separate results based on suite; group the errors by suite
+start /^(Lynis|Vuls|Conformance|Kube-Hunter)\s*$/
+
+# Default behavior: PASS -> info, FAIL -> warn
+info /PASS/
+warn /FAIL/
+
+# Critical tests: PASS -> info, FAIL -> error
+error /^Conformance[\|\s]+FAIL/
