@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a81f018a_07249391",
+        "filename": "tests/hardware/bios_version/bios_version_dell.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 140
+      },
+      "writtenOn": "2020-04-24T08:53:53Z",
+      "side": 1,
+      "message": "When i execute that on my laptop, i don\u0027t have sd[a-z] regex here. My disk prefix starts with nvm. For SATA the prefix is sd, but for IDE is HD, while for other ports as mine is nvme. See for example https://superuser.com/questions/1449499/why-does-linux-list-nvme-drives-as-dev-nvme0-instead-of-dev-sda",
+      "revId": "ddcc53001418a87b51f1998dd74e145f60adfffd",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
