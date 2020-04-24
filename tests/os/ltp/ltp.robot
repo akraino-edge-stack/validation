@@ -50,8 +50,8 @@ RunLTP syscalls only
 
 *** Keywords ***
 Open Connection And Log In
-    Open Connection        ${HOST}
-    Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}
+    Open Connection  ${HOST}
+    Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}i
 
 Install LTP
     Put File  /opt/akraino/ltp.tar.gz  /tmp/ltp.tar.gz
