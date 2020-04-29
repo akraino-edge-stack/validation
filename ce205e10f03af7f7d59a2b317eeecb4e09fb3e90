@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f031ef42_63b3597e",
+        "filename": "tests/variables.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-04-29T11:25:24Z",
+      "side": 1,
+      "message": "comment should be aligned with above comments",
+      "range": {
+        "startLine": 35,
+        "startChar": 26,
+        "endLine": 35,
+        "endChar": 60
+      },
+      "revId": "ce205e10f03af7f7d59a2b317eeecb4e09fb3e90",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
