@@ -41,6 +41,8 @@ Run Vuls test
 
     ${os} =  SSHLibrary.Execute Command   source /etc/os-release && echo $ID
 
+    Run Keyword IF  '${SSH_KEYFILE}' == 'None'  Create ssh_keyfile
+
     ${rc} =  Run And Return Rc  vuls scan -config ${CURDIR}/config.toml -ssh-config
     Should Be Equal As Integers  ${rc}  0
 
@@ -65,9 +67,13 @@ Run vuls for centos
     Append To File  ${LOG_PATH}/vuls.log  ${output}${\n}
     Set Global Variable  ${LOG}  ${output}
 
-Open Connection And Log In
-    ${value_ssh_key} =  Get Length  "SSH_KEYFILE"
-    ${value_pasword} =  Get Length  "PASSWORD"
-    Open Connection  ${HOST}
-    Run Keyword IF  '${value_ssh_key}' != '0'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${value_pasword}' != '0'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
+Get ssh_keyfile
+    ${rc} =  Run And Return Rc  ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ""
+    Should Be Equal As Integers  ${rc}  0
 
+    ${rc} =  Run and Return Rc  sshpass -p '${PASSWORD}' ssh-copy-id -i /root/.ssh/id_rsa.pub '${USERNAME}'@'${HOST}'
+    Should Be Equal As Integers  ${rc}  0
+
+Open Connection And Log In
+    Open Connection  ${HOST}
+    Run Keyword IF  '${SSH_KEYFILE}' != 'None'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${PASSWORD}' != 'None'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL

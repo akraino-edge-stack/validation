@@ -46,10 +46,8 @@ Run Lynis Audit System
 
 *** Keywords ***
 Open Connection And Log In
-    ${value_ssh_key} =  Get Length  "SSH_KEYFILE"
-    ${value_pasword} =  Get Length  "PASSWORD"
     Open Connection  ${HOST}
-    Run Keyword IF  '${value_ssh_key}' != '0'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${value_pasword}' != '0'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
+    Run Keyword IF  '${SSH_KEYFILE}' != 'None'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${PASSWORD}' != 'None'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
 
 Install Lynis
     [Documentation]  Install Lynis
