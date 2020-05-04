@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ace43ff8_8aa17276",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-05-04T16:49:55Z",
+      "side": 1,
+      "message": "afaict this creates a keypair if missing, in which case `Create ssh_keyfile` would be more appropiate.",
+      "range": {
+        "startLine": 44,
+        "startChar": 48,
+        "endLine": 44,
+        "endChar": 52
+      },
+      "revId": "c426ce363f800a07ea2491d9cf4672c04fa56e6a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ad52b78_9d7096b2",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-05-04T16:49:55Z",
+      "side": 1,
+      "message": "how about executing `stat /root/.ssh/id_rsa` and checking the return code instead?",
+      "range": {
+        "startLine": 71,
+        "startChar": 49,
+        "endLine": 71,
+        "endChar": 66
+      },
+      "revId": "c426ce363f800a07ea2491d9cf4672c04fa56e6a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ea795fa_bcd74899",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-05-04T16:49:55Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 73,
+        "startChar": 112,
+        "endLine": 73,
+        "endChar": 119
+      },
+      "revId": "c426ce363f800a07ea2491d9cf4672c04fa56e6a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41c05b7c_bc453f08",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-05-04T16:49:55Z",
+      "side": 1,
+      "message": "shouldn\u0027t some path be parameterized by ${SSH_KEYFILE} instead of being hardcoded to /root/.ssh/id_rsa?",
+      "revId": "c426ce363f800a07ea2491d9cf4672c04fa56e6a",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
