@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a6fb6567_d2555623",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-05-06T13:14:31Z",
+      "side": 1,
+      "message": "Create",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 4
+      },
+      "revId": "cea7045f0691c16f972097f925553186a56665ff",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "921db60f_017794be",
+        "filename": "tests/os/vuls/vuls.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-05-06T13:14:31Z",
+      "side": 1,
+      "message": "Since we add a new public key to the HOST\u0027s authorized_keys here, we should also remove it at the end of the test.",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 117
+      },
+      "revId": "cea7045f0691c16f972097f925553186a56665ff",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
