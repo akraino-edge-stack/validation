@@ -27,10 +27,13 @@ blueprint:
         -
             name: hp_baremetal
             what: hp_baremetal
+            optional: "True"
+
     os: &os_rec
         -
             name: ltp
             what: ltp
+            optional: "True"
         -
             name: cyclictest
             what: cyclictest
@@ -38,16 +41,23 @@ blueprint:
         -
             name: lynis
             what: lynis
-            optional: "True"
+            optional: "False"
+        -
+            name: vuls
+            what: vuls
+            optional: "False"
 
     docker: &docker_base
         -
             name: docker_bench
             what: docker_bench
+            optional: "True"
+
     k8s: &k8s
         -
             name: conformance
             what: conformance
+            optional: "False"
         -
             name: etcd_ha
             what: etcd_ha
@@ -55,4 +65,4 @@ blueprint:
         -
             name: kube-hunter
             what: kube-hunter
-            optional: "True"
+            optional: "False"
