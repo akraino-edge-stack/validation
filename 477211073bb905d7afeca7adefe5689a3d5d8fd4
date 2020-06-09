@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "625498b3_4b767b8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-06-09T15:31:33Z",
+      "side": 1,
+      "message": "Instead of this brief line, I would like to see a more detailed justification, e.g.:\n\nSync the REC mandatory tests list with IEC:\n- conformance, lynis, vuls and kube-hunter are mandatory for all projects where applicable;\n- hp_baremetal and ltp are currently failing and are not part of mandatory release criteria, so they are marked as \u0027optional\u0027;",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "477211073bb905d7afeca7adefe5689a3d5d8fd4",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc59ae4f_b6d2cac4",
+        "filename": "bluval/bluval-rec.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-06-09T15:31:33Z",
+      "side": 1,
+      "message": "please add a new line here, to align with the rest of the document style",
+      "revId": "477211073bb905d7afeca7adefe5689a3d5d8fd4",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
