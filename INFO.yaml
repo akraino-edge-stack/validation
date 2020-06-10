@@ -34,16 +34,6 @@ repositories:
     - validation
 committers:
     - <<: *akraino_validation_ptl
-    - name: 'Cristina Pauna'
-      email: 'cristina.pauna@enea.com'
-      company: 'enea'
-      id: 'cristinapauna'
-      timezone: 'Europe/Bucharest'
-    - name: 'Juha Kosonen'
-      email: 'juha.kosonen@nokia.com'
-      company: 'nokia'
-      id: 'jukosone'
-      timezone: 'Europe/Helsinki'
     - name: 'Andrew Wilkinson'
       email: 'arkwilkinson@gmail.com'
       company: 'gmail'
