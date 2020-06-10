@@ -82,6 +82,8 @@ Cleanup ssh
     ${rc} =  Run And Return Rc  ssh '${USERNAME}'@'${HOST}' "sed -i 's#${idssh}##' ~/.ssh/authorized_keys"
     Should Be Equal As Integers  ${rc}  0
 
+# Loglevel can be TRACE, DEBUG, INFO, WARN and NONE (no logging). Default is INFO
 Open Connection And Log In
+    Set Default Configuration loglevel=INFO
     Open Connection  ${HOST}
     Run Keyword IF  '${SSH_KEYFILE}' != 'None'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${PASSWORD}' != 'None'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
