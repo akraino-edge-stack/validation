@@ -34,8 +34,8 @@ ${CHARTNAME}        bluval-test-alpine
 
 *** Keywords ***
 Open Connection And Log In
-    Open Connection         ${HOST}
-    Login With Public Key   ${USERNAME}  ${SSH_KEYFILE}
+    Open Connection  ${HOST}
+    Run Keyword IF  '${SSH_KEYFILE}' != 'None'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${PASSWORD}' != 'None'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
 
 Build Chart Archive
     Run Process             sed  -i  s/name: alpine/name: ${CHARTNAME}/  /opt/akraino/${CHARTNAME}/Chart.yaml

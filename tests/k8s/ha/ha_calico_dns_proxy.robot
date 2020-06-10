@@ -112,7 +112,6 @@ Verify haproxy re-establishment
 
 *** Keywords ***
 Open Connection And Log In
-  Open Connection       ${HOST}
-  Login With Public Key    ${USERNAME}   /root/.ssh/${USERNAME}_id_rsa
-
+    Open Connection  ${HOST}
+    Run Keyword IF  '${SSH_KEYFILE}' != 'None'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${PASSWORD}' != 'None'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
 

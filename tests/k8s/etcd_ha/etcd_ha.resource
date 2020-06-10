@@ -29,8 +29,8 @@ ${SSH_KEYFILE}          /root/.ssh/id_rsa
 
 *** Keywords ***
 Open Connection And Log In
-    Open Connection        ${HOST}
-    Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}
+    Open Connection  ${HOST}
+    Run Keyword IF  '${SSH_KEYFILE}' != 'None'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${PASSWORD}' != 'None'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
 
 Retrieve Etcd Config
      ${result}=     Execute Command    kubectl get nodes -l node-role.kubernetes.io/master -o jsonpath\='{.items[*].metadata.name}'

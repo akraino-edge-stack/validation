@@ -35,8 +35,8 @@ ${SSH_OPTS}        -o StrictHostKeyChecking=no
 
 *** Keywords ***
 Open Connection And Log In
-    Open Connection        ${HOST}
-    Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}
+    Open Connection  ${HOST}
+    Run Keyword IF  '${SSH_KEYFILE}' != 'None'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${PASSWORD}' != 'None'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
 
 Upload Test Software To Nodes
     Put Directory          ${SRCDIR}  ${DESTDIR}  recursive=True

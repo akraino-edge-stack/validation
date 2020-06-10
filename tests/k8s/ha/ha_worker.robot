@@ -45,6 +45,5 @@ Fail Control Plane
 
 *** Keywords ***
 Open Connection And Log In
-  Open Connection       ${HOST}
-  Login                 ${USERNAME}     ${PASSWORD}
-
+    Open Connection  ${HOST}
+    Run Keyword IF  '${SSH_KEYFILE}' != 'None'  Login With Public Key  ${USERNAME}  ${SSH_KEYFILE}  ELSE IF  '${PASSWORD}' != 'None'  Login  ${USERNAME}  ${PASSWORD}  ELSE  FAIL
