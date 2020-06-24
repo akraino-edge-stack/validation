@@ -69,18 +69,18 @@ RUN if [ $(uname -m) == 'aarch64' ]; then HOST_ARCH=arm64; else HOST_ARCH=amd64;
     export PATH=$PATH:/root/go/bin:/root/go/src/github.com/bin && \
     mkdir -p /root/go/src/github.com/future-architect && \
     cd /root/go/src/github.com/future-architect && \
-    git clone https://github.com/future-architect/vuls && \
+    git clone https://github.com/future-architect/vuls -b v0.9.7 && \
     cd vuls && \
     make install && \
     mkdir -p /root/go/src/github.com/kotakanbe && \
-    git -C /root/go/src/github.com/kotakanbe clone https://github.com/kotakanbe/go-cve-dictionary.git && \
+    git -C /root/go/src/github.com/kotakanbe clone https://github.com/kotakanbe/go-cve-dictionary.git -b v0.5.0 && \
     cd /root/go/src/github.com/kotakanbe/go-cve-dictionary/ && \
     make install && \
-    git -C /root/go/src/github.com/kotakanbe clone https://github.com/kotakanbe/goval-dictionary.git && \
+    git -C /root/go/src/github.com/kotakanbe clone https://github.com/kotakanbe/goval-dictionary.git -b v0.2.8 && \
     cd /root/go/src/github.com/kotakanbe/goval-dictionary && \
     make install && \
     mkdir -p /root/go/src/github.com/knqyf263 && \
-    git -C /root/go/src/github.com/knqyf263 clone https://github.com/knqyf263/gost.git && \
+    git -C /root/go/src/github.com/knqyf263 clone https://github.com/knqyf263/gost.git -b v0.1.3 && \
     cd /root/go/src/github.com/knqyf263/gost && \
     make install
 
