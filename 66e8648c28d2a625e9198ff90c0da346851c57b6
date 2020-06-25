@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9763df3_28446f8c",
+        "filename": "tests/os/vuls/config.toml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 137
+      },
+      "writtenOn": "2020-06-25T11:48:13Z",
+      "side": 1,
+      "message": "This was added in vuls 0.9.8/0.9.9 by deprecating the `-ssh-config` vuls argument.\nSo, the os Dockerfile should also be updated to using vuls 0.9.9 to support this change.\nHowever, this change + the os Dockerfile vuls version bump should be handlded in a different patch, it does not relate to CentOS 8 at all.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 35
+      },
+      "revId": "66e8648c28d2a625e9198ff90c0da346851c57b6",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
