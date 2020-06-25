@@ -43,7 +43,7 @@ Run Vuls test
 
     Run Keyword IF  '${SSH_KEYFILE}' == 'None'  Create ssh_keyfile
 
-    ${rc} =  Run And Return Rc  vuls scan -config ${CURDIR}/config.toml -ssh-config
+    ${rc} =  Run And Return Rc  vuls scan -config ${CURDIR}/config.toml
     Should Be Equal As Integers  ${rc}  0
 
     Run Keyword IF  '${os}' == 'ubuntu'  Run vuls for ubuntu  ELSE IF  '${os}' == 'centos'  Run vuls for centos  ELSE  FAIL  Distro '${os}' not supported
@@ -64,7 +64,9 @@ Run vuls for ubuntu
     Set Global Variable  ${LOG}  ${output}
 
 Run vuls for centos
-    ${rc}  ${output} =  Run And Return Rc And Output  vuls report -config ${CURDIR}/config.toml -cvedb-sqlite3-path=${CURDIR}/cve.sqlite3 -ovaldb-sqlite3-path=${CURDIR}/oval_centos.sqlite3 -gostdb-sqlite3-path=${CURDIR}/gost_centos.sqlite3
+    ${os_version} =  SSHLibrary.Execute Command  source /etc/os-release && echo $VERSION_ID | cut -d '.' -f1
+
+    ${rc}  ${output} =  Run And Return Rc And Output  vuls report -config ${CURDIR}/config.toml -cvedb-sqlite3-path=${CURDIR}/cve.sqlite3 -ovaldb-sqlite3-path=${CURDIR}/oval_centos_${os_version}.sqlite3 -gostdb-sqlite3-path=${CURDIR}/gost_centos.sqlite3
     Should Be Equal As Integers  ${rc}  0
     Append To File  ${LOG_PATH}/vuls.log  ${output}${\n}
     Set Global Variable  ${LOG}  ${output}

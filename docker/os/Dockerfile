@@ -93,7 +93,8 @@ RUN \
     for i in $(seq 2002 "$(date +"%Y")"); do go-cve-dictionary fetchnvd -quiet -http-proxy=${HTTP_PROXY} -dbpath /opt/akraino/validation/tests/os/vuls/cve.sqlite3 -years "$i"; done && \
     goval-dictionary fetch-ubuntu -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_ubuntu_16.sqlite3 16 && \
     goval-dictionary fetch-ubuntu -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_ubuntu_18.sqlite3 18 && \
-    goval-dictionary fetch-redhat -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_centos.sqlite3 7 && \
+    goval-dictionary fetch-redhat -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_centos_7.sqlite3 7 && \
+    goval-dictionary fetch-redhat -http-proxy=${HTTP_PROXY} -dbpath=/opt/akraino/validation/tests/os/vuls/oval_centos_8.sqlite3 8 && \
     gost fetch redhat --http-proxy=${HTTP_PROXY} --dbpath=/opt/akraino/validation/tests/os/vuls/gost_centos.sqlite3 --threads=$(nproc) && \
     cd /opt/akraino/validation/tests/os/vuls && \
     tar cvzf db.tar.gz *.sqlite3 && \
