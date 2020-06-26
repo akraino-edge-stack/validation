@@ -43,7 +43,7 @@ Run Vuls test
 
     Run Keyword IF  '${SSH_KEYFILE}' == 'None'  Create ssh_keyfile
 
-    ${rc} =  Run And Return Rc  vuls scan -config ${CURDIR}/config.toml -ssh-config
+    ${rc} =  Run And Return Rc  vuls scan -config ${CURDIR}/config.toml
     Should Be Equal As Integers  ${rc}  0
 
     Run Keyword IF  '${os}' == 'ubuntu'  Run vuls for ubuntu  ELSE IF  '${os}' == 'centos'  Run vuls for centos  ELSE  FAIL  Distro '${os}' not supported

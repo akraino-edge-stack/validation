@@ -69,7 +69,7 @@ RUN if [ $(uname -m) == 'aarch64' ]; then HOST_ARCH=arm64; else HOST_ARCH=amd64;
     export PATH=$PATH:/root/go/bin:/root/go/src/github.com/bin && \
     mkdir -p /root/go/src/github.com/future-architect && \
     cd /root/go/src/github.com/future-architect && \
-    git clone https://github.com/future-architect/vuls -b v0.9.7 && \
+    git clone https://github.com/future-architect/vuls -b v0.10.0 && \
     cd vuls && \
     make install && \
     mkdir -p /root/go/src/github.com/kotakanbe && \
