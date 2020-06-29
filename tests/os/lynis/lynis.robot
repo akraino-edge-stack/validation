@@ -21,6 +21,7 @@ Library           SSHLibrary
 Library           OperatingSystem
 Library           BuiltIn
 Library           Process
+Library           String
 Suite Setup       Run Keywords
 ...               Open Connection And Log In
 ...               Install Lynis
@@ -40,9 +41,13 @@ Run Lynis Audit System
     Append To File  ${log}  ${stdout}${\n}
     Should Be Equal As Integers  ${rc}	0
 
-    ${status} =  Evaluate  "Great, no warnings" in """${stdout}"""
-    Run Keyword If  '${status}' == 'False'  FAIL  Warnings discovered
-    ...                     non-critical
+    ${File} =  OperatingSystem.Get File  ${CURDIR}/tests_list.txt
+    ${list} =  Split To Lines  ${File}
+    FOR  ${line}  IN  @{list}
+       ${value} =  Replace String  ${line}  /  \\/
+       Set Global Variable  ${VALUE}  ${value}
+       Verify Logs
+    END
 
 *** Keywords ***
 Open Connection And Log In
@@ -67,3 +72,13 @@ Download Logs
     Execute Command  chmod +r /var/log/lynis-report.dat  sudo=True
     SSHLibrary.Get File  /var/log/lynis-report.dat  ${OUTPUT DIR}/lynis-report.dat
     Execute Command  rm /var/log/lynis-report.dat  sudo=True
+
+Verify Logs
+    ${rc}  ${test_result} =  Run And Return Rc And Output  sed -n '/${VALUE}/,/===/p' ${CURDIR}/lynis.log
+    Should Be Equal As Integers  ${rc}  0
+    ${status1} =  Evaluate  "Hardening: assigned maximum number of hardening points" in """${test_result}"""
+    ${status2} =  Evaluate  "Hardening: assigned partial number of hardening points" in """${test_result}"""
+    Append To File  ${CURDIR}/status.log  ${status1}${\n}
+    Append To File  ${CURDIR}/status.log  ${status2}${\n}
+    Run Keyword If  '${status1}' == 'False' and '${status2}' == 'False'  FAIL  Warnings discovered
+

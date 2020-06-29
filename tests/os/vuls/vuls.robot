@@ -48,9 +48,8 @@ Run Vuls test
 
     Run Keyword IF  '${os}' == 'ubuntu'  Run vuls for ubuntu  ELSE IF  '${os}' == 'centos'  Run vuls for centos  ELSE  FAIL  Distro '${os}' not supported
 
-    ${status} =  Evaluate  "Total: 0" in """${LOG}"""
+    ${status} =  Evaluate  "High:0 Medium:0" in """${LOG}"""
     Run Keyword If  '${status}' == 'False'  FAIL  Vulnerabilities discovered
-    ...                     non-critical
 
     Run Keyword IF  '${SSH_KEYFILE}' == 'None'  Cleanup ssh
 
