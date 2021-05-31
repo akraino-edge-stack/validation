@@ -5,3 +5,4 @@ robotframework-httplibrary
 robotframework-jsonlibrary
 robotframework-requests
 robotframework-sshlibrary
+cryptography==2.8
