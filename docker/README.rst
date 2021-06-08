@@ -199,84 +199,19 @@ Example (assuming the default variables have been utilized for building the imag
 The kube-conformance container
 ==============================
 
-Building and pushing the container
-----------------------------------
+The current kube-conformance image used is being pulled from k8s.gcr.io
+based on the kubernetes version the cluster is running on.
 
-To build just the kube-conformance container, use the command:
-
-.. code-block:: console
-
-    make kube-conformance-build [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
-
-To both build and push the container, use the command:
-
-.. code-block:: console
-
-    make kube-conformance [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
-
-Using the container
--------------------
-
-This is a standalone container able to launch Kubernetes end-to-end tests,
-for the purposes of conformance testing.
-
-It is a thin wrapper around the `e2e.test` binary in the upstream Kubernetes
-distribution, which drops results in a predetermined location for use as a
-[Heptio Sonobuoy](https://github.com/heptio/sonobuoy) plugin.
-
-To learn more about conformance testing and its Sonobuoy integration, read the
-[conformance guide](https://github.com/heptio/sonobuoy/blob/master/docs/conformance-testing.md).
-
-Example:
-
-.. code-block:: console
-
-    docker run -ti akraino/validation:kube-conformance-v1.16
-
-By default, the container will run the `run_e2e.sh` script. If you want to
-enter the container, add */bin/sh* at the end of the command above
-
-Normally, this conainer is not used directly, but instead leveraged via
-sonobuoy.
+For more information refer to https://sonobuoy.io/docs/v0.50.0/
 
 The sonobuoy-plugin-systemd-logs container
 ==========================================
 
-Building and pushing the container
-----------------------------------
+The current sonobuoy-plugin-systemd-logs image used is being pulled from
+gcr.io/heptio-images repo with latest tag.
 
-To build just the sonobuoy-plugin-systemd-logs container, use the command:
+For more information refer to https://sonobuoy.io/docs/v0.50.0/
 
-.. code-block:: console
-
-    make sonobuoy-plugin-systemd-logs-build [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
-
-To both build and push the container, use the command:
-
-.. code-block:: console
-
-    make sonobuoy-plugin-systemd-logs [ REGISTRY=<dockerhub_registry> NAME=<image_name>]
-
-Using the container
--------------------
-
-This is a simple standalone container that gathers log information from
-systemd, by chrooting into the node's filesystem and running `journalctl`.
-
-This container is used by [Heptio Sonobuoy](https://github.com/heptio/sonobuoy)
-for gathering host logs in a Kubernetes cluster.
-
-Example:
-
-.. code-block:: console
-
-    docker run -ti akraino/validation:sonobuoy-plugin-systemd-logs-latest
-
-By default, the container will run the `get_systemd_logs.sh` script. If you
-want to enter the container, add */bin/sh* at the end of the command above.
-
-Normally, this conainer is not used directly, but instead leveraged via
-sonobuoy.
 
 The openstack container
 =======================

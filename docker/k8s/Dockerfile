@@ -19,9 +19,9 @@ FROM golang:alpine3.10 as build
 
 # Sonobuoy supports 3 Kubernetes minor versions: the current release and 2
 # minor versions before.
-ARG SB_TAG=v0.16.1
+ARG SB_TAG=v0.18.6
 # Determine the latest stable git tag at build time based on stable major version
-ARG K8S_VER=1.16
+ARG K8S_VER=1.18
 
 # Install dependencies
 COPY pip-requirements.txt /wheels/requirements/pip-requirements.txt
