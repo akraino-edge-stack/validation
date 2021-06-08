@@ -39,10 +39,10 @@ ${LOG}            ${LOG_PATH}${/}${SUITE_NAME.replace(' ','_')}.log
 
 &{SONOBUOY}         path=gcr.io/heptio-images
 ...                 name=sonobuoy:v0.16.1
-&{E2E}              path=akraino
+&{E2E}              path=k8s.gcr.io
 ...                 name=Actual value set dynamically
-&{SYSTEMD_LOGS}     path=akraino
-...                 name=validation:sonobuoy-plugin-systemd-logs-latest
+&{SYSTEMD_LOGS}     path=gcr.io/heptio-images
+...                 name=sonobuoy-plugin-systemd-logs:latest
 &{SONOBUOY_IMGS}    sonobuoy=&{SONOBUOY}
 ...                 e2e=&{E2E}
 ...                 systemd_logs=&{SYSTEMD_LOGS}
@@ -148,9 +148,11 @@ Define Images
         ${versions}=            Convert String To JSON  ${result.stdout}
         ${major}=               Get Value From Json  ${versions}  $.serverVersion.major
         ${minor}=               Get Value From Json  ${versions}  $.serverVersion.minor
+        ${gitVersion}=          Get Value From Json  ${versions}  $.serverVersion.gitVersion
         ${major}=               Get Regexp Matches  ${major[0]}  \\d+
         ${minor}=               Get Regexp Matches  ${minor[0]}  \\d+
-        Set To Dictionary       ${SONOBUOY_IMGS['e2e']}  name=validation:kube-conformance-v${major[0]}.${minor[0]}
+        ${gitVersion}=               Get Regexp Matches  ${gitVersion[0]}  \\d+
+        Set To Dictionary       ${SONOBUOY_IMGS['e2e']}  name=conformance:${gitVersion[0]}
 
 Onboard Images
         ${INT_REG}=             Get Variable Value  ${INTERNAL_REGISTRY}  ${EMPTY}
