@@ -15,28 +15,24 @@
 ##############################################################################
 
 # ref: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds
-FROM ubuntu:18.04 as build
+FROM ubuntu as build
 
 # Install dependencies
 COPY pip-requirements.txt /wheels/requirements/pip-requirements.txt
 RUN apt-get update && apt-get -y install \
-    python3-pip \
     gcc \
     git \
-    libc-dev \
-    libffi6 \
-    libffi-dev \
     make \
-    libssl-dev \
     wget \
-    golint \
-    sqlite3 \
-    debian-goodies \
-    build-essential \
-    pkg-config \
-    autoconf automake autotools-dev m4 \
     linux-headers-generic \
-    libaio-dev libattr1-dev libcap-dev
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python-dev \
+    python3-pip \
+    automake \
+    autoconf \
+    pkgconf
 
 # Build binaries
 WORKDIR /wheels
@@ -101,7 +97,7 @@ RUN \
     rm *.sqlite3
 
 # Copy binaries into the final container and install robot framework, bluval dependencies
-FROM ubuntu:18.04
+FROM ubuntu
 COPY --from=build /wheels /wheels
 COPY --from=build /opt/akraino/validation /opt/akraino/validation
 COPY --from=build /opt/akraino/ltp.tar.gz /opt/akraino/ltp.tar.gz

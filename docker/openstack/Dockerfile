@@ -15,21 +15,49 @@
 ##############################################################################
 
 # ref: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds
-FROM python:3.6-alpine3.9 as build
+FROM python:3.10.0b1-alpine3.13 as build
 
 ARG REFSTACK_TARGET=2019.11
 
 # Install dependencies
 COPY pip-requirements.txt /wheels/requirements/pip-requirements.txt
+
 RUN apk --no-cache add --update \
+        bash \
+        build-base \
+        cairo \
+        cairo-dev \
+        cargo \
+        curl \
+        findutils \
+        freetype-dev \
         gcc \
+        gdk-pixbuf-dev \
+        gettext \
         git \
+        grep \
+        jpeg-dev \
+        lcms2-dev \
         libc-dev \
-        libffi \
         libffi-dev \
         make \
+        musl-dev \
+        openjpeg-dev \
         openssl-dev \
-        wget
+        pango-dev \
+        poppler-utils \
+        postgresql-client \
+        postgresql-dev \
+        py-cffi \
+        python3-dev \
+        py3-pip \
+        rsync \
+        rust \
+        tcl-dev \
+        tiff-dev \
+        tk-dev \
+        wget \
+        zlib-dev
 
 # Build binaries
 WORKDIR /wheels
@@ -40,10 +68,47 @@ RUN wget -q -O /tmp/test_list.txt \
     "https://refstack.openstack.org/api/v1/guidelines/$REFSTACK_TARGET/tests?target=platform&type=required&alias=true&flag=false"
 
 # Copy binaries in the final container and install requirements
-FROM python:3.6-alpine3.9
+FROM python:3.10.0b1-alpine3.13
 COPY --from=build /wheels /wheels
 COPY --from=build /opt/akraino/validation /opt/akraino/validation
 COPY --from=build /tmp/test_list.txt /opt/akraino/validation/tests/openstack/tempest/test_list.txt
+
+RUN apk --no-cache add --update \
+        bash \
+        build-base \
+        cairo \
+        cairo-dev \
+        cargo \
+        curl \
+        findutils \
+        freetype-dev \
+        gcc \
+        gdk-pixbuf-dev \
+        gettext \
+        git \
+        grep \
+        jpeg-dev \
+        lcms2-dev \
+        libc-dev \
+        libffi-dev \
+        make \
+        musl-dev \
+        openjpeg-dev \
+        openssl-dev \
+        pango-dev \
+        poppler-utils \
+        postgresql-client \
+        postgresql-dev \
+        py-cffi \
+        python3-dev \
+        py3-pip \
+        rsync \
+        rust \
+        tcl-dev \
+        tiff-dev \
+        tk-dev \
+        wget \
+        zlib-dev
 
 RUN pip3 install -r /wheels/requirements/pip-requirements.txt \
                  -f /wheels && \

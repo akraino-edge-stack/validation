@@ -15,7 +15,7 @@
 ##############################################################################
 
 # ref: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds
-FROM golang:alpine3.10 as build
+FROM golang:1.16.5-alpine3.13 as build
 
 # Sonobuoy supports 3 Kubernetes minor versions: the current release and 2
 # minor versions before.
@@ -27,22 +27,40 @@ ARG K8S_VER=1.16
 COPY pip-requirements.txt /wheels/requirements/pip-requirements.txt
 
 RUN apk --no-cache add --update \
-        curl \
-        openssl \
-        python3 \
         bash \
+        build-base \
+        cairo \
+        cairo-dev \
+        cargo \
+        curl \
         findutils \
+        freetype-dev \
         gcc \
+        gdk-pixbuf-dev \
+        gettext \
         git \
         grep \
+        jpeg-dev \
+        lcms2-dev \
         libc-dev \
-        libffi \
         libffi-dev \
         make \
+        musl-dev \
+        openjpeg-dev \
         openssl-dev \
+        pango-dev \
+        poppler-utils \
+        postgresql-client \
+        postgresql-dev \
+        py-cffi \
         python3-dev \
         py3-pip \
-        rsync
+        rsync \
+        rust \
+        tcl-dev \
+        tiff-dev \
+        tk-dev \
+        zlib-dev
 
 # Build binaries; detect the architecture automatically (default is amd64)
 RUN git clone https://github.com/kubernetes/kubernetes /src/k8s.io/kubernetes
@@ -55,6 +73,7 @@ RUN if [ $(uname -m) == 'aarch64' ]; then HOST_ARCH=arm64; else HOST_ARCH=amd64;
     make WHAT=test/e2e/e2e.test ARCH=$HOST_ARCH
 RUN git clone https://github.com/heptio/sonobuoy /go/src/github.com/heptio/sonobuoy && \
     cd /go/src/github.com/heptio/sonobuoy && \
+    pwd \
     git checkout $SB_TAG && \
     go install
 RUN git clone https://gerrit.akraino.org/r/validation /opt/akraino/validation
@@ -66,11 +85,47 @@ RUN pip3 install wheel
 RUN pip3 wheel -r /wheels/requirements/pip-requirements.txt
 
 # Copy binaries in the final container and install robot framework
-FROM python:3.7-alpine3.10
+FROM python:3.10.0b1-alpine3.13
 COPY --from=build /src/k8s.io/kubernetes/_output/bin /usr/local/bin
 COPY --from=build /go/bin/sonobuoy /bin/sonobuoy
 COPY --from=build /wheels /wheels
 COPY --from=build /opt/akraino/validation/ /opt/akraino/validation/
+
+RUN apk --no-cache add --update \
+        bash \
+        build-base \
+        cairo \
+        cairo-dev \
+        cargo \
+        curl \
+        findutils \
+        freetype-dev \
+        gcc \
+        gdk-pixbuf-dev \
+        gettext \
+        git \
+        grep \
+        jpeg-dev \
+        lcms2-dev \
+        libc-dev \
+        libffi-dev \
+        make \
+        musl-dev \
+        openjpeg-dev \
+        openssl-dev \
+        pango-dev \
+        poppler-utils \
+        postgresql-client \
+        postgresql-dev \
+        py-cffi \
+        python3-dev \
+        py3-pip \
+        rsync \
+        rust \
+        tcl-dev \
+        tiff-dev \
+        tk-dev \
+        zlib-dev
 
 RUN pip3 install -r /wheels/requirements/pip-requirements.txt \
                  -f /wheels && \

@@ -15,20 +15,39 @@
 ##############################################################################
 
 # ref: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds
-FROM python:3.6-alpine3.9 as build
+FROM python:3.10.0b1-alpine3.13 as build
 
 ARG HELM_TAG=v2.15.1
 
 # Install dependencies
 COPY pip-requirements.txt /wheels/requirements/pip-requirements.txt
 RUN apk --no-cache add --update \
+        build-base \
+        cairo \
+        cairo-dev \
+        cargo \
+        freetype-dev \
         gcc \
+        gdk-pixbuf-dev \
+        gettext \
         git \
-        libc-dev \
-        libffi \
+        jpeg-dev \
+        lcms2-dev \
         libffi-dev \
-        make \
-        openssl-dev
+        musl-dev \
+        openjpeg-dev \
+        openssl-dev \
+        pango-dev \
+        poppler-utils \
+        postgresql-client \
+        postgresql-dev \
+        py-cffi \
+        python3-dev \
+        rust \
+        tcl-dev \
+        tiff-dev \
+        tk-dev \
+        zlib-dev
 
 # Build binaries
 WORKDIR /wheels
@@ -38,10 +57,38 @@ RUN git clone https://gerrit.akraino.org/r/validation /opt/akraino/validation
 RUN git clone -b $HELM_TAG https://github.com/helm/helm.git /opt/helm
 
 # Copy binaries in the final container and install requirements
-FROM python:3.6-alpine3.9
+FROM python:3.10.0b1-alpine3.13
 COPY --from=build /wheels /wheels
 COPY --from=build /opt/akraino/validation /opt/akraino/validation
 COPY --from=build /opt/helm/docs/examples/alpine /opt/akraino/bluval-test-alpine
+
+RUN apk --no-cache add --update \
+        build-base \
+        cairo \
+        cairo-dev \
+        cargo \
+        freetype-dev \
+        gcc \
+        gdk-pixbuf-dev \
+        gettext \
+        git \
+        jpeg-dev \
+        lcms2-dev \
+        libffi-dev \
+        musl-dev \
+        openjpeg-dev \
+        openssl-dev \
+        pango-dev \
+        poppler-utils \
+        postgresql-client \
+        postgresql-dev \
+        py-cffi \
+        python3-dev \
+        rust \
+        tcl-dev \
+        tiff-dev \
+        tk-dev \
+        zlib-dev
 
 RUN pip3 install -r /wheels/requirements/pip-requirements.txt \
                  -f /wheels && \
