@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13c94a35_1e763b47",
+        "filename": "docker/k8s/Dockerfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2021-06-13T16:40:32Z",
+      "side": 1,
+      "message": "I think you should also update the sonobuoy images in order to support K8s version 1.8.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "120f1c310200e601f45a6601f2e7ec20f21fc744",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
