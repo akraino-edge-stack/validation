@@ -5,7 +5,6 @@ ignore = .tox/**,
     .git/**,
     .gitignore,
     .gitreview,
-    .gitmodules,
     **.sw?,
     **.orig
 
