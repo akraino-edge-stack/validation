@@ -46,6 +46,30 @@
       "revId": "120f1c310200e601f45a6601f2e7ec20f21fc744",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a489fd0b_44b5e44c",
+        "filename": "docker/k8s/Dockerfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2021-06-16T11:02:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f7b0781_e753813a",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "120f1c310200e601f45a6601f2e7ec20f21fc744",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
