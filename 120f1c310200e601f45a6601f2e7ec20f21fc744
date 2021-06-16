@@ -22,6 +22,30 @@
       "revId": "120f1c310200e601f45a6601f2e7ec20f21fc744",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0f7b0781_e753813a",
+        "filename": "docker/k8s/Dockerfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 446
+      },
+      "writtenOn": "2021-06-16T07:48:16Z",
+      "side": 1,
+      "message": "The same sonobuoy image worked for me on 1.18 version when I tested.",
+      "parentUuid": "13c94a35_1e763b47",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "120f1c310200e601f45a6601f2e7ec20f21fc744",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
