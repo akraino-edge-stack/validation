@@ -37,15 +37,12 @@ Test Teardown     Run Keywords
 *** Variables ***
 ${LOG}            ${LOG_PATH}${/}${SUITE_NAME.replace(' ','_')}.log
 
-&{SONOBUOY}         path=gcr.io/heptio-images
-...                 name=sonobuoy:v0.16.1
+&{SONOBUOY}         path=sonobuoy
+...                 name=sonobuoy:v0.18.2
 &{E2E}              path=k8s.gcr.io
 ...                 name=Actual value set dynamically
-&{SYSTEMD_LOGS}     path=gcr.io/heptio-images
-...                 name=sonobuoy-plugin-systemd-logs:latest
 &{SONOBUOY_IMGS}    sonobuoy=&{SONOBUOY}
 ...                 e2e=&{E2E}
-...                 systemd_logs=&{SYSTEMD_LOGS}
 
 # Following tests assume DNS domain is "cluster.local"
 ${DNS_DOMAIN_TESTS}  SEPARATOR=
@@ -146,12 +143,7 @@ Define Images
         ${result}=              Run Process  kubectl  version  -o  json
         Should Be Equal As Integers  ${result.rc}  0
         ${versions}=            Convert String To JSON  ${result.stdout}
-        ${major}=               Get Value From Json  ${versions}  $.serverVersion.major
-        ${minor}=               Get Value From Json  ${versions}  $.serverVersion.minor
         ${gitVersion}=          Get Value From Json  ${versions}  $.serverVersion.gitVersion
-        ${major}=               Get Regexp Matches  ${major[0]}  \\d+
-        ${minor}=               Get Regexp Matches  ${minor[0]}  \\d+
-        ${gitVersion}=               Get Regexp Matches  ${gitVersion[0]}  \\d+
         Set To Dictionary       ${SONOBUOY_IMGS['e2e']}  name=conformance:${gitVersion[0]}
 
 Onboard Images
@@ -187,7 +179,4 @@ Create Manifest File
         ...                         ${CURDIR}${/}custom_repos.yaml
         ${result}=              Run Process  sonobuoy  gen  @{flags}
         Should Be Equal As Integers  ${result.rc}  0
-        ${manifest}=            Replace String  ${result.stdout}
-        ...                         image: gcr.io/heptio-images/sonobuoy-plugin-systemd-logs:latest
-        ...                         image: ${SONOBUOY_IMGS.systemd_logs.path}/${SONOBUOY_IMGS.systemd_logs.name}
-        Create File             ${CURDIR}${/}sonobuoy.yaml  ${manifest}
+        Create File             ${CURDIR}${/}sonobuoy.yaml  ${result.stdout}
