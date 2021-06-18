@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "910cb799_39a94a21",
+        "filename": "docker/k8s/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 313
+      },
+      "writtenOn": "2021-06-18T17:16:51Z",
+      "side": 0,
+      "message": "Why this is required here?\nIf it is needed, don\u0027t we need \u0026\u0026 ?",
+      "revId": "25e48f9707d617aba070ff301aa54bec6a0094b7",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
