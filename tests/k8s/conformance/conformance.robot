@@ -160,6 +160,19 @@ Get Tests To Skip
         ...                         Catenate  SEPARATOR=|  ${flag}  ${DNS_DOMAIN_TESTS}
         ...                     ELSE
         ...                         Set Variable  ${flag}
+        ${result}=              Run Process  kubectl  get  nodes  -o  json
+        Should Be Equal As Integers  ${result.rc}  0                          
+        ${nodes}=               Convert String To JSON  ${result.stdout}      
+        ${items}=               Get Value From Json  ${nodes}  $.items        
+        ${total_node}=          Get Length  @{items}
+        ${result_worker}=       Run Process  kubectl  get  nodes  --selector  "!node-role.kubernetes.io/master"  -o  json
+        ${nodes}=               Convert String To JSON  ${result_worker.stdout}
+        ${items}=               Get Value From Json  ${nodes}  $.items
+        ${total_worker_node}=   Get Length  @{items}
+        ${flag}=                Run Keyword If  (${total_node} != 0 and ${total_node} <= 2) or ${total_worker_node} < 2   
+        ...                         Catenate  SEPARATOR=|  ${flag}  Daemon set \\[Serial\\] should rollback without unnecessary restarts 
+        ...                     ELSE
+        ...                         Set Variable  ${flag}
         [Return]                ${flag}
 
 Create Manifest File
