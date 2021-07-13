@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b50ff61_bfc90b76",
+        "filename": "tests/k8s/conformance/conformance.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 313
+      },
+      "writtenOn": "2021-07-13T14:06:30Z",
+      "side": 1,
+      "message": "Please remove these unnecessary spaces.",
+      "revId": "b300bdcd015372a72872f2e71b45c6b762ad4bab",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
