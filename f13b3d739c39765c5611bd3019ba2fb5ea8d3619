@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b653424d_31752036",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2021-07-16T13:37:49Z",
+      "side": 1,
+      "message": "space is needed here",
+      "revId": "f13b3d739c39765c5611bd3019ba2fb5ea8d3619",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81efcad4_459460cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2021-07-16T13:37:49Z",
+      "side": 1,
+      "message": "these",
+      "range": {
+        "startLine": 10,
+        "startChar": 49,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "f13b3d739c39765c5611bd3019ba2fb5ea8d3619",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e70dfe1_ed4acd5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 445
+      },
+      "writtenOn": "2021-07-16T13:37:49Z",
+      "side": 1,
+      "message": "Is this really what we want? Skip the tests in case the dimensioning does not match with the one of sonobuoy tests? Generally, a K8s cluster with one master node and one worker node is not recommended. I think sonobuoy tests are based on this. The blueprint that supports this topology should be changed, not the tests that should be skipped.",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 16
+      },
+      "revId": "f13b3d739c39765c5611bd3019ba2fb5ea8d3619",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
