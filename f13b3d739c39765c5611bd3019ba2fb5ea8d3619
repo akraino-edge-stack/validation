@@ -62,6 +62,30 @@
       "revId": "f13b3d739c39765c5611bd3019ba2fb5ea8d3619",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72197277_99a1c857",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 446
+      },
+      "writtenOn": "2021-07-16T14:09:04Z",
+      "side": 1,
+      "message": "Agreed, but I created this PS just to address the issues Srinivasan pointed out. Not sure if we can consider them as exception as it is expected because they are single node cluster or cluster with one master and worker node.",
+      "parentUuid": "5e70dfe1_ed4acd5c",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 16
+      },
+      "revId": "f13b3d739c39765c5611bd3019ba2fb5ea8d3619",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
